@@ -16,6 +16,7 @@ const monsterCard =(props) => {
 				<div className={classes.Defense}><span className={classes.DefenseSpan}> :{props.defense}</span></div>
 				<div className={classes.Strengh}><span className={classes.StrenghSpan}> :{props.strengh}</span></div>
 				<div className={classes.Treasure}><span className={classes.TreasureSpan}> :{props.treasure}</span></div>
+				<div className={classes.Experience}><span className={classes.ExperienceSpan}>:{props.experience}</span></div>
 				{/* <p className={classes.Permanent}><em>*Level {props.level} monster*</em></p> */}
 			{/* </div> */}
 		</div>

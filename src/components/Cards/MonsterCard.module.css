@@ -85,26 +85,36 @@
     width: 26px;
     height: 26px;
     margin-top: 6px;
-    margin-right: 50px;
+    margin-right: 108px;
     background-image: url('/images/Icons/Defense.png');
     background-size: cover;
 }
 
 .Treasure {
-    float: right;
-    display: inline;
+    display: inline-block;
     width: 25px;
     height: 25px;
     margin-top: 7px;
-    margin-left: -10px;
+    margin-left: -90px;
     background-image: url('/images/Icons/Treasure.png');
+    background-size: cover;
+    position: absolute;
+}
+
+.Experience {
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    margin-top: 10px;
+    margin-left: -40px;
+    background-image: url('https://vignette.wikia.nocookie.net/fortnite/images/b/b8/XP_-_Icon_-_Fortnite.png/revision/latest/scale-to-width-down/340?cb=20190302164038');
     background-size: cover;
     position: absolute;
 }
 
 .DefenseSpan {
     position: absolute;
-    left: 102px;
+    left: 68px;
     bottom: -4px;
     font-weight: bold;
     font-size: 30px;
@@ -123,6 +133,15 @@
 .TreasureSpan{
     position: absolute;
     left: 26px;
+    bottom: -7px;
+    font-weight: bold;
+    font-size: 30px;
+    font-family: 'Rokkitt', serif;
+}
+
+.ExperienceSpan{
+    position: absolute;
+    left: 20px;
     bottom: -7px;
     font-weight: bold;
     font-size: 30px;

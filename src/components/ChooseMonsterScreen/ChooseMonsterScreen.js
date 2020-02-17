@@ -200,6 +200,7 @@ class chooseMonsterScreen extends Component{
 										strengh={this.state[this.state.monsterType][this.state.area][rng].strengh}
 										defense={this.state[this.state.monsterType][this.state.area][rng].defense}
 										treasure={this.state[this.state.monsterType][this.state.area][rng].treasure}
+										experience={this.state[this.state.monsterType][this.state.area][rng].experience}
 										chooseMonster={()=>this.chooseMonster(this.state[this.state.monsterType][this.state.area][rng])}
 										key={index}
 									/>
@@ -218,6 +219,7 @@ class chooseMonsterScreen extends Component{
 							strengh={this.state.chosenMonster.strengh}
 							defense={this.state.chosenMonster.defense}
 							treasure={this.state.chosenMonster.treasure}
+							experience={this.state.chosenMonster.experience}
 						/>
 					</div>
 		);

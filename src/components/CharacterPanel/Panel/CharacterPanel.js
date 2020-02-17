@@ -5,7 +5,6 @@ import ProgressBar from '../ProgressBar/ProgressBar';
 
 const characterPanel =(props) => {
     const portrait = props.portrait;
-    const experience = props.experience.toString() + '%';
 
 	return (
 		<div style={{height: props.height}}onClick={props.choose} className={classes.Panel}>

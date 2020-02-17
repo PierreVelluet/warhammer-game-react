@@ -39,6 +39,7 @@ class boardBuilder extends Component {
 		monsterType: 'monster',
 		//Character Panel
 		// chosenChar: {},
+		portrait: null,
 		name: null,
 		power: null,
 		level: 0,
@@ -84,6 +85,8 @@ class boardBuilder extends Component {
 		const health = champ.health;
 		const name = champ.name;
 		const power = champ.power;
+		const portrait = champ.portrait;
+
 		this.setState({	showChooseCharScreen: false,
 						chosenChar: chosenChar,
 						strengh: strengh,
@@ -96,6 +99,7 @@ class boardBuilder extends Component {
 						power: power,
 						showFloorCheck: true,
 						area: 0,
+						portrait: portrait,
 						})
 	}
 
