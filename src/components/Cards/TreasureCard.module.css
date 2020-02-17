@@ -38,7 +38,9 @@
 .Portrait {
 	width: 100px;
     height: 100px;
-    background-size: 98%;
+	background-size: 100%;
+	background-repeat: no-repeat;
+	background-position: center;
     margin: 0 auto;
     padding: 5px 5px 0px 5px;
 }

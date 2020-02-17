@@ -76,7 +76,7 @@
     height: 23px;
     margin-top: 6px;
     margin-left: 2px;
-    background-image: url('/images/Strengh.png');
+    background-image: url('/images/Icons/Strengh.png');
     background-size: cover;
 }
 
@@ -86,7 +86,7 @@
     height: 26px;
     margin-top: 6px;
     margin-right: 50px;
-    background-image: url('/images/Defense.png');
+    background-image: url('/images/Icons/Defense.png');
     background-size: cover;
 }
 
@@ -97,7 +97,7 @@
     height: 25px;
     margin-top: 7px;
     margin-left: -10px;
-    background-image: url('/images/Treasure.png');
+    background-image: url('/images/Icons/Treasure.png');
     background-size: cover;
     position: absolute;
 }

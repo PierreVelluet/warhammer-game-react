@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import classes from './ChooseRewardScreen.module.css';
 import TreasureCard from '../Cards/TreasureCard';
-import colt from '../../AllIcons/Colt.png'
 
 
 
@@ -10,24 +9,24 @@ class chooseRewardScreen extends Component {
 	state = {
 		normal: [
 			{
-			name: 'Strengh potion',
-			portrait: 'https://cdn.clipart.email/94dade9339048f9f95974aa0fcc91c56_secret-potion-open-by-adorabless-on-deviantart_568-661.png',
-			text: "A mystic potion.",
+			name: 'Dope syringe',
+			portrait: '/images/MagicItems/Syringe.png',
+			text: "A mystic substance.",
 			type :'magic',
 			bottomText: 'One use only',
-			effect: 'Strengh + 2',
+			effect: 'Strengh + 3',
 			},
 			{
-			name: 'Health potion',
-			portrait: '"https://cdn.clipart.email/5e774751eb1faa91e0ebcad1103bcf4c_level-2-mana-potion-sold-out-by-adorabless-on-deviantart_568-661.png"',
-			text: "A healthy potion.",
+			name: 'Painkillers',
+			portrait: '/images/MagicItems/Pills.png',
+			text: "A healthy pill.",
 			type :'magic',
 			bottomText: 'One use only',
-			effect: 'Hp + 1'
+			effect: 'Hp + 2'
 			},
 			{
 			name: 'Helmet',
-			portrait: '"https://tos.neet.tv/images/weapon/icon_item_shield_7.png"',
+			portrait: '/images/DefenseItems/Helmet.png',
 			text: "A tactical helmet.",
 			type: 'defense',
 			bottomText: 'Permanent effect',
@@ -35,17 +34,26 @@ class chooseRewardScreen extends Component {
 			defense: 1,
 			},
 			{
-			name: 'Iron Shield',
-			portrait: '"https://www.freeiconspng.com/uploads/shield-png-2.png"',
-			text: "A solid shield.",
+			name: 'Iron fist',
+			portrait: '/images/DefenseItems/Fist.png',
+			text: "A solid glove.",
+			type: 'defense',
+			bottomText: 'Permanent effect',
+			effect: 'Defense + 1',
+			defense: 1,
+			},
+			{
+			name: 'Bullet-proof vest',
+			portrait: '/images/DefenseItems/Vest.png',
+			text: "Fear bullets no more.",
 			type: 'defense',
 			bottomText: 'Permanent effect',
 			effect: 'Defense + 2',
 			defense: 2,
 			},
 			{
-			name: 'Colt',
-			portrait: {colt},
+			name: 'Bolter',
+			portrait: '/images/StrenghItems/Bolter.png' ,
 			text: "A good gun.",
 			type: 'attack',
 			bottomText: 'Permanent effect',
@@ -53,28 +61,56 @@ class chooseRewardScreen extends Component {
 			strengh: 1,
 			},
 			{
-			name: 'Whip',
-			portrait: '"https://i.dlpng.com/static/png/62941_preview.png"',
-			text: "A simple whip .",
+			name: 'Eldary laser',
+			portrait: '/images/StrenghItems/EldaryLaser.png' ,
+			text: "A good laser.",
 			type: 'attack',
 			bottomText: 'Permanent effect',
 			effect: 'Strengh + 1',
 			strengh: 1,
 			},
 			{
-			name: 'Hunter knife',
-			portrait: '"src\AllIcons\HunterKnife.png"',
+			name: 'Plasma gun',
+			portrait: '/images/StrenghItems/PlasmaGun.png' ,
+			text: "A good laser.",
+			type: 'attack',
+			bottomText: 'Permanent effect',
+			effect: 'Strengh + 2',
+			strengh: 2,
+			},
+			{
+			name: 'Axe',
+			portrait: '/images/StrenghItems/Axe.png',
+			text: "A strong weapon.",
+			type: 'attack',
+			bottomText: 'Permanent effect',
+			effect: 'Strengh + 1',
+			strengh: 1,
+			},
+			{
+			name: 'Sword',
+			portrait: '/images/StrenghItems/Sword.png',
+			text: "A simple sword.",
+			type: 'attack',
+			bottomText: 'Permanent effect',
+			effect: 'Strengh + 1',
+			strengh: 1,
+			},
+			{
+			name: 'Chainsword',
+			portrait: '/images/StrenghItems/Chainsword.png',
 			text: "A powerfull sword.",
 			type: 'attack',
 			bottomText: 'Permanent effect',
 			effect: 'Strengh + 2',
 			strengh: 2,
 			},
+			
 		],
 		super: [
 			{
-			name: 'Golden sword',
-			portrait: '"https://iconbug.com/data/c6/512/47ea3824730d9da3ad66a6e91f0d1981.png"',
+			name: 'Heavy gauntlet',
+			portrait: '/images/StrenghItems/HeavyGauntlet.png',
 			text: "An awesome sword.",
 			type: 'attack',
 			bottomText: 'Permanent effect',
@@ -82,16 +118,16 @@ class chooseRewardScreen extends Component {
 			strengh: 3,
 			},
 			{
-			name: 'Super potion',
-			portrait: '"https://i.ya-webdesign.com/images/mana-potion-icon-png.png"',
+			name: 'Bi-pills',
+			portrait: '/images/MagicItems/BiPills.png',
 			text: "A healthy potion.",
 			type :'magic',
 			bottomText: 'One use only',
-			effect: 'Hp + 1. Strengh + 2.'
+			effect: 'Hp + 2. Strengh + 3.'
 			},
 			{
-			name: 'Golden shield',
-			portrait: '"https://www.freepngimg.com/thumb/security_shield/7-2-shield-png-file-thumb.png"',
+			name: 'Heroic shield',
+			portrait: '/images/DefenseItems/HeroicShield.png',
 			text: "An awesome shield.",
 			type: 'defense',
 			bottomText: 'Permanent effect',
@@ -113,7 +149,7 @@ class chooseRewardScreen extends Component {
 		let rngArray = [];
 		if (this.props.whichReward === 'normal') {
 			while(rngArray.length < numberOfTreasures) {
-				let number = Math.floor(Math.random() * 6);
+				let number = Math.floor(Math.random() * this.state.normal.length);
 				if (rngArray.indexOf(number) === -1) {
 					rngArray.push(number)
 				}

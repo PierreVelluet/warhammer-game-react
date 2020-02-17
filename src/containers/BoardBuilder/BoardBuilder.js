@@ -377,34 +377,34 @@ class boardBuilder extends Component {
 
 			switch(target.name) {
 
-				case 'Health potion':
+				case 'Dope syringe':
 					if(this.state.name === 'Ork boss') {
-						const newHealth = this.state.health + 2
+						const newHealth = this.state.health + 4
 						this.setState({health: newHealth})
 						break;
 					}else {
-						const newHealth = this.state.health + 1
+						const newHealth = this.state.health + 2
 						this.setState({health: newHealth})
 						break;
 					}
 					
-				case 'Strengh potion':
+				case 'Painkillers':
 					if(this.state.name === 'Ork boss'){
-						this.setState({bonusToDice: 4})
+						this.setState({bonusToDice: 6})
 						break;
 					}else {
-						this.setState({bonusToDice: 2})
+						this.setState({bonusToDice: 3})
 						break;
 					}
 					
-				case 'Super potion':
+				case 'Bi-pills':
 					if(this.state.name === 'Ork boss'){
-						const newHealth = this.state.health + 2
-						this.setState({health: newHealth, bonusToDice: 4})
+						const newHealth = this.state.health + 4
+						this.setState({health: newHealth, bonusToDice: 6})
 						break;
 					}else {
-						const newHealth = this.state.health + 1
-						this.setState({health: newHealth, bonusToDice: 2})
+						const newHealth = this.state.health + 2
+						this.setState({health: newHealth, bonusToDice: 3})
 						break;
 					}
 				default:
