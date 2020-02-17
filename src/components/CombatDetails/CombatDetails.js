@@ -1,11 +1,12 @@
 import React from 'react';
 import classes from './CombatDetails.module.css'
-import dice1 from '../../AllIcons/Dices/1.png';
-import dice2 from '../../AllIcons/Dices/2.png';
-import dice3 from '../../AllIcons/Dices/3.png';
-import dice4 from '../../AllIcons/Dices/4.png';
-import dice5 from '../../AllIcons/Dices/5.png';
-import dice6 from '../../AllIcons/Dices/6.png';
+
+const dice1 = '/images/Dices/1.png';
+const dice2 = '/images/Dices/2.png';
+const dice3 = '/images/Dices/3.png';
+const dice4 = '/images/Dices/4.png';
+const dice5 = '/images/Dices/5.png';
+const dice6 = '/images/Dices/6.png';
 
 const combatDetails = (props) => {
 	const dices = ['', dice1, dice2, dice3, dice4, dice5, dice6]
