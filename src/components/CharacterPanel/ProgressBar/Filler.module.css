@@ -1,0 +1,10 @@
+.Filler {
+    background: green;
+    height: 100%;
+    border-radius: inherit;
+    transition: width 1.5s ease-in;
+}
+
+.Percentage {
+    margin-left: 150px;
+}

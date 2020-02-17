@@ -1,0 +1,18 @@
+.Logo {
+	margin: 15px 15px 15px 5px;
+	height: 33%;
+	width: 75px;
+	cursor: pointer;
+	height: 33%;
+	position: relative;
+
+}
+
+.Logo:hover {
+	bottom: 2px;
+	filter: invert(99%) sepia(3%) saturate(7%) hue-rotate(30deg) brightness(5%) contrast(25%);
+}
+
+.Active {
+	filter: invert(99%) sepia(3%) saturate(7%) hue-rotate(30deg) brightness(5%) contrast(25%);	
+}

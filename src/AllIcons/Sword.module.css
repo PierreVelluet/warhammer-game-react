@@ -1,0 +1,10 @@
+.Sword {
+	background-color: transparent;
+	height: 45px;
+	width: 45px;
+	display: inline-block;
+}
+
+.Sword img {
+	height: 100%;
+}

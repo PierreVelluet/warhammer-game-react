@@ -1,0 +1,31 @@
+.Board {
+	height: 100%;
+	width: 100%;
+	background-image: url('https://wallup.net/wp-content/uploads/2015/12/99110-landscape-space.jpg');
+	background-size: cover;
+	display: flex;
+}
+
+.Panel {
+	width: 50px;
+	height: 335px;
+	margin: 10px;
+	border: 1px solid black;
+	background-color: darkblue;
+	display: inline-block;
+}
+
+.Buttons {
+	height: 33%;
+	display: block;
+	border:1px solid black;
+	cursor: pointer;
+	box-shadow: 0 0 5px -1px rgba(0,0,0,0.2);
+	background-color: red;
+}
+.Buttons:hover {
+	background-color: darkred;
+}
+.Buttons:active {
+	background-color: darkgrey;
+}

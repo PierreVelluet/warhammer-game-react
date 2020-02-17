@@ -1,0 +1,15 @@
+.MonsterCards {
+	display: block;
+	width: 80%;
+	text-align: center;
+	margin:200px auto 0px auto;
+}
+.Title {
+	font-size: 25px;
+	font-family: 'Righteous', cursive;
+	color:white;
+	text-shadow: 1px 1px 2px red, 0 0 1em red, 0 0 0.2em red;
+	width: 80%;
+	text-align: center;
+	margin: 0 auto;
+}

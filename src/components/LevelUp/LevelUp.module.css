@@ -1,0 +1,30 @@
+.LevelUp {   
+    height: 500px;
+    width: 400px;
+    border: 5px solid black;
+    border-radius: 5px;
+    background-image: url('https://i.pinimg.com/originals/8f/b0/7d/8fb07d1d8660048cc089a07047e7e77d.jpg');
+    background-size: cover;
+    font-weight: 700;
+    position: relative;
+    padding: 15px;
+    -moz-box-shadow: .2em .2em .5em #333;
+    -webkit-box-shadow: .2em .2em .5em #333;
+    box-shadow: .2em .2em .5em #333;
+    font-style: italic;
+   -webkit-user-select: none; /* Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
+    margin:0 auto;
+    margin-top: 100px;;
+}
+
+.Img {
+    width: 80%;
+    height: 300px;
+    margin: 0 auto;
+    border: 2px solid black;
+    background-size: cover;
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRaoC8KsDSuHQ2kOzUCh_tu5rRAp7lfv1YXWSbA5Nmwo_puPq0V');
+}

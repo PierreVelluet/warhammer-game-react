@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css?family=Jim+Nightshade&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Berkshire+Swash&display=swap');
+
+.Card {
+	height: 300px;
+	width: 200px;
+	border: 10px solid black;
+	border-radius: 5px;
+	background-color: black;
+	background-image: url('https://i.pinimg.com/originals/8f/b0/7d/8fb07d1d8660048cc089a07047e7e77d.jpg');
+	background-size: cover;
+	text-align: center;
+	font-weight: 700;
+	position: relative;
+	padding: 10px;
+	display: inline-block;
+	margin: 10px;
+    -moz-box-shadow: .2em .2em .5em #333;
+    -webkit-box-shadow: .2em .2em .5em #333;
+    box-shadow: .2em .2em .5em #333;
+}
+.Card:hover {
+	cursor: pointer;
+	bottom: 2px;
+}
+
+.Name {
+	font-size: 22px;
+	font-weight: bold;
+	margin-top: 0px;
+	font-style: italic;
+	font-family: 'Berkshire Swash', cursive;
+}
+.Portrait {
+	width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-size: cover;
+    border: 2px solid black;
+    margin: 0 auto;
+}
+.Power {
+	font-family: 'Jim Nightshade', cursive;
+	font-size: 20px;
+	margin-top: 15px;
+}
+
+.Stats{
+	position: absolute;
+	bottom: 0;
+
+}
+
+.Level {
+	display: inline-block;
+	float: left;
+}
+
+.Health {
+	display: inline-block;
+	margin-left: 65px;
+}

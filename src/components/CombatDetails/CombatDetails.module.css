@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css?family=MedievalSharp&display=swap');
+
+.CombatLogs {   
+    height: 250px;
+    width: 700px;
+    border: 5px solid black;
+    border-radius: 5px;
+    background-image: url('https://i.pinimg.com/originals/8f/b0/7d/8fb07d1d8660048cc089a07047e7e77d.jpg');
+    background-size: cover;
+    font-weight: 700;
+    position: relative;
+    margin-left: 295px;
+    padding: 15px;
+    -moz-box-shadow: .2em .2em .5em #333;
+    -webkit-box-shadow: .2em .2em .5em #333;
+    box-shadow: .2em .2em .5em #333;
+    font-style: italic;
+   -webkit-user-select: none; /* Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
+    margin-top: 200px;
+}
+
+.Title {
+    text-align: center;
+    font-size: 25px;
+    font-weight: 800;
+    font-family: 'MedievalSharp';
+    font-style: italic;
+    margin-top:0px;   
+}
+.Dice {
+    height:20px;
+    width: 20px;
+    display: inline-block;
+    border:1px solid black;
+    background-size: cover;
+}
+.Btn{
+    width:40%;
+    margin-right: 30%;
+    margin-left: 30%;
+    display: inline-block;
+    margin-top: 10px;
+    box-shadow: 1px 2px #888888;
+}
+.Btn:hover {
+  cursor: pointer;
+  background-color:darkgrey;
+}
+
+.Result {
+    font-family: 'MedievalSharp';
+    font-weight: bold;
+    font-style: italic;
+}
+
+.Loader,
+.Loader:before,
+.Loader:after {
+  border-radius: 50%;
+  width: 2.5em;
+  height: 2.5em;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation: load7 1.8s infinite ease-in-out;
+  animation: load7 1.8s infinite ease-in-out;
+}
+.Loader {
+  color: black;
+  font-size: 5px;
+  margin: 5px auto;
+  position: relative;
+  text-indent: -9999em;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+}
+.Loader:before,
+.Loader:after {
+  content: '';
+  position: absolute;
+  top: 0;
+}
+.Loader:before {
+  left: -3.5em;
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+}
+.Loader:after {
+  left: 3.5em;
+}
+@-webkit-keyframes load7 {
+  0%,
+  80%,
+  100% {
+    box-shadow: 0 2.5em 0 -1.3em;
+  }
+  40% {
+    box-shadow: 0 2.5em 0 0;
+  }
+}
+@keyframes load7 {
+  0%,
+  80%,
+  100% {
+    box-shadow: 0 2.5em 0 -1.3em;
+  }
+  40% {
+    box-shadow: 0 2.5em 0 0;
+  }
+}

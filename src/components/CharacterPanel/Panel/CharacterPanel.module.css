@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css?family=Jim+Nightshade&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Berkshire+Swash&display=swap');
+
+.Panel {
+    height: 95%;
+    width: 100%%;
+    border: 5px solid black;
+    border-radius: 5px;
+    background-color: black;
+    background-image: url('https://i.pinimg.com/originals/8f/b0/7d/8fb07d1d8660048cc089a07047e7e77d.jpg');
+    background-size: cover;
+    font-weight: 700;
+    position: relative;
+    padding: 5px;
+    display: inline-block;
+    margin: 5px;
+    -moz-box-shadow: .2em .2em .5em #333;
+    -webkit-box-shadow: .2em .2em .5em #333;
+    box-shadow: .2em .2em .5em #333;
+    -webkit-user-select: none; /* Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
+}
+
+.FirstPart {
+    display: flex;
+}
+
+.NamePower{
+    display: inline-block;
+    width: 70%;
+    text-align: center;
+    height: 120px;
+
+}
+.Portrait {
+	width: 30%;
+    height: 120px;
+    background-size: cover;
+    border: 2px solid black;
+    display: inline-block;
+    border-radius: 5px;
+
+
+}
+
+.Name {
+	font-size: 20px;
+	font-weight: bold;
+	font-style: italic;
+    font-family: 'Berkshire Swash', cursive;
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.PowerWord {
+    display: block;
+    position: relative;
+    font-weight: bold;
+}
+
+.Power {
+	font-family: 'Jim Nightshade', cursive;
+	font-size: 20px;
+    display: inline-block   ;
+    position: relative;
+    font-weight: 500;
+}
+
+.AllCharacs {
+  margin: 10px;
+  font-weight: 600;
+}
+
+.Characteristics {
+    /* padding-right: 10px; */
+    margin: 3px auto ;
+    display: inline-block;
+    width: 50%;
+}
+
+.CharacteristicsValues {
+  float: right;
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.Meter { 
+	height: 10px;  /* Can be anything */
+    position: relative;
+	background: #555;
+	-moz-border-radius: 25px;
+	-webkit-border-radius: 25px;
+	border-radius: 25px;
+	padding: 5px;
+    box-shadow: inset 0 -1px 1px rgba(255,255,255,0.3);
+    display: block;
+    /* margin: 0px 0px 0px 25px; */
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 10px;
+}
+
+.Meter > span {
+    display: block;
+    height: 100%;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    background-color: rgb(43,194,83);
+    background-image: linear-gradient(
+      center bottom,
+      rgb(43,194,83) 37%,
+      rgb(84,240,84) 69%
+    );
+    box-shadow: 
+      inset 0 2px 9px  rgba(255,255,255,0.3),
+      inset 0 -2px 6px rgba(0,0,0,0.4);
+    position: relative;
+    overflow: hidden;
+  }
+  .Meter > span:after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+    background-image: linear-gradient(
+      -45deg, 
+      rgba(255, 255, 255, .2) 25%, 
+      transparent 25%, 
+      transparent 50%, 
+      rgba(255, 255, 255, .2) 50%, 
+      rgba(255, 255, 255, .2) 75%, 
+      transparent 75%, 
+      transparent
+    );
+    z-index: 1;
+    background-size: 50px 50px;
+    animation: move 2s linear infinite;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    overflow: hidden;
+  }
+  @keyframes move {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: 50px 50px;
+    }
+  }
+  .Meter > span:after, .Animate > span > span {
+    animation: move 2s linear infinite;
+  }
+  @keyframes expandWidth {
+     0% { width: 0; }
+    100% { width: auto; }
+  }
+
+
+.Xp {
+	display: inline-block;
+    float: left;
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 30px;
+    margin-left: 40%
+}
+
+
+.Health {
+	display: inline-block;
+	margin-left: 65px;
+}
