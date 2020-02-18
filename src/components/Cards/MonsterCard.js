@@ -11,7 +11,7 @@ const monsterCard =(props) => {
 				<img src="C:\Users\Peyo\Desktop\fantasy-card-game-master\src\AllIcons\blank-name-tag-png-7-transparent.png"/>
 				<div style={{backgroundImage: `url(${portrait})`}} className={classes.Portrait}></div>
 				<div className={classes.Text}>
-					<strong>Reward: </strong>{props.text}
+					{props.text}
 				</div>
 				<div className={classes.Defense}><span className={classes.DefenseSpan}> :{props.defense}</span></div>
 				<div className={classes.Strengh}><span className={classes.StrenghSpan}> :{props.strengh}</span></div>

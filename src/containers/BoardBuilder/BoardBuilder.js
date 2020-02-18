@@ -507,6 +507,7 @@ class boardBuilder extends Component {
 									dataFromMonster={this.dataFromMonster}
 									monsterType={this.state.monsterType}
 									area={this.state.area}
+									name={this.state.name}
 								/>
 		}
 

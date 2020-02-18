@@ -13,7 +13,7 @@ class chooseMonsterScreen extends Component{
 					{
 					name: 'Gretchin',
 					portrait: '"https://i.pinimg.com/736x/66/4b/63/664b63471ddb229de325e1a0ebec98b7.jpg"',
-					text: "10 Xp, 0 treasure",
+					text: "No special rules",
 					level: 1,
 					experience: 10,
 					treasure: 0,
@@ -23,7 +23,7 @@ class chooseMonsterScreen extends Component{
 					{
 					name: 'Golbin',
 					portrait: '"https://i.pinimg.com/originals/81/7e/5b/817e5bac7aec46a8eddd2b2f160e1e33.jpg"',
-					text: "10 Xp, 0 treasure",
+					text: "No special rules",
 					level: 2,
 					experience: 10,
 					treasure: 0,
@@ -33,7 +33,7 @@ class chooseMonsterScreen extends Component{
 					{
 					name: 'Driver ork',
 					portrait: '"https://i.imgur.com/bsy7yNY.jpg"',
-					text: "10 Xp, 0 treasure",
+					text: "No special rules",
 					level: 3,
 					experience: 10,
 					treasure: 0,
@@ -43,7 +43,7 @@ class chooseMonsterScreen extends Component{
 					{
 					name: 'Commando ork',
 					portrait: '"https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSA_Gjxzdc_yxPu3sxjzZoFrrGjzO25PyCN2GbeS9HMlBbs_guF"',
-					text: "20 Xp, 1 treasure",
+					text: "No special rules",
 					level: 4,
 					experience: 20,
 					treasure: 1,
@@ -53,7 +53,7 @@ class chooseMonsterScreen extends Component{
 					{
 					name: 'Bionic ork',
 					portrait: '"https://i.pinimg.com/originals/4e/e9/6a/4ee96ac75d576c6868b4c2e8f380d6e0.jpg"',
-					text: "20 Xp, 1 treasure",
+					text: "No special rules",
 					level: 5,
 					experience: 20,
 					treasure: 1,
@@ -63,7 +63,7 @@ class chooseMonsterScreen extends Component{
 					{
 					name: 'Gunzer ork',
 					portrait: 'https://steamuserimages-a.akamaihd.net/ugc/540755081255224268/98AE4176FDAA3C74F4EAF693DB60A9C637E7FC66/',
-					text: "20 Xp, 1 treasure",
+					text: "No special rules",
 					level: 6,
 					experience: 20,
 					treasure: 1,
@@ -73,7 +73,7 @@ class chooseMonsterScreen extends Component{
 					{
 					name: 'Mecano ork',
 					portrait: '"https://vignette.wikia.nocookie.net/d__/images/1/1c/Dow2_ork_kommando_nob_portrait.png/revision/latest/top-crop/width/300/height/300?cb=20100822170115&path-prefix=dow"',
-					text: "30 Xp, 1 treasure",
+					text: "No special rules",
 					level: 7,
 					experience: 30,
 					treasure: 1,
@@ -83,7 +83,7 @@ class chooseMonsterScreen extends Component{
 					{
 					name: 'Black ork',
 					portrait: '"https://i.pinimg.com/originals/8c/c1/28/8cc12838110cc1ede640d6f21de0c320.jpg"',
-					text: "30 Xp, 1 treasure",
+					text: "No special rules",
 					level: 8,
 					experience: 30,
 					treasure: 1,
@@ -93,7 +93,7 @@ class chooseMonsterScreen extends Component{
 					{
 					name: 'Mad ork',
 					portrait: 'https://wh40kart.im/_images/3f0106998b52a41c7984f2e627a62d42.jpg',
-					text: "30 Xp, 1 treasure",
+					text: "No special rules",
 					level: 9,
 					experience: 30,
 					treasure: 1,
@@ -103,7 +103,7 @@ class chooseMonsterScreen extends Component{
 					{
 					name: 'Commander ork',
 					portrait: '"https://vignette.wikia.nocookie.net/d__/images/f/fd/Dow2_ork_weirdboy_portrait.png/revision/latest?cb=20100822172106&path-prefix=dow"',
-					text: "50 Xp, 1 treasure",
+					text: "No special rules",
 					level: 10,
 					experience: 50,
 					treasure: 1,
@@ -169,9 +169,11 @@ class chooseMonsterScreen extends Component{
 	
 	render() {
 		//set a range of random numbers, based on the type of monster
+		let length = 3;
+		if (this.props.name === 'Tau commander') length = 4;
 		let rngArray = [];
 		if (this.state.monsterType === 'monster') {
-			while(rngArray.length < 3) {
+			while(rngArray.length < length) {
 				let number = Math.floor(Math.random() * 10);
 				if (rngArray.indexOf(number) === -1) {
 					rngArray.push(number)

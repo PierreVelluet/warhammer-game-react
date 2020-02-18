@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Rokkitt&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Shadows+Into+Light&display=swap');
 
 .Card {
 	height: 280px;
@@ -34,15 +35,18 @@
 	font-size: 18px;
 	margin-top: 0px;
     margin-bottom: 5px;
-    font-weight: bold;
+    font-weight: 800;
     background-size: cover;
-    background-image: url('');
-    height: 0px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url('https://i.ya-webdesign.com/images/blank-name-tag-png-7.png');
+    height: 28px;
     width: 80%;
     margin: 0 auto;
     padding: 5px;
     margin-top: 5px;
-    margin-bottom: 3px;
+    margin-bottom: -25px;
+    font-family: 'Shadows Into Light', cursive;
 }
 
 .Portrait {
@@ -50,7 +54,7 @@
     height: 110px;
     border-radius: 50%;
     background-size: cover;
-    margin: 0 auto;
+    margin: 10px auto;
     padding: 5px 5px 0px 5px;
     border: 2px solid black;
 }
@@ -58,10 +62,12 @@
 .Text {
 	margin-top: 0px;
     padding: 0px 5px 0px 5px;
-    height: 85px;
+    height: 65px;
     border: 2px solid black;
     width: 80%;
     margin: 0 auto;
+    text-align: left;
+    font-style: italic;
 }
 
 .Type {
@@ -85,7 +91,7 @@
     width: 26px;
     height: 26px;
     margin-top: 6px;
-    margin-right: 108px;
+    margin-right: 106px;
     background-image: url('/images/Icons/Defense.png');
     background-size: cover;
 }

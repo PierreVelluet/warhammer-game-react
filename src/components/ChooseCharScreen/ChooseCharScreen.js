@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import BasicCard from '../Cards/ChampionCard';
+import ChampionCard from '../Cards/ChampionCard';
 import classes from './ChooseCharScreen.module.css'
 
 class chooseCharScreen extends Component {
@@ -8,38 +8,42 @@ class chooseCharScreen extends Component {
 			{
 			name: 'Eldar captain',
 			portrait: '"https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRaP-JrdkZe93nv38CPRPPtK4u7RFPzU_yjxhHmb742NYCoK2_W"',
-			power: "You can choose among one extra treasure.",
+			powerName: "Treasure hunter",
+			power: "you can choose among one extra treasure.",
 			level: 1,
 			health: 5,
-			strengh: 10,
+			strengh: 1,
 			defense: 8,
 			},
 			{
-			name: 'Ork boss',
-			portrait: '"https://cdna.artstation.com/p/assets/images/images/015/888/626/large/edouard-boccard-art-bfg-portrait-bloodaxes-01.jpg?1550058286"',
-			power: "Double all your potions effectiveness.",
+			name: 'Apothecary',
+			portrait: '"https://steamuserimages-a.akamaihd.net/ugc/309989521282467328/0CDEB65710274E292A4415B417FC692E0C5BF435/"',
+			powerName: "Medic",
+			power: "double all your medics effectiveness.",
 			level: 1,
 			health: 1,
-			strengh: -10,
+			strengh: 1,
 			defense: 8,
 			},
 			{
 			name: 'Tau commander',
 			portrait: '"https://wh40kart.im/_images/0d20db06ce3437b6d218031098b9aef3.jpg"',
-			power: "You can choose to escape from a monster once per level.",
+			powerName: "Reconnaissance drone",
+			power: " you can choose your fight among one extra ennemy.",
 			level: 1,
 			health: 5,
 			strengh: 1,
 			defense: 8,
 			},
 			{
-			name: 'Space marine lord',
-			portrait: '"https://vignette.wikia.nocookie.net/warhammer40k/images/f/f9/Gabriel_Angelos_Portrait.jpg/revision/latest?cb=20100615040020"',
-			power: "You can reroll your defense dice once per fight.",
+			name: 'Ork warboss',
+			portrait: '"https://i.pinimg.com/originals/0c/7e/42/0c7e42516d24dda0623159684b3cd0dd.png"',
+			powerName: "Force of nature",
+			power: "start the adventure with + 2 strengh and + 2 defense.",
 			level: 1,
 			health: 5,
-			strengh: 1,
-			defense: 8,
+			strengh: 3,
+			defense: 10,
 			},
 
 		]
@@ -52,15 +56,18 @@ class chooseCharScreen extends Component {
 	render() {
 		return (
 			<div className={classes.Div}>
-				<h1 className={classes.Title} >Choose your champion for battle !</h1>
+				<h1 className={classes.Title} >Choose your spaceship captain !</h1>
 				{this.state.champion.map((champ, index) => {
 					return (
-						<BasicCard
+						<ChampionCard
 							name={this.state.champion[index].name}
 							portrait={this.state.champion[index].portrait}
 							power={this.state.champion[index].power}
-							level={this.state.champion[index].level}
+							powerName={this.state.champion[index].powerName}
+							strengh={this.state.champion[index].strengh}
+							defense={this.state.champion[index].defense}
 							health={this.state.champion[index].health}
+							level={this.state.champion[index].level}
 							choose={() => this.props.choosing(champ)}
 							key={index}
 						/>

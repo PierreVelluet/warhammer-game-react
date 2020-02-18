@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Jim+Nightshade&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Berkshire+Swash&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Odibee+Sans&display=swap');
 
 .Card {
 	height: 300px;
@@ -30,33 +30,156 @@
 	margin-top: 0px;
 	font-style: italic;
 	font-family: 'Berkshire Swash', cursive;
+	background-image: url('https://i.ya-webdesign.com/images/blank-name-tag-png-7.png');
+	background-position: center;
+    background-size: cover;
+	background-repeat: no-repeat;
+	width: 100%;
+	margin: 0 auto;
+	height: 30px;
+	margin-bottom: 5px;
 }
 .Portrait {
 	width: 100px;
     height: 100px;
     border-radius: 50%;
-    background-size: cover;
     border: 2px solid black;
-    margin: 0 auto;
+	margin: 0 auto;
+	background-position: center;
+    background-size: cover;
+	background-repeat: no-repeat;
 }
 .Power {
-	font-family: 'Jim Nightshade', cursive;
-	font-size: 20px;
+	font-family: 'Odibee Sans', cursive;
+	font-size: 15px;
 	margin-top: 15px;
+	text-align: left;
+	font-weight: normal;
+	height: 100px;
+	width: 90%;
+	border: 2px solid black;
+	margin: 10px auto 0px auto;
+	padding: 5px;
 }
 
-.Stats{
-	position: absolute;
-	bottom: 0;
 
-}
-
-.Level {
+/* .Strengh {
+	background-image: url('/images/Icons/Strengh.png');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	height: 35px;
+	width: 35px;
+	margin-top: 10px;
 	display: inline-block;
 	float: left;
 }
 
-.Health {
+.Defense {
+	background-image: url('/images/Icons/Defense.png');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	height: 35px;
+	width: 35px;
+	margin-top: 10px;
 	display: inline-block;
-	margin-left: 65px;
+	margin-left: -15px;
+}
+
+.Health {
+	background-image: url('/images/Health.png');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	height: 35px;
+	width: 35px;
+	margin-top: 10px;
+	display: inline-block;
+	margin-left: 25px;
+}
+
+.StrenghValue {
+	font-size: 25px;
+	margin-top: -50px;
+	margin-left: -45px;
+	display: inline-block;
+} */
+.Strengh {
+    float: left;
+    display: inline;
+    width: 30px;
+    height: 30px;
+    margin-top: 10px;
+    margin-left: 2px;
+    background-image: url('/images/Icons/Strengh.png');
+    background-size: cover;
+}
+
+.Defense {
+    display: inline-block;
+    width: 31px;
+    height: 31px;
+    margin-top: 10px;
+    margin-right: 100px;
+    background-image: url('/images/Icons/Defense.png');
+    background-size: cover;
+}
+
+.Health {
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    margin-top: 12px;
+    margin-left: -80px;
+    background-image: url('/images/Health.png');
+    background-size: cover;
+    position: absolute;
+}
+
+.Level {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    margin-top: 8px;
+    margin-left: -25px;
+    background-image: url('/images/Level.png');
+    background-size: cover;
+    position: absolute;
+}
+
+.StrenghSpan{
+	position: absolute;
+	left: 45px;
+	bottom: 4px;
+	font-weight: bold;
+	font-size: 30px;
+	font-family: 'Rokkitt', serif;
+}
+.DefenseSpan {
+    position: absolute;
+    left: 88px;
+    bottom: 4px;
+    font-weight: bold;
+    font-size: 30px;
+    font-family: 'Rokkitt', serif;
+}
+
+
+.HealthSpan {
+    position: absolute;
+    left: 31px;
+    bottom: 4px;
+    font-weight: bold;
+    font-size: 30px;
+    font-family: 'Rokkitt', serif;
+}
+
+.LevelSpan{
+    position: absolute;
+    left: 30px;
+    bottom: -3px;
+    font-weight: bold;
+    font-size: 30px;
+    font-family: 'Rokkitt', serif;
 }
