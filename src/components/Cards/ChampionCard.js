@@ -9,16 +9,22 @@ const championCard =(props) => {
 			<div className={classes.Name} >{props.name}</div>
 			<div style={{backgroundImage: `url(${portrait})`}} className={classes.Portrait}></div>
 			<div className={classes.Power} ><strong>{props.powerName}</strong>: {props.power}</div>
-				{/* <div className={classes.Strengh}></div>
-				<p className={classes.StrenghValue}> :{props.strengh}</p>
-				<div className={classes.Defense}></div>
-				<p style={{display: 'inline-block'}}>{props.defense}</p>
-				<div className={classes.Health}></div>
-				<p style={{display: 'inline-block'}}>{props.health}</p> */}
-				<div className={classes.Defense}><span className={classes.DefenseSpan}> :{props.defense}</span></div>
-				<div className={classes.Strengh}><span className={classes.StrenghSpan}> :{props.strengh}</span></div>
-				<div className={classes.Health}><span className={classes.HealthSpan}> :{props.health}</span></div>
-				<div className={classes.Level}><span className={classes.LevelSpan}>:{props.level}</span></div>
+				<div>
+					<table className={classes.Table}>
+						<tr>
+							<td className={classes.StrenghData}></td>
+							<td className={classes.DefenseData}></td>
+							<td className={classes.HealthData}></td>
+							<td className={classes.LevelData}></td>
+						</tr>
+						<tr>
+							<td>{props.strengh}</td>
+							<td>{props.defense}</td>
+							<td>{props.health}</td>
+							<td>{props.level}</td>
+						</tr>
+					</table>
+				</div>
 		</div>
 		)
 }

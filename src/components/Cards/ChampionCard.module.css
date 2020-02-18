@@ -55,131 +55,45 @@
 	margin-top: 15px;
 	text-align: left;
 	font-weight: normal;
-	height: 100px;
+	height: 80px;
 	width: 90%;
-	border: 2px solid black;
-	margin: 10px auto 0px auto;
+	border: 2px dashed black;
+	border-radius: 5%;
+	margin: 10px auto 10px auto;
 	padding: 5px;
 }
 
-
-/* .Strengh {
-	background-image: url('/images/Icons/Strengh.png');
-	background-size: cover;
-	background-position: center;
-	background-repeat: no-repeat;
-	height: 35px;
-	width: 35px;
-	margin-top: 10px;
-	display: inline-block;
-	float: left;
+.Table {
+	border-collapse: collapse;
+	border: 1	px solid black;
+	width: 100%;
 }
 
-.Defense {
-	background-image: url('/images/Icons/Defense.png');
-	background-size: cover;
-	background-position: center;
-	background-repeat: no-repeat;
-	height: 35px;
-	width: 35px;
-	margin-top: 10px;
-	display: inline-block;
-	margin-left: -15px;
-}
+.StrenghData {
 
-.Health {
-	background-image: url('/images/Health.png');
-	background-size: cover;
-	background-position: center;
-	background-repeat: no-repeat;
-	height: 35px;
-	width: 35px;
-	margin-top: 10px;
-	display: inline-block;
-	margin-left: 25px;
-}
-
-.StrenghValue {
-	font-size: 25px;
-	margin-top: -50px;
-	margin-left: -45px;
-	display: inline-block;
-} */
-.Strengh {
-    float: left;
-    display: inline;
-    width: 30px;
-    height: 30px;
-    margin-top: 10px;
-    margin-left: 2px;
     background-image: url('/images/Icons/Strengh.png');
-    background-size: cover;
+	background-size: 50%;
+	background-repeat: no-repeat;
+	background-position: center;
 }
+.DefenseData {
 
-.Defense {
-    display: inline-block;
-    width: 31px;
-    height: 31px;
-    margin-top: 10px;
-    margin-right: 100px;
     background-image: url('/images/Icons/Defense.png');
-    background-size: cover;
+	background-size: 50%;
+	background-repeat: no-repeat;
+	background-position: center;
 }
+.HealthData {
 
-.Health {
-    display: inline-block;
-    width: 36px;
-    height: 36px;
-    margin-top: 12px;
-    margin-left: -80px;
     background-image: url('/images/Health.png');
-    background-size: cover;
-    position: absolute;
+	background-size: 55%;
+	background-repeat: no-repeat;
+	background-position: center;
 }
-
-.Level {
-    display: inline-block;
-    width: 32px;
-    height: 32px;
-    margin-top: 8px;
-    margin-left: -25px;
+.LevelData {
+	height: 25px;
     background-image: url('/images/Level.png');
-    background-size: cover;
-    position: absolute;
-}
-
-.StrenghSpan{
-	position: absolute;
-	left: 45px;
-	bottom: 4px;
-	font-weight: bold;
-	font-size: 30px;
-	font-family: 'Rokkitt', serif;
-}
-.DefenseSpan {
-    position: absolute;
-    left: 88px;
-    bottom: 4px;
-    font-weight: bold;
-    font-size: 30px;
-    font-family: 'Rokkitt', serif;
-}
-
-
-.HealthSpan {
-    position: absolute;
-    left: 31px;
-    bottom: 4px;
-    font-weight: bold;
-    font-size: 30px;
-    font-family: 'Rokkitt', serif;
-}
-
-.LevelSpan{
-    position: absolute;
-    left: 30px;
-    bottom: -3px;
-    font-weight: bold;
-    font-size: 30px;
-    font-family: 'Rokkitt', serif;
+	background-size: 50%;
+	background-repeat: no-repeat;
+	background-position: center;
 }
