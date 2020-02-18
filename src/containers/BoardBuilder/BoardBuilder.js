@@ -290,7 +290,7 @@ class boardBuilder extends Component {
 	continueHandler = () => {
 	
 		if (this.state.area === 0) {
-			const newArea = this.state.area + 2
+			const newArea = this.state.area + 1
 			this.setState({area: newArea})
 		}else if (this.state.showFloorCheck && this.state.area === 1) {
 			this.setState({	showFloorCheck: false, showDeck: true})
