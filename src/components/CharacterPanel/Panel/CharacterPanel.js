@@ -24,7 +24,7 @@ const characterPanel =(props) => {
                 <p className={classes.Characteristics} >Strengh : <span className={classes.CharacteristicsValues}>{props.strengh}</span></p>
                 <p className={classes.Characteristics} >Current area : <span className={classes.CharacteristicsValues}>{props.area}</span></p>
                 <p className={classes.Characteristics} >Defense : <span className={classes.CharacteristicsValues}>{props.defense}</span></p>
-                <p className={classes.Characteristics} >Deck opened : <span className={classes.CharacteristicsValues}>{props.decks}/5</span></p>
+                <p className={classes.Characteristics} >Deck opened : <span className={classes.CharacteristicsValues}>{props.decks}/3</span></p>
             </div>
             <hr/>
             <ProgressBar percentage={props.percentage} />

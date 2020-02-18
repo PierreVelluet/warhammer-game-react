@@ -66,8 +66,8 @@ class boardBuilder extends Component {
 		currentMonster: null,
 		background:[
 					'https://www.azutura.com/media/catalog/product/cache/49/image/650x/040ec09b1e35df139433887a97daa66f/W/S/WS-47373_WP.jpg',
-					'https://i.pinimg.com/originals/b1/da/c0/b1dac0470bdf2f7cc0c559599fba19f9.jpg',
-					'https://cdnb.artstation.com/p/assets/images/images/000/043/005/large/Ice_landscape_002_copy.jpg?1398646561'
+					'https://www.wallpaperflare.com/static/581/364/24/artwork-fantasy-art-digital-art-desert-wallpaper.jpg',
+					'https://i.pinimg.com/originals/96/87/cc/9687cc161c2bbfb2d9559deaec9b296a.jpg'
 					]
 			
 
@@ -143,8 +143,9 @@ class boardBuilder extends Component {
 						})
 	}
 
-	//check if experience >= 100, hence level up
-	shouldLevelUpdate = () => {
+	//anytime you pick a reward or you win a fight with no reward, check if you level up, then if boss appear, then if area must change
+	shouldLevelOrAreaOrBossUpdate = () => {
+		//check lvl up
 		if(this.state.experience >= 100) {
 			const newStrengh = this.state.baseStrengh + 1;
 			const newDefense = this.state.baseDefense + 1;
@@ -158,24 +159,24 @@ class boardBuilder extends Component {
 							showCombatDetails: false,
 							showMonsterScreen: false,
 							showDeck: false})
-		}else{
-			this.shouldAreaUpdate();
+		//check if you explored enough time the deck
+		}else if (this.state.openedDecks === 3){
+			this.setState	({showRewards: false,
+				showBossTrailer: true,
+				showMonsterScreen: false,
+				currentMonster: null,
+				showDeck: false,
+				showCombatDetails: false,
+				})
+		//check if you just won a fight versus a boss
+		}else if (this.state.monsterType === 'boss') {
+			const newArea = this.state.area + 1
+			this.setState({	showDeck: false,
+							area: newArea,
+							showFloorCheck: true})
 		}
 	}
 	
-	//check if 5 decks have been opened, hence floor up
-	shouldAreaUpdate = () => {
-		if (this.state.openedDecks === 5) {
-			this.setState	({showRewards: false,
-							showBossTrailer: true,
-							showMonsterScreen: false,
-							currentMonster: null,
-							showDeck: false,
-							showCombatDetails: false,
-							})
-		}
-	}
-
 	dataFromMonster = (data) => {
 		this.setState({	currentMonster: data,
 						showCombatDetails: 'base',
@@ -188,7 +189,7 @@ class boardBuilder extends Component {
 
 //Set up all the fight environment and data
 	revealHandler = () => {
-		if (this.state.openedDecks != 5) {
+		if (this.state.openedDecks != 3) {
 			const updatedopenedDecks = this.state.openedDecks +1;
 			this.setState({	showMonsterScreen: true,
 							showDeck: false,
@@ -289,7 +290,7 @@ class boardBuilder extends Component {
 	continueHandler = () => {
 	
 		if (this.state.area === 0) {
-			const newArea = this.state.area + 1
+			const newArea = this.state.area + 2
 			this.setState({area: newArea})
 		}else if (this.state.showFloorCheck && this.state.area === 1) {
 			this.setState({	showFloorCheck: false, showDeck: true})
@@ -297,7 +298,7 @@ class boardBuilder extends Component {
 			this.setState({combatResult: 'base'})
 		}else if (this.state.combatResult === 'winNoReward') {
 			this.setState({showDeck: true, showCombatDetails: false, showMonsterScreen: false})
-			this.shouldLevelUpdate();
+			this.shouldLevelOrAreaOrBossUpdate();
 		}else if (this.state.combatResult === 'wounded' && this.state.health > 0) {
 			this.setState({combatResult: 'base'})
 		}else if (this.state.combatResult === 'magicLess') {
@@ -307,6 +308,8 @@ class boardBuilder extends Component {
 			this.showMagicCards();
 		}else if (this.state.health === 0) {
 			this.setState({showGameOverPanel: true, showCombatDetails: false})
+		}else if(this.state.showFloorCheck && this.state.area === 2){
+			this.setState({	showFloorCheck: false, showDeck: true})
 		}
 
 	}
@@ -354,15 +357,9 @@ class boardBuilder extends Component {
 						showDeck: true,
 					})
 
-		this.shouldLevelUpdate();
+		this.shouldLevelOrAreaOrBossUpdate();
 
-		if (this.state.monsterType === 'boss') {
-
-			const newArea = this.state.area + 1
-			this.setState({	showDeck: false,
-							area: newArea,
-							showFloorCheck: true})
-		}
+		
 	}
 
 

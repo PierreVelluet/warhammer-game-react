@@ -7,7 +7,7 @@
 	border: 5px solid black;
 	border-radius: 5px;
 	background-color: black;
-	background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSHAZTb2-3PMVOj3FadJE5FCEeEp9HB8EAZ5Zti04R8zfL3jkYH');
+	background-image: url('');
 	background-size: cover;
 	text-align: center;
 	margin:0 auto;
@@ -54,7 +54,7 @@
     height: 110px;
     border-radius: 50%;
     background-size: cover;
-    margin: 10px auto;
+    margin: 5px auto;
     padding: 5px 5px 0px 5px;
     border: 2px solid black;
 }
@@ -62,12 +62,18 @@
 .Text {
 	margin-top: 0px;
     padding: 0px 5px 0px 5px;
-    height: 65px;
+    height: 45px;
     border: 2px solid black;
+    border-radius: 5px;
     width: 80%;
     margin: 0 auto;
     text-align: left;
     font-style: italic;
+    margin-bottom: 5px;
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSHAZTb2-3PMVOj3FadJE5FCEeEp9HB8EAZ5Zti04R8zfL3jkYH');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .Type {
@@ -75,81 +81,49 @@
     margin-top: 20px;
 }
 
-.Strengh {
-    float: left;
-    display: inline;
-    width: 23px;
-    height: 23px;
-    margin-top: 6px;
-    margin-left: 2px;
+.Table {
+    border-collapse: collapse;
+    width: 95%;
+    margin: 0 auto;
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSHAZTb2-3PMVOj3FadJE5FCEeEp9HB8EAZ5Zti04R8zfL3jkYH');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.Table, td {
+    border: 2px dashed black;
+}
+
+.StrenghData {
+
     background-image: url('/images/Icons/Strengh.png');
-    background-size: cover;
+	background-size: 50%;
+	background-repeat: no-repeat;
+    background-position: center;
+    width: 25%;
 }
+.DefenseData {
 
-.Defense {
-    display: inline-block;
-    width: 26px;
-    height: 26px;
-    margin-top: 6px;
-    margin-right: 106px;
     background-image: url('/images/Icons/Defense.png');
-    background-size: cover;
+	background-size: 50%;
+	background-repeat: no-repeat;
+    background-position: center;
+    width: 25%;
 }
+.TreasureData {
 
-.Treasure {
-    display: inline-block;
-    width: 25px;
-    height: 25px;
-    margin-top: 7px;
-    margin-left: -90px;
     background-image: url('/images/Icons/Treasure.png');
-    background-size: cover;
-    position: absolute;
+	background-size: 55%;
+	background-repeat: no-repeat;
+    background-position: center;
+    width: 25%;
 }
-
-.Experience {
-    display: inline-block;
-    width: 22px;
-    height: 22px;
-    margin-top: 10px;
-    margin-left: -40px;
+.ExperienceData {
+	height: 25px;
     background-image: url('https://vignette.wikia.nocookie.net/fortnite/images/b/b8/XP_-_Icon_-_Fortnite.png/revision/latest/scale-to-width-down/340?cb=20190302164038');
-    background-size: cover;
-    position: absolute;
-}
-
-.DefenseSpan {
-    position: absolute;
-    left: 68px;
-    bottom: -4px;
-    font-weight: bold;
-    font-size: 30px;
-    font-family: 'Rokkitt', serif;
-}
-
-.StrenghSpan{
-    position: absolute;
-    left: 26px;
-    bottom: -4px;
-    font-weight: bold;
-    font-size: 30px;
-    font-family: 'Rokkitt', serif;
-}
-
-.TreasureSpan{
-    position: absolute;
-    left: 26px;
-    bottom: -7px;
-    font-weight: bold;
-    font-size: 30px;
-    font-family: 'Rokkitt', serif;
-}
-
-.ExperienceSpan{
-    position: absolute;
-    left: 20px;
-    bottom: -7px;
-    font-weight: bold;
-    font-size: 30px;
-    font-family: 'Rokkitt', serif;
+	background-size: 50%;
+	background-repeat: no-repeat;
+    background-position: center;
+    width: 25%;
 }

@@ -15,19 +15,19 @@ const floorCheck = (props) => (
 
 
         <div className={classes.FloorCheck}>
-            <h1 className={classes.Title}><strong>Chapter 1 : the jungle</strong></h1>
-            <p>Even with 2 modules damaged and a broken controller, you somehow managed to land on what seems to be a wild, unhabited jungle. Last member alive of your crew, you search survival stuff in your ship's wreck, and decide to explore around. </p>
-            <div className={classes.Img} style={{backgroundImage: "url('https://i.pinimg.com/originals/6e/78/90/6e7890b9e5286c0781ef4204814163d3.jpg')"}}></div>
-            <p><em>Be carefull, those forest are well known for housing orks ... Explore the deck 5 times to proceed to the next area.</em></p>
+            <h1 className={classes.Title}><strong>Chapter 1 : the desert</strong></h1>
+            <p>Even with 2 modules damaged and a broken controller, you somehow managed to land on what seems to be a wild, unhabited desert. Last member alive of your crew, you search survival stuff in your ship's wreck, and decide to explore around. </p>
+            <div className={classes.Img} style={{backgroundImage: "url('https://66.media.tumblr.com/cac9b3febe0c6589bc17c55eedba4372/tumblr_o7pkcvOsZ11qhuscto1_1280.jpg')"}}></div>
+            <p><em>Be carefull, those lands are well known for housing orks ... Explore the deck 3 times to proceed to the next area.</em></p>
             <button className={classes.Btn} onClick={props.continue}>Continue</button>
         </div>,
 
 
         <div className={classes.FloorCheck}>
-            <h1 className={classes.Title}><strong>Chapter 2 : the ice land</strong></h1>
-            <p>You somehow managed to cross the entire jungle and to stay alive. You immediatly fall in front of a wide, long frozen desert.</p>
-            <div className={classes.Img} style={{backgroundImage: "url('https://c4.wallpaperflare.com/wallpaper/631/427/750/men-winter-ice-nature-landscape-fantasy-art-horse-landscape-wallpaper-preview.jpg')"}}></div>
-            <p><em>Again, you need to explore the deck 5 times to proceed to the next area. Be careful, these iceland doesnt look friendly at all !</em></p>
+            <h1 className={classes.Title}><strong>Chapter 2 : the jungle</strong></h1>
+            <p>You somehow managed to cross the entire desert and to stay alive. You immediatly fall in front of a wide, dense jungle.</p>
+            <div className={classes.Img} style={{backgroundImage: "url('https://www.itl.cat/pngfile/big/15-151834_forest-wallpaper-forest-background-fantasy.jpg')"}}></div>
+            <p><em>Again, you need to explore the deck 3 times to proceed to the next area. Be careful, this forest doesnt look friendly at all !</em></p>
             <button className={classes.Btn} onClick={props.continue}>Continue</button>
         </div>
     ][props.area]
