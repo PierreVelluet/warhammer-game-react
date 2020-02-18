@@ -65,8 +65,11 @@
 
 .Table {
 	border-collapse: collapse;
-	border: 1	px solid black;
+	border: 1px solid black;
 	width: 100%;
+}
+.Table, td {
+	border: 2px dashed black;
 }
 
 .StrenghData {

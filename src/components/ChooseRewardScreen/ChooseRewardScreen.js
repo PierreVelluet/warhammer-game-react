@@ -146,6 +146,8 @@ class chooseRewardScreen extends Component {
 		let numberOfTreasures = 3;
 		if (this.props.name === 'Eldar captain') {numberOfTreasures = 4 }
 
+
+		//set an array of random numbers, depending on the chosen champion and the type of treasures.
 		let rngArray = [];
 		if (this.props.whichReward === 'normal') {
 			while(rngArray.length < numberOfTreasures) {
@@ -167,6 +169,7 @@ class chooseRewardScreen extends Component {
 
 		return (
 
+			//map though the array, and return a TreasureCard for each random numbers depending on the type of reward.
 			<div className={classes.Reward}>
 				{rngArray.map((rng, index)=>{
 					return (

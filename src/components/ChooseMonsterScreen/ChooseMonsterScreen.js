@@ -161,6 +161,8 @@ class chooseMonsterScreen extends Component{
 	
 	}
 
+
+	//gives the monsters data to parent element (boardbuilder), via props.
 	toGiveToParent = () => {
 		const info = this.state.chosenMonster;
 		this.props.dataFromMonster(info)
@@ -168,7 +170,7 @@ class chooseMonsterScreen extends Component{
 
 	
 	render() {
-		//set a range of random numbers, based on the type of monster
+		//set a range of random numbers, based on the type of monster & the champion choice
 		let length = 3;
 		if (this.props.name === 'Tau commander') length = 4;
 		let rngArray = [];

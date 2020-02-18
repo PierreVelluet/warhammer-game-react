@@ -21,8 +21,8 @@ class chooseCharScreen extends Component {
 			powerName: "Medic",
 			power: "double all your medics effectiveness.",
 			level: 1,
-			health: 5,
-			strengh: 1,
+			health: 1,
+			strengh: 0,
 			defense: 8,
 			},
 			{
@@ -55,6 +55,8 @@ class chooseCharScreen extends Component {
 
 	render() {
 		return (
+
+			//simply map the data from state.champion, and hence, return a card for each champ.
 			<div className={classes.Div}>
 				<h1 className={classes.Title} >Choose your spaceship captain !</h1>
 				{this.state.champion.map((champ, index) => {

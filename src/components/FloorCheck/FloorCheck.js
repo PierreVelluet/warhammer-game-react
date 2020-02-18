@@ -2,6 +2,8 @@ import React from 'react';
 import classes from './FloorCheck.module.css';
 
 const floorCheck = (props) => (
+
+    //set an array of content, and then render only the chosen one, with []'s notation
     [
 
         <div className={classes.FloorCheck}>

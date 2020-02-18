@@ -18,6 +18,7 @@ const combatDetails = (props) => {
 
 	return (
 		
+				//set an object with different keys, and then display only the chosen key with []'s notation.
 				{
 					base: 
 						
@@ -82,11 +83,9 @@ const combatDetails = (props) => {
 							<p style={{display: 'inline-block'}}>The ennemy rolled a <span> </span></p><span> </span>
 								<div className={classes.Dice}style ={{backgroundImage: `url(${dices[rng]})` }}></div>.<span className={classes.Result}> You've been hited !</span>
 							{props.healpoints > 0 ?
-							<React.Fragment>
-								<p>You just lost one HP. You have <strong>{props.healpoints}</strong> HP left. When you are at 0 HP, you become a slum, then, you die. Yet, the fight is not over!</p>
+								<p>You just lost one HP. You have <strong>{props.healpoints}</strong> HP left. When you are at 0 HP, you become a slum, then, you die. Yet, the fight is not over!</p>:
+								<p>You just lost one HP. You have <strong>{props.healpoints}</strong> HP left. You transform into a slum. It sucks... Your adventure is over.</p>}
 								<button onClick={props.continue} className={classes.Btn}>Continue ...</button>
-							</React.Fragment>:
-							<p>You just lost one HP. You have <strong>{props.healpoints}</strong> HP left. You transform into a slum. It sucks... Your adventure is over.</p>}
 						</div>,
 
 					saved:

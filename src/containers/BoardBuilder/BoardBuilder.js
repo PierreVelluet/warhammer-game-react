@@ -298,13 +298,15 @@ class boardBuilder extends Component {
 		}else if (this.state.combatResult === 'winNoReward') {
 			this.setState({showDeck: true, showCombatDetails: false, showMonsterScreen: false})
 			this.shouldLevelUpdate();
-		}else if (this.state.combatResult === 'wounded') {
+		}else if (this.state.combatResult === 'wounded' && this.state.health > 0) {
 			this.setState({combatResult: 'base'})
 		}else if (this.state.combatResult === 'magicLess') {
 			this.setState({combatResult: 'base'})
 		}else if (this.state.combatResult === 'magic') {
 			this.setState({combatResult: 'base'})
 			this.showMagicCards();
+		}else if (this.state.health === 0) {
+			this.setState({showGameOverPanel: true, showCombatDetails: false})
 		}
 
 	}
@@ -426,6 +428,17 @@ class boardBuilder extends Component {
 		const nextArea = this.state.area + 1
 		this.setState({area: nextArea})
 	};
+
+	tryAgain = () => {
+		this.setState({	showChooseCharScreen: true,
+						currentMonster: false,
+						area: 0,
+						experience: 0,
+						showMonsterScreen: false,
+						showGameOverPanel: false,
+						openedDecks: 0,
+						monsterSlain: 0})
+	}
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -551,7 +564,9 @@ class boardBuilder extends Component {
 
 		 let gameOver= null;
 		 if (this.state.showGameOverPanel) {
-			 gameOver = <GameOver />
+			 gameOver = <GameOver
+							tryAgain={this.tryAgain}
+			 			/>
 		 }
 
 		 let bossTrailer = null;
