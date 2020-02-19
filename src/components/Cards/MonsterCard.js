@@ -1,5 +1,6 @@
 import React from 'react';
 import classes from './MonsterCard.module.css';
+import ReactTooltip from 'react-tooltip';
 
 const monsterCard =(props) => {
 	const portrait = props.portrait;
@@ -21,11 +22,11 @@ const monsterCard =(props) => {
 				<div>
 					<table className={classes.Table}>
 						<tr>
-							<td className={classes.StrenghData}></td>
-							<td className={classes.DefenseData}></td>
-							<td className={classes.TreasureData}></td>
-							<td className={classes.GoldData}></td>
-							<td className={classes.ExperienceData}></td>
+							<td data-tip="Strengh" className={classes.StrenghData}><ReactTooltip/></td>
+							<td data-tip="Defense" className={classes.DefenseData}></td>
+							<td data-tip="Treasure" className={classes.TreasureData}></td>
+							<td data-tip="Gold" className={classes.GoldData}></td>
+							<td data-tip="Experience" className={classes.ExperienceData}></td>
 						</tr>
 						<tr>
 							<td>{props.strengh}</td>

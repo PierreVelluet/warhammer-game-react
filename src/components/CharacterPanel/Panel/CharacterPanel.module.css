@@ -168,25 +168,6 @@
   background-position: center;
 }
 
-
-.AllCharacs {
-  margin: 10px;
-  font-weight: 600;
-}
-
-.Characteristics {
-    /* padding-right: 10px; */
-    margin: 3px auto ;
-    display: inline-block;
-    width: 50%;
-}
-
-.CharacteristicsValues {
-  float: right;
-  margin-right: 10px;
-  font-weight: bold;
-}
-
 .Meter { 
 	height: 10px;  /* Can be anything */
     position: relative;
@@ -260,19 +241,3 @@
      0% { width: 0; }
     100% { width: auto; }
   }
-
-
-.Xp {
-	display: inline-block;
-    float: left;
-    position: absolute;
-    bottom: 0;
-    margin-bottom: 30px;
-    margin-left: 40%
-}
-
-
-.Health {
-	display: inline-block;
-	margin-left: 65px;
-}
