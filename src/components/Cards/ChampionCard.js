@@ -11,18 +11,20 @@ const championCard =(props) => {
 			<div className={classes.Power} ><strong>{props.powerName}</strong>: {props.power}</div>
 				<div>
 					<table className={classes.Table}>
-						<tr>
-							<td className={classes.StrenghData}></td>
-							<td className={classes.DefenseData}></td>
-							<td className={classes.HealthData}></td>
-							<td className={classes.LevelData}></td>
-						</tr>
-						<tr>
-							<td>{props.strengh}</td>
-							<td>{props.defense}</td>
-							<td>{props.health}</td>
-							<td>{props.level}</td>
-						</tr>
+						<tbody>
+							<tr>
+								<td className={classes.StrenghData}></td>
+								<td className={classes.DefenseData}></td>
+								<td className={classes.HealthData}></td>
+								<td className={classes.LevelData}></td>
+							</tr>
+							<tr>
+								<td>{props.strengh}</td>
+								<td>{props.defense}</td>
+								<td>{props.health}</td>
+								<td>{props.level}</td>
+							</tr>
+						</tbody>
 					</table>
 				</div>
 		</div>

@@ -69,6 +69,10 @@
 	width: 100%;
 }
 
+.Table td {
+	border: 2px dashed black;
+}
+
 .StrenghData {
 
     background-image: url('/images/Icons/Strengh.png');

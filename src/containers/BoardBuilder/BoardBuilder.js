@@ -24,7 +24,7 @@ class boardBuilder extends Component {
 		showMonsterScreen: false,
 		showRewards: false,
 		showFloorCheck: false,
-		showAttackCards: false,
+		showAttackCards: true,
 		showDefenseCards: false,
 		showMagicCards: false,
 		showLevelUpPanel: false,
@@ -36,12 +36,8 @@ class boardBuilder extends Component {
 		activeDefenseIcon: false,
 		activeMagicIcon: false,
 		area: null,
-		areaName: [
-			'Space',
-			'Desert',
-			'Jungle',
-			'IceLand'
-		],
+		areaName: ['Space', 'Desert', 'Jungle', 'IceLand'],
+		areaExplored: 0,
 		monsterType: 'monster',
 		//Character Panel
 		// chosenChar: {},
@@ -58,6 +54,7 @@ class boardBuilder extends Component {
 		defenseFromItem: 0,
 		experience: 0,
 		monsterSlain: 0,
+		bossSlain: 0,
 		gold: 0,
 		treasure:[],
 		totalStrengh: 0,
@@ -177,9 +174,11 @@ class boardBuilder extends Component {
 				})
 		//check if you just won a fight versus a boss
 		}else if (this.state.monsterType === 'boss') {
-			const newArea = this.state.area + 1
+			const newArea = this.state.area + 1;
+			const areaExplored = this.state.areaExplored + 1;
 			this.setState({	showDeck: false,
 							area: newArea,
+							areaExplored: areaExplored,
 							showFloorCheck: true})
 		}
 	}
@@ -196,7 +195,7 @@ class boardBuilder extends Component {
 
 //Set up all the fight environment and data
 	revealHandler = () => {
-		if (this.state.openedDecks != 3) {
+		if (this.state.openedDecks !== 3) {
 			const updatedopenedDecks = this.state.openedDecks +1;
 			this.setState({	showMonsterScreen: true,
 							showDeck: false,
@@ -227,24 +226,23 @@ class boardBuilder extends Component {
 		this.setState({dice: dice});
 		const result = dice + this.state.strengh + this.state.bonusToDice;
 		const monsterSlain = this.state.monsterSlain + 1;
+		const bossSlain = this.state.bossSlain +1;
 		let newExperience = this.state.currentMonster.experience + this.state.experience
 		let newGold = this.state.currentMonster.gold + this.state.gold
 		if (newExperience > 100) {newExperience = 100};
 
 
-		if ((dice != 1 && result >= this.state.currentMonster.defense) || dice === 6) {
+		if ((dice !== 1 && result >= this.state.currentMonster.defense) || dice === 6) {
 			if(this.state.currentMonster.treasure > 0) {
-				this.setState({combatResult: 'winWithReward', monsterSlain: monsterSlain, experience: newExperience, gold: newGold});
+				this.setState({combatResult: 'winWithReward', experience: newExperience, gold: newGold});
 			}else{
 				this.setState({combatResult: 'winNoReward', monsterSlain: monsterSlain, experience: newExperience, gold: newGold});
 			}
-
-			// this.setState(prevState => ({
-			// 	currentMonster: {                   // object that we want to update
-			// 		...prevState.currentMonster,    // keep all other key-value pairs
-			// 		isAlive: false,       // update the value of specific key
-			// 	}
-			// }))
+			if (this.state.monsterType === 'boss') {
+				this.setState({ bossSlain: bossSlain})
+			}else {
+				this.setState({ monsterSlain: monsterSlain})
+			}
 			
 		}else {
 			this.setState({combatResult: 'retaliation'});
@@ -257,7 +255,7 @@ class boardBuilder extends Component {
 		const dice = Math.floor(Math.random() * 6) + 1 ;
 		const result = dice + this.state.currentMonster.strengh;
 
-		if (dice != 1 && (dice === 6 || result > this.state.defense)) {
+		if (dice !== 1 && (dice === 6 || result > this.state.defense)) {
 			const newHealth = this.state.health - 1;
 			this.setState({combatResult: 'wounded', dice: dice, health: newHealth});
 			
@@ -288,7 +286,7 @@ class boardBuilder extends Component {
 							})
 		}
 
-		if (this.state.monsterType != 'monster') {
+		if (this.state.monsterType !== 'monster') {
 			this.setState({whichReward: 'super'})
 		}
 	}
@@ -299,7 +297,8 @@ class boardBuilder extends Component {
 	
 		if (this.state.area === 0) {
 			const newArea = this.state.area + 1;
-			this.setState({area: newArea})
+			const areaExplored = this.state.areaExplored + 1;
+			this.setState({area: newArea, areaExplored: areaExplored})
 		}else if (this.state.showFloorCheck && this.state.area === 1) {
 			this.setState({	showFloorCheck: false, showDeck: true})
 		}else if (this.state.combatResult === 'saved') {
@@ -442,7 +441,8 @@ class boardBuilder extends Component {
 						showMonsterScreen: false,
 						showGameOverPanel: false,
 						openedDecks: 0,
-						monsterSlain: 0})
+						monsterSlain: 0,
+						bossSlain: 0,})
 	}
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -507,7 +507,6 @@ class boardBuilder extends Component {
 			floorCheck = <FloorCheck
 							area={this.state.area}
 							continue={this.continueHandler}
-							continue={this.continueHandler}
 						/>
 		}
 
@@ -549,13 +548,13 @@ class boardBuilder extends Component {
 								healpoints={this.state.health}
 								continue={this.continueHandler}
 								useMagicItem={this.magicItemHandler}
-								continue={this.continueHandler}
 								chosenChar={this.state.name}
 								disabledPaladinPower={this.state.disabledPaladinPower}
 								experience={this.state.currentMonster.experience}
 								currentExperience ={this.state.experience}
 								defense={this.state.defense}
 								level={this.state.level}
+								items={this.state.treasure}
 							/>
 		 }
 
@@ -600,6 +599,7 @@ class boardBuilder extends Component {
 								defense={this.state.defense}
 								experience={this.state.experience}
 								monsterSlain={this.state.monsterSlain}
+								bossSlain={this.state.bossSlain}
 								activeAttackIcon={this.state.activeAttackIcon}
 								activeDefenseIcon={this.state.activeDefenseIcon}
 								activeMagicIcon={this.state.activeMagicIcon}
@@ -607,15 +607,18 @@ class boardBuilder extends Component {
 								showDefenseCards={this.showDefenseCards}
 								showMagicCards={this.showMagicCards}
 								decks={this.state.openedDecks}
-								area={this.state.area}
 								percentage={this.state.experience}
 								gold={this.state.gold}
 								treasure={this.state.treasure.length}
 								deck={this.state.openedDecks}
-								monsterSlain={this.state.monsterSlain}
 								area={this.state.areaName[this.state.area]}
-							/>
-							{attackCards}
+								areaExplored={this.state.areaExplored}
+								items={this.state.treasure}
+							>
+
+								{attackCards}
+							</CharacterPanel>
+							{/* {attackCards} */}
 							{defenseCards}
 							{magicCards}
 						</PlayerBoardControl>

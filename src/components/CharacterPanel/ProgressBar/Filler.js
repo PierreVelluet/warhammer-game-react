@@ -1,6 +1,5 @@
 import React from 'react';
 import classes from './Filler.module.css'
-import CountUp from 'react-countup';
 
 const filler = (props) => {
 

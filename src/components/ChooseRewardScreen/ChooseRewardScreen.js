@@ -15,6 +15,7 @@ class chooseRewardScreen extends Component {
 			type :'magic',
 			bottomText: 'One use only',
 			effect: 'Strengh + 3',
+			tooltip: 'Dope syringe : Strengh + 3.'
 			},
 			{
 			name: 'Painkillers',
@@ -22,7 +23,8 @@ class chooseRewardScreen extends Component {
 			text: "A healthy pill.",
 			type :'magic',
 			bottomText: 'One use only',
-			effect: 'Hp + 2'
+			effect: 'Hp + 2',
+			tooltip: 'Painkillers : Hp + 2.'
 			},
 			{
 			name: 'Helmet',
@@ -32,6 +34,7 @@ class chooseRewardScreen extends Component {
 			bottomText: 'Permanent effect',
 			effect: 'Defense + 1',
 			defense: 1,
+			tooltip: 'Helmet : Defense +1.'
 			},
 			{
 			name: 'Iron fist',
@@ -41,6 +44,7 @@ class chooseRewardScreen extends Component {
 			bottomText: 'Permanent effect',
 			effect: 'Defense + 1',
 			defense: 1,
+			tooltip: 'Iron fist : Defense + 1.'
 			},
 			{
 			name: 'Bullet-proof vest',
@@ -50,6 +54,7 @@ class chooseRewardScreen extends Component {
 			bottomText: 'Permanent effect',
 			effect: 'Defense + 2',
 			defense: 2,
+			tooltip: 'Bullet-proof vest : Defense + 2.'
 			},
 			{
 			name: 'Bolter',
@@ -59,6 +64,7 @@ class chooseRewardScreen extends Component {
 			bottomText: 'Permanent effect',
 			effect: 'Strengh + 1',
 			strengh: 1,
+			tooltip: 'Bolter : Strengh + 1.'
 			},
 			{
 			name: 'Eldary laser',
@@ -68,6 +74,7 @@ class chooseRewardScreen extends Component {
 			bottomText: 'Permanent effect',
 			effect: 'Strengh + 1',
 			strengh: 1,
+			tooltip: 'Eldary laser : Strengh + 1.'
 			},
 			{
 			name: 'Plasma gun',
@@ -77,6 +84,7 @@ class chooseRewardScreen extends Component {
 			bottomText: 'Permanent effect',
 			effect: 'Strengh + 2',
 			strengh: 2,
+			tooltip: 'Plasma gun : Strengh + 2.'
 			},
 			{
 			name: 'Axe',
@@ -86,6 +94,7 @@ class chooseRewardScreen extends Component {
 			bottomText: 'Permanent effect',
 			effect: 'Strengh + 1',
 			strengh: 1,
+			tooltip: 'Axe : Strengh + 1.'
 			},
 			{
 			name: 'Sword',
@@ -95,6 +104,7 @@ class chooseRewardScreen extends Component {
 			bottomText: 'Permanent effect',
 			effect: 'Strengh + 1',
 			strengh: 1,
+			tooltip: 'Sword : Strengh + 1.'
 			},
 			{
 			name: 'Chainsword',
@@ -104,6 +114,7 @@ class chooseRewardScreen extends Component {
 			bottomText: 'Permanent effect',
 			effect: 'Strengh + 2',
 			strengh: 2,
+			tooltip: 'Chainsword : Strengh + 2.'
 			},
 			
 		],
@@ -116,6 +127,7 @@ class chooseRewardScreen extends Component {
 			bottomText: 'Permanent effect',
 			effect: 'Strengh + 3',
 			strengh: 3,
+			tooltip: 'Heavy gauntlet : Strengh + 3.'
 			},
 			{
 			name: 'Bi-pills',
@@ -123,7 +135,8 @@ class chooseRewardScreen extends Component {
 			text: "A healthy potion.",
 			type :'magic',
 			bottomText: 'One use only',
-			effect: 'Hp + 2. Strengh + 3.'
+			effect: 'Hp + 2. Strengh + 3.',
+			tooltip: 'Bi-pills : Hp + 2 & Strengh + 3. (this turn only)'
 			},
 			{
 			name: 'Heroic shield',
@@ -133,6 +146,7 @@ class chooseRewardScreen extends Component {
 			bottomText: 'Permanent effect',
 			effect: 'Defense + 3',
 			defense: 3,
+			tooltip: 'Heroic shield : Defense + 3.'
 			},
 		]
 	};
