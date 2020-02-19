@@ -36,6 +36,12 @@ class boardBuilder extends Component {
 		activeDefenseIcon: false,
 		activeMagicIcon: false,
 		area: null,
+		areaName: [
+			'Space',
+			'Desert',
+			'Jungle',
+			'IceLand'
+		],
 		monsterType: 'monster',
 		//Character Panel
 		// chosenChar: {},
@@ -52,6 +58,7 @@ class boardBuilder extends Component {
 		defenseFromItem: 0,
 		experience: 0,
 		monsterSlain: 0,
+		gold: 0,
 		treasure:[],
 		totalStrengh: 0,
 		attackCards: [],
@@ -67,7 +74,7 @@ class boardBuilder extends Component {
 		background:[
 					'https://www.azutura.com/media/catalog/product/cache/49/image/650x/040ec09b1e35df139433887a97daa66f/W/S/WS-47373_WP.jpg',
 					'https://www.wallpaperflare.com/static/581/364/24/artwork-fantasy-art-digital-art-desert-wallpaper.jpg',
-					'https://i.pinimg.com/originals/96/87/cc/9687cc161c2bbfb2d9559deaec9b296a.jpg'
+					'https://i.pinimg.com/originals/1d/34/cd/1d34cdbcbc3ebb9d59d2e455c249a82c.jpg'
 					]
 			
 
@@ -221,14 +228,15 @@ class boardBuilder extends Component {
 		const result = dice + this.state.strengh + this.state.bonusToDice;
 		const monsterSlain = this.state.monsterSlain + 1;
 		let newExperience = this.state.currentMonster.experience + this.state.experience
+		let newGold = this.state.currentMonster.gold + this.state.gold
 		if (newExperience > 100) {newExperience = 100};
 
 
 		if ((dice != 1 && result >= this.state.currentMonster.defense) || dice === 6) {
 			if(this.state.currentMonster.treasure > 0) {
-				this.setState({combatResult: 'winWithReward', monsterSlain: monsterSlain, experience: newExperience});
+				this.setState({combatResult: 'winWithReward', monsterSlain: monsterSlain, experience: newExperience, gold: newGold});
 			}else{
-				this.setState({combatResult: 'winNoReward', monsterSlain: monsterSlain, experience: newExperience});
+				this.setState({combatResult: 'winNoReward', monsterSlain: monsterSlain, experience: newExperience, gold: newGold});
 			}
 
 			// this.setState(prevState => ({
@@ -290,7 +298,7 @@ class boardBuilder extends Component {
 	continueHandler = () => {
 	
 		if (this.state.area === 0) {
-			const newArea = this.state.area + 1
+			const newArea = this.state.area + 1;
 			this.setState({area: newArea})
 		}else if (this.state.showFloorCheck && this.state.area === 1) {
 			this.setState({	showFloorCheck: false, showDeck: true})
@@ -601,6 +609,11 @@ class boardBuilder extends Component {
 								decks={this.state.openedDecks}
 								area={this.state.area}
 								percentage={this.state.experience}
+								gold={this.state.gold}
+								treasure={this.state.treasure.length}
+								deck={this.state.openedDecks}
+								monsterSlain={this.state.monsterSlain}
+								area={this.state.areaName[this.state.area]}
 							/>
 							{attackCards}
 							{defenseCards}

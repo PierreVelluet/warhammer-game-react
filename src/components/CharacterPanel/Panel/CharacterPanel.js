@@ -16,7 +16,7 @@ const characterPanel =(props) => {
                 </div>
             </div>
             <hr/>
-            <div className={classes.AllCharacs}>
+            {/* <div className={classes.AllCharacs}>
                 <p className={classes.Characteristics} >Level: <span className={classes.CharacteristicsValues}>{props.level}</span></p>
                 <p className={classes.Characteristics} >Experience : <span className={classes.CharacteristicsValues}>{props.experience}</span></p>
                 <p className={classes.Characteristics} >Health : <span className={classes.CharacteristicsValues}>{props.health}</span></p>
@@ -25,6 +25,54 @@ const characterPanel =(props) => {
                 <p className={classes.Characteristics} >Current area : <span className={classes.CharacteristicsValues}>{props.area}</span></p>
                 <p className={classes.Characteristics} >Defense : <span className={classes.CharacteristicsValues}>{props.defense}</span></p>
                 <p className={classes.Characteristics} >Deck opened : <span className={classes.CharacteristicsValues}>{props.decks}/3</span></p>
+            </div> */}
+            <div>
+                <table className={classes.Table1}>
+                    <tr>
+                        <td className={classes.LevelIcon}></td>
+                        <td>{props.level}</td>
+                    </tr>
+                    <tr>
+                        <td className={classes.StrenghIcon}></td>
+                        <td>{props.strengh}</td>
+                    </tr>
+                    <tr>
+                        <td className={classes.DefenseIcon}></td>
+                        <td>{props.defense}</td>
+                    </tr>
+                    <tr>
+                        <td className={classes.HealthIcon}></td>
+                        <td>{props.health}</td>
+                    </tr>
+                    <tr>
+                        <td className={classes.ExperienceIcon}></td>
+                        <td>{props.experience}</td>
+                    </tr>
+                </table>
+            </div>
+            <div>
+                <table className={classes.Table2}>
+                    <tr>
+                        <td className={classes.GoldIcon}></td>
+                        <td> {props.gold}</td>
+                    </tr>
+                    <tr>
+                        <td className={classes.TreasureIcon}></td>
+                        <td>{props.treasure}</td>
+                    </tr>
+                    <tr>
+                        <td className={classes.DeckIcon}></td>
+                        <td>{props.deck}/3</td>
+                    </tr>
+                    <tr>
+                        <td className={classes.MonsterSlainIcon}></td>
+                        <td>{props.monsterSlain}</td>
+                    </tr>
+                    <tr>
+                        <td className={classes.AreaIcon}></td>
+                        <td>{props.area}</td>
+                    </tr>
+                </table>
             </div>
             <hr/>
             <ProgressBar percentage={props.percentage} />

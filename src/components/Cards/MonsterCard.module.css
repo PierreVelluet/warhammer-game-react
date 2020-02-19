@@ -70,7 +70,8 @@
     text-align: left;
     font-style: italic;
     margin-bottom: 5px;
-    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSHAZTb2-3PMVOj3FadJE5FCEeEp9HB8EAZ5Zti04R8zfL3jkYH');
+    /* background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSHAZTb2-3PMVOj3FadJE5FCEeEp9HB8EAZ5Zti04R8zfL3jkYH'); */
+    background-image: url('https://i.pinimg.com/originals/6b/72/23/6b7223d0def9fb19401c5758808f4178.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -81,17 +82,14 @@
     margin-top: 20px;
 }
 
-.Table {
+.Table{
     border-collapse: collapse;
     width: 95%;
     margin: 0 auto;
-    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSHAZTb2-3PMVOj3FadJE5FCEeEp9HB8EAZ5Zti04R8zfL3jkYH');
+    background-image: url('https://i.pinimg.com/originals/6b/72/23/6b7223d0def9fb19401c5758808f4178.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-}
-
-.Table, td {
     border: 2px dashed black;
 }
 
@@ -101,7 +99,7 @@
 	background-size: 50%;
 	background-repeat: no-repeat;
     background-position: center;
-    width: 25%;
+    width: 20%;
 }
 .DefenseData {
 
@@ -109,7 +107,7 @@
 	background-size: 50%;
 	background-repeat: no-repeat;
     background-position: center;
-    width: 25%;
+    width: 20%;
 }
 .TreasureData {
 
@@ -117,13 +115,22 @@
 	background-size: 55%;
 	background-repeat: no-repeat;
     background-position: center;
-    width: 25%;
+    width: 20%;
 }
+.GoldData {
+	height: 25px;
+    background-image: url('/images/Gold.png');
+	background-size: 50%;
+	background-repeat: no-repeat;
+    background-position: center;
+    width: 20%;
+}
+
 .ExperienceData {
 	height: 25px;
     background-image: url('https://vignette.wikia.nocookie.net/fortnite/images/b/b8/XP_-_Icon_-_Fortnite.png/revision/latest/scale-to-width-down/340?cb=20190302164038');
 	background-size: 50%;
 	background-repeat: no-repeat;
     background-position: center;
-    width: 25%;
+    width: 20%;
 }

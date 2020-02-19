@@ -70,6 +70,105 @@
     font-weight: 500;
 }
 
+.Table1 {
+  border: none;
+  width: 50%;
+  float: left;
+
+}
+
+.Table2 {
+  border: none;
+  width: 50%;
+
+}
+
+.LevelIcon {
+  height: 25px;
+  width: 25px;
+  background-image: url('/images/Level.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.StrenghIcon {
+  height: 25px;
+  width: 25px;
+  background-image: url('/images/Icons/Strengh.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.DefenseIcon {
+  height: 25px;
+  width: 25px;
+  background-image: url('/images/Icons/Defense.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.HealthIcon {
+  height: 25px;
+  width: 25px;
+  background-image: url('/images/Health.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.ExperienceIcon {
+  height: 25px;
+  width: 25px;
+  background-image: url('https://vignette.wikia.nocookie.net/fortnite/images/b/b8/XP_-_Icon_-_Fortnite.png/revision/latest/scale-to-width-down/340?cb=20190302164038');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.GoldIcon {
+  height: 25px;
+  width: 25px;
+  background-image: url('/images/Gold.png');
+  background-size: 70%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.TreasureIcon {
+  height: 25px;
+  width: 25px;
+  background-image: url('/images/Icons/Treasure.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.DeckIcon {
+  height: 25px;
+  width: 25px;
+  background-image: url('/images/Deck.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.MonsterSlainIcon {
+  height: 25px;
+  width: 25px;
+  background-image: url('/images/MonsterSlain.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.AreaIcon {
+  height: 25px;
+  width: 25px;
+  background-image: url('/images/Globe.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+
 .AllCharacs {
   margin: 10px;
   font-weight: 600;
