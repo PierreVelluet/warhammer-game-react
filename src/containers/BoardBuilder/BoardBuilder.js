@@ -5,9 +5,9 @@ import PlayerBoardControl from '../PlayerBoardControl/PlayerBoardControl';
 import DeckBoardControl from '../DeckBoardControl/DeckBoardControl';
 import Deck from '../../components/Cards/Deck';
 import ChooseRewardScreen from '../../components/ChooseRewardScreen/ChooseRewardScreen';
-import AttackCardsList from '../../components/ListOfCards/AttackCardsList';
-import DefenseCardsList from '../../components/ListOfCards/DefenseCardsList';
-import MagicCardsList from '../../components/ListOfCards/MagicCardsList';
+// import AttackCardsList from '../../components/ListOfCards/AttackCardsList';
+// import DefenseCardsList from '../../components/ListOfCards/DefenseCardsList';
+// import MagicCardsList from '../../components/ListOfCards/MagicCardsList';
 import CombatDetails from '../../components/CombatDetails/CombatDetails';
 import ChooseMonsterScreen from '../../components/ChooseMonsterScreen/ChooseMonsterScreen';
 import CharacterPanel from '../../components/CharacterPanel/Panel/CharacterPanel';
@@ -61,6 +61,8 @@ class boardBuilder extends Component {
 		attackCards: [],
 		defenseCards: [],
 		magicCards: [],
+		whichInventory: '',
+		inventoryColor: null,
 		openedDecks: 0,
 		/////////////////////
 		whichReward: 'normal',
@@ -107,44 +109,10 @@ class boardBuilder extends Component {
 						})
 	}
 
-	//display inventory's attack's cards
-	showAttackCards = () => {
-		this.state.showAttackCards ? 
-		this.setState({showAttackCards: false, activeAttackIcon: false}):
-		this.setState	({showAttackCards: true,
-						showMagicCards: false,
-						showDefenseCards: false,
-						activeAttackIcon: true,
-						activeDefenseIcon: false,
-						activeMagicIcon:false,
-						});
-	}
 
-	//display inventory's defense's cards
-	showDefenseCards = () => {
-		console.log('passed')
-		this.state.showDefenseCards ? 
-		this.setState({showDefenseCards: false, activeDefenseIcon: false}):
-		this.setState	({showDefenseCards: true,
-						showAttackCards: false,
-						showMagicCards: false,
-						activeDefenseIcon: true,
-						activeAttackIcon: false,
-						activeMagicIcon: false,
-						});
-	}
-
-	//display inventory's magic's cards
-	showMagicCards = () => {
-		this.state.showMagicCards ? 
-		this.setState({showMagicCards: false, activeMagicIcon: false}):
-		this.setState	({showMagicCards: true,
-						showAttackCards: false,
-						showDefenseCards: false,
-						activeMagicIcon: true,
-						activeAttackIcon: false,
-						activeDefenseIcon: false,
-						})
+	revealInventory = (type) => {
+		const whichInventory = this.state[type]
+		this.setState({whichInventory: whichInventory, inventoryColor: type})
 	}
 
 	//anytime you pick a reward or you win a fight with no reward, check if you level up, then if boss appear, then if area must change
@@ -451,40 +419,40 @@ class boardBuilder extends Component {
 		
 
 
-		let attackCards = null;
-		if(this.state.showAttackCards) {
-			attackCards = 	<AttackCardsList
-								attackCards={this.state.attackCards}
-								name={this.state.attackCards}
-								portrait={this.state.attackCards}
-								text={this.state.attackCards}
-								bottomText={this.state.attackCards}
-								effect={this.state.attackCards}						
-							/>
-		}
-		let defenseCards = null;
-		if(this.state.showDefenseCards) {
-			defenseCards = 	<DefenseCardsList
-								defenseCards={this.state.defenseCards}
-								name={this.state.defenseCards}
-								portrait={this.state.defenseCards}
-								text={this.state.defenseCards}
-								bottomText={this.state.defenseCards}
-								effect={this.state.defenseCards}						
-							/>
-		}
-		let magicCards = null;
-		if(this.state.showMagicCards) {
-			magicCards = 	<MagicCardsList
-								magicEffect={this.magicEffectHandler} 
-								magicCards={this.state.magicCards}
-								name={this.state.magicCards}
-								portrait={this.state.magicCards}
-								text={this.state.magicCards}
-								bottomText={this.state.magicCards}
-								effect={this.state.magicCards}						
-							/>
-		}
+		// let attackCards = null;
+		// if(this.state.showAttackCards) {
+		// 	attackCards = 	<AttackCardsList
+		// 						attackCards={this.state.attackCards}
+		// 						name={this.state.attackCards}
+		// 						portrait={this.state.attackCards}
+		// 						text={this.state.attackCards}
+		// 						bottomText={this.state.attackCards}
+		// 						effect={this.state.attackCards}						
+		// 					/>
+		// }
+		// let defenseCards = null;
+		// if(this.state.showDefenseCards) {
+		// 	defenseCards = 	<DefenseCardsList
+		// 						defenseCards={this.state.defenseCards}
+		// 						name={this.state.defenseCards}
+		// 						portrait={this.state.defenseCards}
+		// 						text={this.state.defenseCards}
+		// 						bottomText={this.state.defenseCards}
+		// 						effect={this.state.defenseCards}						
+		// 					/>
+		// }
+		// let magicCards = null;
+		// if(this.state.showMagicCards) {
+		// 	magicCards = 	<MagicCardsList
+		// 						magicEffect={this.magicEffectHandler} 
+		// 						magicCards={this.state.magicCards}
+		// 						name={this.state.magicCards}
+		// 						portrait={this.state.magicCards}
+		// 						text={this.state.magicCards}
+		// 						bottomText={this.state.magicCards}
+		// 						effect={this.state.magicCards}						
+		// 					/>
+		// }
 
 
 		let chooseScreen = null;
@@ -555,6 +523,7 @@ class boardBuilder extends Component {
 								defense={this.state.defense}
 								level={this.state.level}
 								items={this.state.treasure}
+								
 							/>
 		 }
 
@@ -613,14 +582,17 @@ class boardBuilder extends Component {
 								deck={this.state.openedDecks}
 								area={this.state.areaName[this.state.area]}
 								areaExplored={this.state.areaExplored}
-								items={this.state.treasure}
-							>
+								// strenghItems={this.state.attackCards}
+								// defenseItems={this.state.defenseCards}
+								// magicItems={this.state.magicCards}
+								whichInventory={this.state.whichInventory}
+								revealInventory={this.revealInventory}
+								inventoryColor={this.state.inventoryColor}
+							/>
 
-								{attackCards}
-							</CharacterPanel>
 							{/* {attackCards} */}
-							{defenseCards}
-							{magicCards}
+							{/* {defenseCards}
+							{magicCards} */}
 						</PlayerBoardControl>
 						<DeckBoardControl
 							background={this.state.background}

@@ -5,7 +5,8 @@ import ReactTooltip from 'react-tooltip';
 
 const characterPanel =(props) => {
     const portrait = props.portrait;
-    const items = props.items;
+    const whichInventory = props.whichInventory;
+    const inventoryColor = props.inventoryColor;
 
 	return (
 		<div style={{height: props.height}}onClick={props.choose} className={classes.Panel}>
@@ -80,38 +81,43 @@ const characterPanel =(props) => {
                 </table>
             <hr/>
             
-            {/* <Inventory
-                activeAttackIcon={props.activeAttackIcon}
-                activeDefenseIcon={props.activeDefenseIcon}
-                activeMagicIcon={props.activeMagicIcon}
-                attack={props.showAttackCards}  
-                defense={props.showDefenseCards}
-                magic={props.showMagicCards}
-            /> */}
-           <table className={classes.InventoryTable}>
-                <tbody>
-                    <tr>
-                        <td data-tip={items.length>0 ? items[0].tooltip : ''} style={items.length>0 ?{backgroundImage: `url(${items[0].portrait})`}:{backgroundImage: ""}}></td>
-                        <td data-tip={items.length>1 ? items[1].tooltip : ''} style={items.length>1 ?{backgroundImage: `url(${items[1].portrait})`}:{backgroundImage: ""}}></td>
-                        <td data-tip={items.length>2 ? items[2].tooltip : ''} style={items.length>2 ?{backgroundImage: `url(${items[2].portrait})`}:{backgroundImage: ""}}></td>
-                    </tr>
-                    <tr>
-                        <td data-tip={items.length>3 ? items[3].tooltip : ''} style={items.length>3 ?{backgroundImage: `url(${items[3].portrait})`}:{backgroundImage: ""}}></td>
-                        <td data-tip={items.length>4 ? items[4].tooltip : ''} style={items.length>4 ?{backgroundImage: `url(${items[4].portrait})`}:{backgroundImage: ""}}></td>
-                        <td data-tip={items.length>5 ? items[5].tooltip : ''} style={items.length>5 ?{backgroundImage: `url(${items[5].portrait})`}:{backgroundImage: ""}}></td>
-                    </tr>
-                    <tr>
-                        <td data-tip={items.length>6 ? items[6].tooltip : ''} style={items.length>6 ?{backgroundImage: `url(${items[6].portrait})`}:{backgroundImage: ""}}></td>
-                        <td data-tip={items.length>7 ? items[7].tooltip : ''} style={items.length>7 ?{backgroundImage: `url(${items[7].portrait})`}:{backgroundImage: ""}}></td>
-                        <td data-tip={items.length>8 ? items[8].tooltip : ''} style={items.length>8 ?{backgroundImage: `url(${items[8].portrait})`}:{backgroundImage: ""}}></td>
-                    </tr>
-                    <tr>
-                        <td data-tip={items.length>9 ? items[9].tooltip : ''} style={items.length>9 ?{backgroundImage: `url(${items[9].portrait})`}:{backgroundImage: ""}}></td>
-                        <td data-tip={items.length>10 ? items[10].tooltip : ''} style={items.length>10 ?{backgroundImage: `url(${items[10].portrait})`}:{backgroundImage: ""}}></td>
-                        <td data-tip={items.length>11 ? items[11].tooltip : ''} style={items.length>11 ?{backgroundImage: `url(${items[11].portrait})`}:{backgroundImage: ""}}></td>
-                    </tr>
-                </tbody>
-           </table>
+            <div style={{margin: '0 auto', width: '100%'}}>
+                <button style={props.inventoryColor === 'attackCards'? {backgroundColor: 'darkgrey'}: null} onClick={()=>props.revealInventory('attackCards')} className={classes.InventoryButtons}>
+                    Strengh
+                </button>
+                <button style={props.inventoryColor === 'defenseCards'? {backgroundColor: 'darkgrey'}: null} onClick={()=>props.revealInventory('defenseCards')} className={classes.InventoryButtons}>
+                    Defense
+                </button>
+                <button style={props.inventoryColor === 'magicCards'? {backgroundColor: 'darkgrey'}: null} onClick={()=>props.revealInventory('magicCards')} className={classes.InventoryButtons}>
+                    Medic
+                </button>
+            </div>
+
+            <table className={[classes.InventoryTable, classes[props.inventoryColor]].join(' ')}>
+                    <tbody>
+                        <tr>
+                            <td data-place="right" data-tip={whichInventory.length>0 ? whichInventory[0].tooltip : ''} style={whichInventory.length>0 ?{backgroundImage: `url(${whichInventory[0].portrait})`}:{backgroundImage: ""}}></td>
+                            <td data-place="right" data-tip={whichInventory.length>1 ? whichInventory[1].tooltip : ''} style={whichInventory.length>1 ?{backgroundImage: `url(${whichInventory[1].portrait})`}:{backgroundImage: ""}}></td>
+                            <td data-place="right" data-tip={whichInventory.length>2 ? whichInventory[2].tooltip : ''} style={whichInventory.length>2 ?{backgroundImage: `url(${whichInventory[2].portrait})`}:{backgroundImage: ""}}></td>
+                        </tr>
+                        <tr>
+                            <td data-place="right" data-tip={whichInventory.length>3 ? whichInventory[3].tooltip : ''} style={whichInventory.length>3 ?{backgroundImage: `url(${whichInventory[3].portrait})`}:{backgroundImage: ""}}></td>
+                            <td data-place="right" data-tip={whichInventory.length>4 ? whichInventory[4].tooltip : ''} style={whichInventory.length>4 ?{backgroundImage: `url(${whichInventory[4].portrait})`}:{backgroundImage: ""}}></td>
+                            <td data-place="right" data-tip={whichInventory.length>5 ? whichInventory[5].tooltip : ''} style={whichInventory.length>5 ?{backgroundImage: `url(${whichInventory[5].portrait})`}:{backgroundImage: ""}}></td>
+                        </tr>
+                        <tr>
+                            <td data-place="right" data-tip={whichInventory.length>6 ? whichInventory[6].tooltip : ''} style={whichInventory.length>6 ?{backgroundImage: `url(${whichInventory[6].portrait})`}:{backgroundImage: ""}}></td>
+                            <td data-place="right" data-tip={whichInventory.length>7 ? whichInventory[7].tooltip : ''} style={whichInventory.length>7 ?{backgroundImage: `url(${whichInventory[7].portrait})`}:{backgroundImage: ""}}></td>
+                            <td data-place="right" data-tip={whichInventory.length>8 ? whichInventory[8].tooltip : ''} style={whichInventory.length>8 ?{backgroundImage: `url(${whichInventory[8].portrait})`}:{backgroundImage: ""}}></td>
+                        </tr>
+                        <tr>
+                            <td data-place="right" data-tip={whichInventory.length>9 ? whichInventory[9].tooltip : ''} style={whichInventory.length>9 ?{backgroundImage: `url(${whichInventory[9].portrait})`}:{backgroundImage: ""}}></td>
+                            <td data-place="right" data-tip={whichInventory.length>10 ? whichInventory[10].tooltip : ''} style={whichInventory.length>10 ?{backgroundImage: `url(${whichInventory[10].portrait})`}:{backgroundImage: ""}}></td>
+                            <td data-place="right" data-tip={whichInventory.length>11 ? whichInventory[11].tooltip : ''} style={whichInventory.length>11 ?{backgroundImage: `url(${whichInventory[11].portrait})`}:{backgroundImage: ""}}></td>
+                        </tr>
+                    </tbody>
+            </table>
+
 		</div>
 		)
 }
