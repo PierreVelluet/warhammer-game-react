@@ -322,6 +322,10 @@ class chooseMonsterScreen extends Component{
 		}
 	}
 
+	// shouldComponentUpdate(nextProps, nextState) {
+    //     return nextProps.chosenMonster != this.props.chosenMonster;
+    // }
+
 	chooseMonster = (data) => {
 
 		this.setState({chosenMonster: data}, () => {this.toGiveToParent()})

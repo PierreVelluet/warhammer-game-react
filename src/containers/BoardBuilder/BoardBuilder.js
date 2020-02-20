@@ -14,7 +14,8 @@ import CharacterPanel from '../../components/CharacterPanel/Panel/CharacterPanel
 import FloorCheck from '../../components/FloorCheck/FloorCheck';
 import LevelUp from '../../components/LevelUp/LevelUp';
 import GameOver from '../../components/GameOver/GameOver';
-import BossTrailer from '../../components/Bosses/BossTrailer'
+import BossTrailer from '../../components/Bosses/BossTrailer';
+import Merchant from '../../components/Merchant/Merchant';
 
 class boardBuilder extends Component {
 	state = {
@@ -31,6 +32,7 @@ class boardBuilder extends Component {
 		showGameOverPanel: false,
 		showBossTrailer: false,
 		showCombatDetails: false,
+		showMerchant: false,
 		combatResult: 'base',
 		activeAttackIcon: false,
 		activeDefenseIcon: false,
@@ -101,8 +103,9 @@ class boardBuilder extends Component {
 						health: health,
 						name: name,
 						power: power,
-						showFloorCheck: true,
-						area: 0,
+						showFloorCheck: false, //to rechange
+						showMerchant: true,
+						area: 1, // to rechange after tests
 						portrait: portrait,
 						})
 	}
@@ -323,7 +326,14 @@ class boardBuilder extends Component {
 							defense: newDefense,
 							showRewards: false,
 							showDeck: true,
+							showMerchant: false,
 						})
+
+			if(treasure.hasOwnProperty('price')) {
+				console.log('hasownprop')
+				const newGold = this.state.gold - treasure.price;
+				this.setState({gold: newGold})
+			}
 		}else {
 			const newGold = this.state.gold + treasure;
 			this.setState({	gold: newGold,
@@ -453,6 +463,7 @@ class boardBuilder extends Component {
 									monsterType={this.state.monsterType}
 									area={this.state.area}
 									name={this.state.name}
+									chosenMonster={this.state.currentMonster}
 								/>
 		}
 
@@ -509,6 +520,16 @@ class boardBuilder extends Component {
 			 				/>
 		 }
 
+		 let merchant = null;
+		 if (this.state.showMerchant) {
+			 merchant = <Merchant
+							area={this.state.area}
+							choose={this.chooseRewardHandler}
+							treasure={this.state.treasure}
+							gold={this.state.gold}
+			 			/>
+		 }
+
 		return (
 			<div className={classes.Board}>
 				{this.state.showChooseCharScreen ? chooseScreen :
@@ -552,6 +573,7 @@ class boardBuilder extends Component {
 							background={this.state.background}
 							area={this.state.area}
 						>
+							{merchant}
 							{bossTrailer}
 							{gameOver}
 							{levelUp}
