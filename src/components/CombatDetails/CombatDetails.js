@@ -47,7 +47,7 @@ const combatDetails = (props) => {
 							<button onClick={props.continue} className={classes.Btn} >Continue ...</button>
 						</div>,
 
-					winWithReward:
+					win:
 					
 						<div className={classes.CombatLogs}>
 							<p style={{display: 'inline-block'}}>You rolled a <span> </span></p><span> </span>
@@ -56,16 +56,6 @@ const combatDetails = (props) => {
 							<button onClick={()=>props.claimRewards('normal')} className={classes.Btn}>Claim my rewards !</button>
 						</div>,
 					
-					winNoReward:
-
-						<div className={classes.CombatLogs}>
-							<p style={{display: 'inline-block'}}>You rolled a <span> </span></p><span> </span>
-								<div className={classes.Dice}style ={{backgroundImage: `url(${dices[rng]})` }}></div>.<span> </span><span className={classes.Result}> Success !</span>
-								<p>You have beaten the ennemy! You earned some experience (<span style={{color: 'green'}}>{props.experience}</span>) !</p>
-								<p>There is <span style={{color: 'red'}}>{100 - props.currentExperience}</span> Xp left before level {props.level +1} !</p>
-							<button onClick={props.continue} className={classes.Btn}>Continue</button>
-						</div>,
-
 					retaliation: 
 
 						<div className={classes.CombatLogs}>

@@ -6,7 +6,6 @@ import ReactTooltip from 'react-tooltip';
 const characterPanel =(props) => {
     const portrait = props.portrait;
     const whichInventory = props.whichInventory;
-    const inventoryColor = props.inventoryColor;
 
 	return (
 		<div style={{height: props.height}}onClick={props.choose} className={classes.Panel}>

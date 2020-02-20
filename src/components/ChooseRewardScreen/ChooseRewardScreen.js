@@ -6,150 +6,157 @@ import TreasureCard from '../Cards/TreasureCard';
 
 class chooseRewardScreen extends Component {
 
-	state = {
-		normal: [
-			{
-			name: 'Dope syringe',
-			portrait: '/images/MagicItems/Syringe.png',
-			text: "A mystic substance.",
-			type :'magic',
-			bottomText: 'One use only',
-			effect: 'Strengh + 3',
-			tooltip: 'Dope syringe : Strengh + 3.'
-			},
-			{
-			name: 'Painkillers',
-			portrait: '/images/MagicItems/Pills.png',
-			text: "A healthy pill.",
-			type :'magic',
-			bottomText: 'One use only',
-			effect: 'Hp + 2',
-			tooltip: 'Painkillers : Hp + 2.'
-			},
-			{
-			name: 'Helmet',
-			portrait: '/images/DefenseItems/Helmet.png',
-			text: "A tactical helmet.",
-			type: 'defense',
-			bottomText: 'Permanent effect',
-			effect: 'Defense + 1',
-			defense: 1,
-			tooltip: 'Helmet : Defense +1.'
-			},
-			{
-			name: 'Iron fist',
-			portrait: '/images/DefenseItems/Fist.png',
-			text: "A solid glove.",
-			type: 'defense',
-			bottomText: 'Permanent effect',
-			effect: 'Defense + 1',
-			defense: 1,
-			tooltip: 'Iron fist : Defense + 1.'
-			},
-			{
-			name: 'Bullet-proof vest',
-			portrait: '/images/DefenseItems/Vest.png',
-			text: "Fear bullets no more.",
-			type: 'defense',
-			bottomText: 'Permanent effect',
-			effect: 'Defense + 2',
-			defense: 2,
-			tooltip: 'Bullet-proof vest : Defense + 2.'
-			},
-			{
-			name: 'Bolter',
-			portrait: '/images/StrenghItems/Bolter.png' ,
-			text: "A good gun.",
-			type: 'attack',
-			bottomText: 'Permanent effect',
-			effect: 'Strengh + 1',
-			strengh: 1,
-			tooltip: 'Bolter : Strengh + 1.'
-			},
-			{
-			name: 'Eldary laser',
-			portrait: '/images/StrenghItems/EldaryLaser.png' ,
-			text: "A good laser.",
-			type: 'attack',
-			bottomText: 'Permanent effect',
-			effect: 'Strengh + 1',
-			strengh: 1,
-			tooltip: 'Eldary laser : Strengh + 1.'
-			},
-			{
-			name: 'Plasma gun',
-			portrait: '/images/StrenghItems/PlasmaGun.png' ,
-			text: "A good laser.",
-			type: 'attack',
-			bottomText: 'Permanent effect',
-			effect: 'Strengh + 2',
-			strengh: 2,
-			tooltip: 'Plasma gun : Strengh + 2.'
-			},
-			{
-			name: 'Axe',
-			portrait: '/images/StrenghItems/Axe.png',
-			text: "A strong weapon.",
-			type: 'attack',
-			bottomText: 'Permanent effect',
-			effect: 'Strengh + 1',
-			strengh: 1,
-			tooltip: 'Axe : Strengh + 1.'
-			},
-			{
-			name: 'Sword',
-			portrait: '/images/StrenghItems/Sword.png',
-			text: "A simple sword.",
-			type: 'attack',
-			bottomText: 'Permanent effect',
-			effect: 'Strengh + 1',
-			strengh: 1,
-			tooltip: 'Sword : Strengh + 1.'
-			},
-			{
-			name: 'Chainsword',
-			portrait: '/images/StrenghItems/Chainsword.png',
-			text: "A powerfull sword.",
-			type: 'attack',
-			bottomText: 'Permanent effect',
-			effect: 'Strengh + 2',
-			strengh: 2,
-			tooltip: 'Chainsword : Strengh + 2.'
-			},
-			
-		],
-		super: [
-			{
-			name: 'Heavy gauntlet',
-			portrait: '/images/StrenghItems/HeavyGauntlet.png',
-			text: "An awesome sword.",
-			type: 'attack',
-			bottomText: 'Permanent effect',
-			effect: 'Strengh + 3',
-			strengh: 3,
-			tooltip: 'Heavy gauntlet : Strengh + 3.'
-			},
-			{
-			name: 'Bi-pills',
-			portrait: '/images/MagicItems/BiPills.png',
-			text: "A healthy potion.",
-			type :'magic',
-			bottomText: 'One use only',
-			effect: 'Hp + 2. Strengh + 3.',
-			tooltip: 'Bi-pills : Hp + 2 & Strengh + 3. (this turn only)'
-			},
-			{
-			name: 'Heroic shield',
-			portrait: '/images/DefenseItems/HeroicShield.png',
-			text: "An awesome shield.",
-			type: 'defense',
-			bottomText: 'Permanent effect',
-			effect: 'Defense + 3',
-			defense: 3,
-			tooltip: 'Heroic shield : Defense + 3.'
-			},
-		]
-	};
+	constructor(props) {
+		super(props);
+
+		this.state = {
+			normal: [
+				{
+				name: 'Dope syringe',
+				portrait: '/images/MagicItems/Syringe.png',
+				text: "A mystic substance.",
+				type :'magic',
+				bottomText: 'One use only',
+				effect: 'Strengh + 3',
+				tooltip: 'Dope syringe : Strengh + 3.'
+				},
+				{
+				name: 'Painkillers',
+				portrait: '/images/MagicItems/Pills.png',
+				text: "A healthy pill.",
+				type :'magic',
+				bottomText: 'One use only',
+				effect: 'Hp + 2',
+				tooltip: 'Painkillers : Hp + 2.'
+				},
+				{
+				name: 'Helmet',
+				portrait: '/images/DefenseItems/Helmet.png',
+				text: "A tactical helmet.",
+				type: 'defense',
+				bottomText: 'Permanent effect',
+				effect: 'Defense + 1',
+				defense: 1,
+				tooltip: 'Helmet : Defense +1.'
+				},
+				{
+				name: 'Iron fist',
+				portrait: '/images/DefenseItems/Fist.png',
+				text: "A solid glove.",
+				type: 'defense',
+				bottomText: 'Permanent effect',
+				effect: 'Defense + 1',
+				defense: 1,
+				tooltip: 'Iron fist : Defense + 1.'
+				},
+				{
+				name: 'Bullet-proof vest',
+				portrait: '/images/DefenseItems/Vest.png',
+				text: "Fear bullets no more.",
+				type: 'defense',
+				bottomText: 'Permanent effect',
+				effect: 'Defense + 2',
+				defense: 2,
+				tooltip: 'Bullet-proof vest : Defense + 2.'
+				},
+				{
+				name: 'Bolter',
+				portrait: '/images/StrenghItems/Bolter.png' ,
+				text: "A good gun.",
+				type: 'attack',
+				bottomText: 'Permanent effect',
+				effect: 'Strengh + 1',
+				strengh: 1,
+				tooltip: 'Bolter : Strengh + 1.'
+				},
+				{
+				name: 'Eldary laser',
+				portrait: '/images/StrenghItems/EldaryLaser.png' ,
+				text: "A good laser.",
+				type: 'attack',
+				bottomText: 'Permanent effect',
+				effect: 'Strengh + 1',
+				strengh: 1,
+				tooltip: 'Eldary laser : Strengh + 1.'
+				},
+				{
+				name: 'Plasma gun',
+				portrait: '/images/StrenghItems/PlasmaGun.png' ,
+				text: "A good laser.",
+				type: 'attack',
+				bottomText: 'Permanent effect',
+				effect: 'Strengh + 2',
+				strengh: 2,
+				tooltip: 'Plasma gun : Strengh + 2.'
+				},
+				{
+				name: 'Axe',
+				portrait: '/images/StrenghItems/Axe.png',
+				text: "A strong weapon.",
+				type: 'attack',
+				bottomText: 'Permanent effect',
+				effect: 'Strengh + 1',
+				strengh: 1,
+				tooltip: 'Axe : Strengh + 1.'
+				},
+				{
+				name: 'Sword',
+				portrait: '/images/StrenghItems/Sword.png',
+				text: "A simple sword.",
+				type: 'attack',
+				bottomText: 'Permanent effect',
+				effect: 'Strengh + 1',
+				strengh: 1,
+				tooltip: 'Sword : Strengh + 1.'
+				},
+				{
+				name: 'Chainsword',
+				portrait: '/images/StrenghItems/Chainsword.png',
+				text: "A powerfull sword.",
+				type: 'attack',
+				bottomText: 'Permanent effect',
+				effect: 'Strengh + 2',
+				strengh: 2,
+				tooltip: 'Chainsword : Strengh + 2.'
+				},
+				
+			],
+			super: [
+				{
+				name: 'Heavy gauntlet',
+				portrait: '/images/StrenghItems/HeavyGauntlet.png',
+				text: "An awesome sword.",
+				type: 'attack',
+				bottomText: 'Permanent effect',
+				effect: 'Strengh + 3',
+				strengh: 3,
+				tooltip: 'Heavy gauntlet : Strengh + 3.'
+				},
+				{
+				name: 'Bi-pills',
+				portrait: '/images/MagicItems/BiPills.png',
+				text: "A healthy potion.",
+				type :'magic',
+				bottomText: 'One use only',
+				effect: 'Hp + 2. Strengh + 3.',
+				tooltip: 'Bi-pills : Hp + 2 & Strengh + 3. (this turn only)'
+				},
+				{
+				name: 'Heroic shield',
+				portrait: '/images/DefenseItems/HeroicShield.png',
+				text: "An awesome shield.",
+				type: 'defense',
+				bottomText: 'Permanent effect',
+				effect: 'Defense + 3',
+				defense: 3,
+				tooltip: 'Heroic shield : Defense + 3.'
+				},
+			],
+			chosenMonster: this.props.chosenMonster,	
+		};
+	
+	}
+
 
 	shouldComponentUpdate(nextProps, nextState) {
  		return this.state.value !== nextState.value;
@@ -188,7 +195,6 @@ class chooseRewardScreen extends Component {
 				{rngArray.map((rng, index)=>{
 					return (
 						<TreasureCard
-							onClick={this.props.choose}
 							text={this.state[whichReward][rng].text}
 							name={this.state[whichReward][rng].name}
 							portrait={this.state[whichReward][rng].portrait}
@@ -199,6 +205,15 @@ class chooseRewardScreen extends Component {
 						/>
 					)
 				})}
+
+				<TreasureCard
+					effect={ this.state.chosenMonster.gold + ' gold coins'}
+					name='Gold coins'
+					portrait='/images/GoldStack.png'
+					bottomText='To spend at shop'
+					text='You become rich !'
+					choose={(() => this.props.choose(this.state.chosenMonster.gold))}
+				/>
 				<p className={classes.Title}>Choose one reward !</p>
 			</div>
 		)

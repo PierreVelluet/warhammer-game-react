@@ -62,7 +62,7 @@ class boardBuilder extends Component {
 		defenseCards: [],
 		magicCards: [],
 		whichInventory: '',
-		inventoryColor: null,
+		inventoryColor: 'attackCards',
 		openedDecks: 0,
 		/////////////////////
 		whichReward: 'normal',
@@ -79,9 +79,7 @@ class boardBuilder extends Component {
 
 	}//end of state
 
-///////////////////////////////////////CLEAN AND APPROVED FUNCTIONS//////////////////////////////////////////////////////
-
-	//permite to choose your champion at the start
+	//permite to choose your champion at the start & set up all the data
 	chooseCharHandler = (champ) => {
 		
 		const chosenChar = champ;
@@ -109,7 +107,7 @@ class boardBuilder extends Component {
 						})
 	}
 
-
+	//handle the inventory's 'pages' changes
 	revealInventory = (type) => {
 		const whichInventory = this.state[type]
 		this.setState({whichInventory: whichInventory, inventoryColor: type})
@@ -196,15 +194,12 @@ class boardBuilder extends Component {
 		const monsterSlain = this.state.monsterSlain + 1;
 		const bossSlain = this.state.bossSlain +1;
 		let newExperience = this.state.currentMonster.experience + this.state.experience
-		let newGold = this.state.currentMonster.gold + this.state.gold
 		if (newExperience > 100) {newExperience = 100};
 
 
 		if ((dice !== 1 && result >= this.state.currentMonster.defense) || dice === 6) {
 			if(this.state.currentMonster.treasure > 0) {
-				this.setState({combatResult: 'winWithReward', experience: newExperience, gold: newGold});
-			}else{
-				this.setState({combatResult: 'winNoReward', monsterSlain: monsterSlain, experience: newExperience, gold: newGold});
+				this.setState({combatResult: 'win', experience: newExperience});
 			}
 			if (this.state.monsterType === 'boss') {
 				this.setState({ bossSlain: bossSlain})
@@ -240,7 +235,7 @@ class boardBuilder extends Component {
 		if(type === 'normal') {
 			this.setState({	showRewards: true,
 							showMonsterScreen: false,
-							currentMonster: null,
+							// currentMonster: null,
 							showCombatDetails: false,
 							whichReward: type,
 							})
@@ -248,7 +243,7 @@ class boardBuilder extends Component {
 			this.setState({	showRewards: true,
 							showMonsterScreen: false,
 							showLevelUpPanel: false,
-							currentMonster: null,
+							// currentMonster: null,
 							showCombatDetails: false,
 							whichReward: type,
 							})
@@ -271,9 +266,6 @@ class boardBuilder extends Component {
 			this.setState({	showFloorCheck: false, showDeck: true})
 		}else if (this.state.combatResult === 'saved') {
 			this.setState({combatResult: 'base'})
-		}else if (this.state.combatResult === 'winNoReward') {
-			this.setState({showDeck: true, showCombatDetails: false, showMonsterScreen: false})
-			this.shouldLevelOrAreaOrBossUpdate();
 		}else if (this.state.combatResult === 'wounded' && this.state.health > 0) {
 			this.setState({combatResult: 'base'})
 		}else if (this.state.combatResult === 'magicLess') {
@@ -290,47 +282,54 @@ class boardBuilder extends Component {
 	}
 	
 	chooseRewardHandler = (treasure) => {
-		this.state.treasure.push(treasure)
-		switch (treasure.type) {
-			case 'attack':
-				this.state.attackCards.push(treasure);
-				break;
-			case 'defense':
-				this.state.defenseCards.push(treasure);
-				break;
-			case 'magic':
-				this.state.magicCards.push(treasure);
-				break;
-			default:
-				break;
+		if (isNaN(treasure)) {
+			this.state.treasure.push(treasure)
+			switch (treasure.type) {
+				case 'attack':
+					this.state.attackCards.push(treasure);
+					break;
+				case 'defense':
+					this.state.defenseCards.push(treasure);
+					break;
+				case 'magic':
+					this.state.magicCards.push(treasure);
+					break;
+				default:
+					break;
+			}
+
+			//Calculate the new strengh & defenses variables and update the state
+			const strenghFromItem = this.state.treasure.map(treasure => {
+				if(treasure.hasOwnProperty('strengh')) {
+					return treasure.strengh;
+				}else{
+					return null;
+				}
+			}).reduce((a, b) => a + b, 0);
+			const defenseFromItem = this.state.treasure.map(treasure => {
+				if(treasure.hasOwnProperty('defense')) {
+					return treasure.defense;
+				}else{
+					return null;
+				}
+			}).reduce((a, b) => a + b, 0);
+
+			const newStrengh = this.state.baseStrengh + strenghFromItem;
+			const newDefense = this.state.baseDefense + defenseFromItem;
+
+			this.setState({	strenghFromItem: strenghFromItem,
+							defenseFromItem: defenseFromItem,
+							strengh: newStrengh,
+							defense: newDefense,
+							showRewards: false,
+							showDeck: true,
+						})
+		}else {
+			const newGold = this.state.gold + treasure;
+			this.setState({	gold: newGold,
+							showRewards: false,
+							showDeck: true})
 		}
-
-		//Calculate the new strengh & defenses variables and update the state
-		const strenghFromItem = this.state.treasure.map(treasure => {
-			if(treasure.hasOwnProperty('strengh')) {
-				return treasure.strengh;
-			}else{
-				return null;
-			}
-		}).reduce((a, b) => a + b, 0);
-		const defenseFromItem = this.state.treasure.map(treasure => {
-			if(treasure.hasOwnProperty('defense')) {
-				return treasure.defense;
-			}else{
-				return null;
-			}
-		}).reduce((a, b) => a + b, 0);
-
-		const newStrengh = this.state.baseStrengh + strenghFromItem;
-		const newDefense = this.state.baseDefense + defenseFromItem;
-
-		this.setState({	strenghFromItem: strenghFromItem,
-						defenseFromItem: defenseFromItem,
-						strengh: newStrengh,
-						defense: newDefense,
-						showRewards: false,
-						showDeck: true,
-					})
 
 		this.shouldLevelOrAreaOrBossUpdate();
 
@@ -416,49 +415,9 @@ class boardBuilder extends Component {
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	render () {
-		
-
-
-		// let attackCards = null;
-		// if(this.state.showAttackCards) {
-		// 	attackCards = 	<AttackCardsList
-		// 						attackCards={this.state.attackCards}
-		// 						name={this.state.attackCards}
-		// 						portrait={this.state.attackCards}
-		// 						text={this.state.attackCards}
-		// 						bottomText={this.state.attackCards}
-		// 						effect={this.state.attackCards}						
-		// 					/>
-		// }
-		// let defenseCards = null;
-		// if(this.state.showDefenseCards) {
-		// 	defenseCards = 	<DefenseCardsList
-		// 						defenseCards={this.state.defenseCards}
-		// 						name={this.state.defenseCards}
-		// 						portrait={this.state.defenseCards}
-		// 						text={this.state.defenseCards}
-		// 						bottomText={this.state.defenseCards}
-		// 						effect={this.state.defenseCards}						
-		// 					/>
-		// }
-		// let magicCards = null;
-		// if(this.state.showMagicCards) {
-		// 	magicCards = 	<MagicCardsList
-		// 						magicEffect={this.magicEffectHandler} 
-		// 						magicCards={this.state.magicCards}
-		// 						name={this.state.magicCards}
-		// 						portrait={this.state.magicCards}
-		// 						text={this.state.magicCards}
-		// 						bottomText={this.state.magicCards}
-		// 						effect={this.state.magicCards}						
-		// 					/>
-		// }
-
 
 		let chooseScreen = null;
 			if (this.state.showChooseCharScreen) {chooseScreen = <ChooseCharScreen choosing={this.chooseCharHandler}/>};
-
-	
 
 		let rewards = null;
 		if (this.state.showRewards) {
@@ -467,6 +426,7 @@ class boardBuilder extends Component {
 								chosenChar={this.state.name}
 								whichReward={this.state.whichReward}
 								name={this.state.name}
+								chosenMonster={this.state.currentMonster}
 							/>
 		}
 
@@ -553,8 +513,8 @@ class boardBuilder extends Component {
 			<div className={classes.Board}>
 				{this.state.showChooseCharScreen ? chooseScreen :
 					<React.Fragment>
-					<PlayerBoardControl>
-							<CharacterPanel style={{marginLeft: '20px', marginBottom: '200px'}}
+						<PlayerBoardControl>
+							<CharacterPanel
 								className={classes.PanelCard}
 								name={this.state.name}
 								portrait={this.state.portrait}
@@ -582,17 +542,11 @@ class boardBuilder extends Component {
 								deck={this.state.openedDecks}
 								area={this.state.areaName[this.state.area]}
 								areaExplored={this.state.areaExplored}
-								// strenghItems={this.state.attackCards}
-								// defenseItems={this.state.defenseCards}
-								// magicItems={this.state.magicCards}
 								whichInventory={this.state.whichInventory}
 								revealInventory={this.revealInventory}
 								inventoryColor={this.state.inventoryColor}
 							/>
 
-							{/* {attackCards} */}
-							{/* {defenseCards}
-							{magicCards} */}
 						</PlayerBoardControl>
 						<DeckBoardControl
 							background={this.state.background}
