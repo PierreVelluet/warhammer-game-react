@@ -319,29 +319,11 @@ class chooseMonsterScreen extends Component{
 				area2: 'https://i.pinimg.com/originals/a4/1c/bc/a41cbc641383f94a2db319d90fad5996.jpg',
 				area3: '',
 			},
+			rngArray: [],
 		}
 	}
 
-	// shouldComponentUpdate(nextProps, nextState) {
-    //     return nextProps.chosenMonster != this.props.chosenMonster;
-    // }
-
-	chooseMonster = (data) => {
-
-		this.setState({chosenMonster: data}, () => {this.toGiveToParent()})
-	
-	}
-
-
-	//gives the monsters data to parent element (boardbuilder), via props.
-	toGiveToParent = () => {
-		const info = this.state.chosenMonster;
-		this.props.dataFromMonster(info)
-	}
-
-	
-	render() {
-		//set a range of random numbers, based on the type of monster & the champion choice
+	componentDidMount() {
 		let length = 3;
 		if (this.props.name === 'Tau commander') length = 4;
 		let rngArray = [];
@@ -360,12 +342,30 @@ class chooseMonsterScreen extends Component{
 				}
 			}
 		}
+		this.setState({rngArray: rngArray})
+	}
 
+	chooseMonster = (data) => {
+
+		this.setState({chosenMonster: data}, () => {this.toGiveToParent()})
+	
+	}
+
+
+	//gives the monsters data to parent element (boardbuilder), via props.
+	toGiveToParent = () => {
+		const info = this.state.chosenMonster;
+		this.props.dataFromMonster(info)
+	}
+
+	
+	render() {
+		
 		return (
 			//Map the array of numbers and create a monsterCard for each of the element, based on monster type (normal or boss)
 				this.state.chosenMonster === null ?
 					<div className={classes.MonsterCards}>
-						{rngArray.map((rng, index)=> {
+						{this.state.rngArray.map((rng, index)=> {
 							return (
 									<MonsterCard 
 										name={this.state[this.state.monsterType][this.state.area][rng].name}

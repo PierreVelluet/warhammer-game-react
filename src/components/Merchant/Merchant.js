@@ -9,7 +9,7 @@ class merchant extends Component {
             name: 'Helmet',
             portrait: '/images/DefenseItems/Helmet.png',
             text: "A tactical helmet.",
-            type: 'defense',
+            type: 'defenseCards',
             bottomText: 'Permanent effect',
             effect: 'Defense + 1',
             defense: 1,
@@ -20,7 +20,7 @@ class merchant extends Component {
             name: 'Iron fist',
             portrait: '/images/DefenseItems/Fist.png',
             text: "A solid glove.",
-            type: 'defense',
+            type: 'defenseCards',
             bottomText: 'Permanent effect',
             effect: 'Defense + 1',
             defense: 1,
@@ -31,7 +31,7 @@ class merchant extends Component {
             name: 'Bullet-proof vest',
             portrait: '/images/DefenseItems/Vest.png',
             text: "Fear bullets no more.",
-            type: 'defense',
+            type: 'defenseCards',
             bottomText: 'Permanent effect',
             effect: 'Defense + 2',
             defense: 2,
@@ -42,7 +42,7 @@ class merchant extends Component {
             name: 'Bolter',
             portrait: '/images/StrenghItems/Bolter.png' ,
             text: "A good gun.",
-            type: 'attack',
+            type: 'attackCards',
             bottomText: 'Permanent effect',
             effect: 'Strengh + 1',
             strengh: 1,
@@ -53,7 +53,7 @@ class merchant extends Component {
             name: 'Eldary laser',
             portrait: '/images/StrenghItems/EldaryLaser.png' ,
             text: "A good laser.",
-            type: 'attack',
+            type: 'attackCards',
             bottomText: 'Permanent effect',
             effect: 'Strengh + 1',
             strengh: 1,
@@ -64,7 +64,7 @@ class merchant extends Component {
             name: 'Plasma gun',
             portrait: '/images/StrenghItems/PlasmaGun.png' ,
             text: "A good laser.",
-            type: 'attack',
+            type: 'attackCards',
             bottomText: 'Permanent effect',
             effect: 'Strengh + 2',
             strengh: 2,
@@ -75,7 +75,7 @@ class merchant extends Component {
             name: 'Axe',
             portrait: '/images/StrenghItems/Axe.png',
             text: "A strong weapon.",
-            type: 'attack',
+            type: 'attackCards',
             bottomText: 'Permanent effect',
             effect: 'Strengh + 1',
             strengh: 1,
@@ -86,7 +86,7 @@ class merchant extends Component {
             name: 'Sword',
             portrait: '/images/StrenghItems/Sword.png',
             text: "A simple sword.",
-            type: 'attack',
+            type: 'attackCards',
             bottomText: 'Permanent effect',
             effect: 'Strengh + 1',
             strengh: 1,
@@ -97,7 +97,7 @@ class merchant extends Component {
             name: 'Chainsword',
             portrait: '/images/StrenghItems/Chainsword.png',
             text: "A powerfull sword.",
-            type: 'attack',
+            type: 'attackCards',
             bottomText: 'Permanent effect',
             effect: 'Strengh + 2',
             strengh: 2,
@@ -106,14 +106,14 @@ class merchant extends Component {
             },
         ],
         notEnoughGold:[false, false, false],
-        rngArray: null,
+        rngArray: [],
         itemsLevel: null,
     }//end of state
 
     // shouldComponentUpdate(nextProps, nextState) {
     //     return nextProps.treasure.length != this.props.treasure.length;
     // }
-    componentWillMount() {
+    componentDidMount() {
         const itemsLevel = 'level' + this.props.area.toString();
 
         let rngArray = [];
@@ -128,29 +128,16 @@ class merchant extends Component {
 
     choose = (item, index) => {
         if (this.props.gold >= item.price) {
-            console.log('passed');
             this.props.choose(item)
         }else{
-            console.log('passed2')
             let newArray = this.state.notEnoughGold
             newArray.splice(index, 1, true)
             this.setState({notEnoughGold: newArray})
-            console.log(this.state.notEnoughGold)
         }
     }
 
     render() {
-        // const itemsLevel = 'level' + this.props.area.toString();
-
-        // let rngArray = [];
-        // while(rngArray.length < 3) {
-        //     let number = Math.floor(Math.random() * this.state[itemsLevel].length);
-        //     if (rngArray.indexOf(number) === -1) {
-        //         rngArray.push(number)
-        //     }
-        // }
-		
-
+ 
 
         return (
             <div className={classes.Merchant}>

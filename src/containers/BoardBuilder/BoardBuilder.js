@@ -5,9 +5,6 @@ import PlayerBoardControl from '../PlayerBoardControl/PlayerBoardControl';
 import DeckBoardControl from '../DeckBoardControl/DeckBoardControl';
 import Deck from '../../components/Cards/Deck';
 import ChooseRewardScreen from '../../components/ChooseRewardScreen/ChooseRewardScreen';
-// import AttackCardsList from '../../components/ListOfCards/AttackCardsList';
-// import DefenseCardsList from '../../components/ListOfCards/DefenseCardsList';
-// import MagicCardsList from '../../components/ListOfCards/MagicCardsList';
 import CombatDetails from '../../components/CombatDetails/CombatDetails';
 import ChooseMonsterScreen from '../../components/ChooseMonsterScreen/ChooseMonsterScreen';
 import CharacterPanel from '../../components/CharacterPanel/Panel/CharacterPanel';
@@ -42,7 +39,6 @@ class boardBuilder extends Component {
 		areaExplored: 0,
 		monsterType: 'monster',
 		//Character Panel
-		// chosenChar: {},
 		portrait: null,
 		name: null,
 		power: null,
@@ -57,7 +53,7 @@ class boardBuilder extends Component {
 		experience: 0,
 		monsterSlain: 0,
 		bossSlain: 0,
-		gold: 0,
+		gold: 10,
 		treasure:[],
 		totalStrengh: 0,
 		attackCards: [],
@@ -103,9 +99,9 @@ class boardBuilder extends Component {
 						health: health,
 						name: name,
 						power: power,
-						showFloorCheck: false, //to rechange
-						showMerchant: true,
-						area: 1, // to rechange after tests
+						showFloorCheck: true, //to rechange
+						showMerchant: false,
+						area: 0, // to rechange after tests
 						portrait: portrait,
 						})
 	}
@@ -288,13 +284,13 @@ class boardBuilder extends Component {
 		if (isNaN(treasure)) {
 			this.state.treasure.push(treasure)
 			switch (treasure.type) {
-				case 'attack':
+				case 'attackCards':
 					this.state.attackCards.push(treasure);
 					break;
-				case 'defense':
+				case 'defenseCards':
 					this.state.defenseCards.push(treasure);
 					break;
-				case 'magic':
+				case 'magicCards':
 					this.state.magicCards.push(treasure);
 					break;
 				default:
@@ -309,6 +305,7 @@ class boardBuilder extends Component {
 					return null;
 				}
 			}).reduce((a, b) => a + b, 0);
+
 			const defenseFromItem = this.state.treasure.map(treasure => {
 				if(treasure.hasOwnProperty('defense')) {
 					return treasure.defense;
@@ -325,15 +322,15 @@ class boardBuilder extends Component {
 							strengh: newStrengh,
 							defense: newDefense,
 							showRewards: false,
-							showDeck: true,
 							showMerchant: false,
+							showDeck: true,
 						})
 
 			if(treasure.hasOwnProperty('price')) {
-				console.log('hasownprop')
 				const newGold = this.state.gold - treasure.price;
 				this.setState({gold: newGold})
 			}
+			this.revealInventory(treasure.type)
 		}else {
 			const newGold = this.state.gold + treasure;
 			this.setState({	gold: newGold,
