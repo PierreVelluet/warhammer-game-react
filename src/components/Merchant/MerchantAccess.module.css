@@ -1,0 +1,13 @@
+.MerchantAccess {
+    background-image: url('https://shopheroes.com/assets/images/icons/icon-shop01.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 150px;
+    height: 150px;
+    float: left;
+}
+
+.MerchantAccess:hover {
+    cursor: pointer;
+}

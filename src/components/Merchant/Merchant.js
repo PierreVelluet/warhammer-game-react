@@ -6,26 +6,15 @@ class merchant extends Component {
     state = {
         level1: [
             {
-            name: 'Helmet',
-            portrait: '/images/DefenseItems/Helmet.png',
-            text: "A tactical helmet.",
-            type: 'defenseCards',
+            name: 'Plasma gun',
+            portrait: '/images/StrenghItems/PlasmaGun.png' ,
+            text: "A good laser.",
+            type: 'attackCards',
             bottomText: 'Permanent effect',
-            effect: 'Defense + 1',
-            defense: 1,
-            tooltip: 'Helmet : Defense +1.',
-            price: 5,
-            },
-            {
-            name: 'Iron fist',
-            portrait: '/images/DefenseItems/Fist.png',
-            text: "A solid glove.",
-            type: 'defenseCards',
-            bottomText: 'Permanent effect',
-            effect: 'Defense + 1',
-            defense: 1,
-            tooltip: 'Iron fist : Defense + 1.',
-            price: 5,
+            effect: 'Strengh + 2',
+            strengh: 2,
+            tooltip: 'Plasma gun : Strengh + 2.',
+            price: 5
             },
             {
             name: 'Bullet-proof vest',
@@ -36,62 +25,7 @@ class merchant extends Component {
             effect: 'Defense + 2',
             defense: 2,
             tooltip: 'Bullet-proof vest : Defense + 2.',
-            price: 5,
-            },
-            {
-            name: 'Bolter',
-            portrait: '/images/StrenghItems/Bolter.png' ,
-            text: "A good gun.",
-            type: 'attackCards',
-            bottomText: 'Permanent effect',
-            effect: 'Strengh + 1',
-            strengh: 1,
-            tooltip: 'Bolter : Strengh + 1.',
-            price: 5,
-            },
-            {
-            name: 'Eldary laser',
-            portrait: '/images/StrenghItems/EldaryLaser.png' ,
-            text: "A good laser.",
-            type: 'attackCards',
-            bottomText: 'Permanent effect',
-            effect: 'Strengh + 1',
-            strengh: 1,
-            tooltip: 'Eldary laser : Strengh + 1.',
-            price: 5,
-            },
-            {
-            name: 'Plasma gun',
-            portrait: '/images/StrenghItems/PlasmaGun.png' ,
-            text: "A good laser.",
-            type: 'attackCards',
-            bottomText: 'Permanent effect',
-            effect: 'Strengh + 2',
-            strengh: 2,
-            tooltip: 'Plasma gun : Strengh + 2.',
-            price: 5,
-            },
-            {
-            name: 'Axe',
-            portrait: '/images/StrenghItems/Axe.png',
-            text: "A strong weapon.",
-            type: 'attackCards',
-            bottomText: 'Permanent effect',
-            effect: 'Strengh + 1',
-            strengh: 1,
-            tooltip: 'Axe : Strengh + 1.',
-            price: 5,
-            },
-            {
-            name: 'Sword',
-            portrait: '/images/StrenghItems/Sword.png',
-            text: "A simple sword.",
-            type: 'attackCards',
-            bottomText: 'Permanent effect',
-            effect: 'Strengh + 1',
-            strengh: 1,
-            tooltip: 'Sword : Strengh + 1.',
-            price: 5,
+            price: 5
             },
             {
             name: 'Chainsword',
@@ -102,28 +36,21 @@ class merchant extends Component {
             effect: 'Strengh + 2',
             strengh: 2,
             tooltip: 'Chainsword : Strengh + 2.',
-            price: 5,
+            price: 5
             },
         ],
         notEnoughGold:[false, false, false],
-        rngArray: [],
         itemsLevel: null,
     }//end of state
 
     // shouldComponentUpdate(nextProps, nextState) {
     //     return nextProps.treasure.length != this.props.treasure.length;
     // }
-    componentDidMount() {
+    componentWillMount() {
         const itemsLevel = 'level' + this.props.area.toString();
 
-        let rngArray = [];
-        while(rngArray.length < 3) {
-            let number = Math.floor(Math.random() * this.state[itemsLevel].length);
-            if (rngArray.indexOf(number) === -1) {
-                rngArray.push(number)
-            }
-        }
-        this.setState({rngArray: rngArray, itemsLevel: itemsLevel})
+        this.setState({itemsLevel: itemsLevel})
+
     };
 
     choose = (item, index) => {
@@ -137,27 +64,27 @@ class merchant extends Component {
     }
 
     render() {
- 
 
         return (
             <div className={classes.Merchant}>
+            <button onClick={this.props.closeMerchant} className={classes.CloseBtn}>X</button>
                 <div className={classes.MerchantPortrait}></div>
 
                 <div className={classes.Reward}>
                 
-				{this.state.rngArray.map((rng, index)=>{
+				{this.state[this.state.itemsLevel].map((element, index)=>{
 					return (
                         <div style={this.state.notEnoughGold[index] ? {WebkitFilter: 'grayscale(1)'} : null} key={index} className={classes.Items}>
                             <TreasureCard
-                                text={this.state[this.state.itemsLevel][rng].text}
-                                name={this.state[this.state.itemsLevel][rng].name}
-                                portrait={this.state[this.state.itemsLevel][rng].portrait}
-                                bottomText={this.state[this.state.itemsLevel][rng].bottomText}
-                                effect={this.state[this.state.itemsLevel][rng].effect}
-                                choose={(() => this.choose(this.state[this.state.itemsLevel][rng], index))}
+                                text={element.text}
+                                name={element.name}
+                                portrait={element.portrait}
+                                bottomText={element.bottomText}
+                                effect={element.effect}
+                                choose={(() => this.choose(element, index))}
                                 
                             />
-                            <div style={{display: 'table', margin: '0 auto'}}><span className={classes.Price}>{this.state[this.state.itemsLevel][rng].price}</span><span className={classes.Gold}></span></div> 
+                            <div style={{display: 'table', margin: '0 auto'}}><span className={classes.Price}>{element.price}</span><span className={classes.Gold}></span></div> 
                         </div>
 					)
 				})}

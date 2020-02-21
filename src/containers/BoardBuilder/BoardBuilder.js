@@ -13,6 +13,7 @@ import LevelUp from '../../components/LevelUp/LevelUp';
 import GameOver from '../../components/GameOver/GameOver';
 import BossTrailer from '../../components/Bosses/BossTrailer';
 import Merchant from '../../components/Merchant/Merchant';
+import MerchantAccess from '../../components/Merchant/MerchantAccess';
 
 class boardBuilder extends Component {
 	state = {
@@ -100,7 +101,7 @@ class boardBuilder extends Component {
 						name: name,
 						power: power,
 						showFloorCheck: true, //to rechange
-						showMerchant: false,
+						showMerchant: false, //same
 						area: 0, // to rechange after tests
 						portrait: portrait,
 						})
@@ -419,6 +420,14 @@ class boardBuilder extends Component {
 						bossSlain: 0,})
 	}
 
+	openMerchant = () => {
+		this.setState({showMerchant: true, showDeck: false})
+	}
+
+	closeMerchant = () => {
+		this.setState({showMerchant: false, showDeck: true})
+	}
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	render () {
@@ -524,8 +533,17 @@ class boardBuilder extends Component {
 							choose={this.chooseRewardHandler}
 							treasure={this.state.treasure}
 							gold={this.state.gold}
+							closeMerchant={this.closeMerchant}
 			 			/>
 		 }
+		 
+		 let merchantAccess = null;
+		 if (this.state.showDeck) {
+			 merchantAccess = <MerchantAccess
+									accessMerchant={this.openMerchant}
+									showDeck={this.state.showDeck}
+								/>
+		}
 
 		return (
 			<div className={classes.Board}>
@@ -570,6 +588,8 @@ class boardBuilder extends Component {
 							background={this.state.background}
 							area={this.state.area}
 						>
+						
+							{merchantAccess}
 							{merchant}
 							{bossTrailer}
 							{gameOver}

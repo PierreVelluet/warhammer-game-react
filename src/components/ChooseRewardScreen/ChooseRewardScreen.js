@@ -49,16 +49,7 @@ class chooseRewardScreen extends Component {
 				defense: 1,
 				tooltip: 'Iron fist : Defense + 1.'
 				},
-				{
-				name: 'Bullet-proof vest',
-				portrait: '/images/DefenseItems/Vest.png',
-				text: "Fear bullets no more.",
-				type: 'defenseCards',
-				bottomText: 'Permanent effect',
-				effect: 'Defense + 2',
-				defense: 2,
-				tooltip: 'Bullet-proof vest : Defense + 2.'
-				},
+				
 				{
 				name: 'Bolter',
 				portrait: '/images/StrenghItems/Bolter.png' ,
@@ -80,16 +71,6 @@ class chooseRewardScreen extends Component {
 				tooltip: 'Eldary laser : Strengh + 1.'
 				},
 				{
-				name: 'Plasma gun',
-				portrait: '/images/StrenghItems/PlasmaGun.png' ,
-				text: "A good laser.",
-				type: 'attackCards',
-				bottomText: 'Permanent effect',
-				effect: 'Strengh + 2',
-				strengh: 2,
-				tooltip: 'Plasma gun : Strengh + 2.'
-				},
-				{
 				name: 'Axe',
 				portrait: '/images/StrenghItems/Axe.png',
 				text: "A strong weapon.",
@@ -108,16 +89,6 @@ class chooseRewardScreen extends Component {
 				effect: 'Strengh + 1',
 				strengh: 1,
 				tooltip: 'Sword : Strengh + 1.'
-				},
-				{
-				name: 'Chainsword',
-				portrait: '/images/StrenghItems/Chainsword.png',
-				text: "A powerfull sword.",
-				type: 'attackCards',
-				bottomText: 'Permanent effect',
-				effect: 'Strengh + 2',
-				strengh: 2,
-				tooltip: 'Chainsword : Strengh + 2.'
 				},
 				
 			],
