@@ -7,7 +7,12 @@ const characterPanel =(props) => {
     const portrait = props.portrait;
     const whichInventory = props.whichInventory;
 
+     const specialEffectHandler = (data) => {
+        props.specialEffectHandler(data);
+    }
+
 	return (
+        
 		<div style={{height: props.height}}onClick={props.choose} className={classes.Panel}>
             <div className={classes.FirstPart}>
                 <div style={{backgroundImage: `url(${portrait})`}} className={classes.Portrait}></div>
@@ -95,7 +100,7 @@ const characterPanel =(props) => {
             <table className={[classes.InventoryTable, classes[props.inventoryColor]].join(' ')}>
                     <tbody>
                         <tr>
-                            <td data-place="right" data-tip={whichInventory.length>0 ? whichInventory[0].tooltip : ''} style={whichInventory.length>0 ?{backgroundImage: `url(${whichInventory[0].portrait})`}:{backgroundImage: ""}}></td>
+                            <td data-place="right" data-tip={whichInventory.length>0 ? whichInventory[0].tooltip : ''} onClick={whichInventory.length > 0 ?()=> specialEffectHandler(whichInventory[0]): null} style={whichInventory.length>0 ?{backgroundImage: `url(${whichInventory[0].portrait})`}:{backgroundImage: ""}}></td>
                             <td data-place="right" data-tip={whichInventory.length>1 ? whichInventory[1].tooltip : ''} style={whichInventory.length>1 ?{backgroundImage: `url(${whichInventory[1].portrait})`}:{backgroundImage: ""}}></td>
                             <td data-place="right" data-tip={whichInventory.length>2 ? whichInventory[2].tooltip : ''} style={whichInventory.length>2 ?{backgroundImage: `url(${whichInventory[2].portrait})`}:{backgroundImage: ""}}></td>
                         </tr>

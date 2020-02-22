@@ -220,11 +220,10 @@ class chooseRewardScreen extends Component {
 					
 			},
 			chosenMonster: this.props.chosenMonster,
-			// itemsLevel: 'level' + this.props.area.toString(),
-			itemsLevel: 'level2',
+			itemsLevel: 'level' + this.props.area.toString(),
 	
 		};// end of state
-	}
+	}// end of constructor
 
 
 	shouldComponentUpdate(nextProps, nextState) {
@@ -266,7 +265,6 @@ class chooseRewardScreen extends Component {
 			<div className={classes.Reward}>
 			
 				{rngArray.map((rng, index)=>{
-					console.log(this.state[whichReward][itemsLevel][rng].text)
 					return (
 						<TreasureCard
 							text={this.state[whichReward][itemsLevel][rng].text}

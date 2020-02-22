@@ -347,20 +347,25 @@ class boardBuilder extends Component {
 
 
 ////////////////////////////////////////////////MAGIC HANDLERS//////////////////////////////////////////////////////////////////
-	magicItemHandler = () => {
-		if (this.state.magicCards.length > 0) {
-			this.setState({combatResult: 'magic', isMagicClickable: true})
-			if (this.state.showMagicCards === false) {this.showMagicCards()};
-		}else{
-			this.setState({combatResult: 'magicLess'})
-		}
+	// magicItemHandler = () => {
+	// 	if (this.state.magicCards.length > 0) {
+	// 		this.setState({combatResult: 'magic'})
+	// 		this.revealInventory('magicCards')
+	// 	}else{
+	// 		this.setState({combatResult: 'magicLess'})
+	// 		this.revealInventory('magicCards')
+	// 	}
 		
-	}
+	// }
 
-	magicEffectHandler = (target, index) => {
-		if (this.state.combatResult === 'magic') {
+	specialEffectHandler = (data, index) => {
 
-			switch(target.name) {
+		if (data.type === 'magicCards') {
+
+		
+			console.log(data)
+
+			switch(data.name) {
 
 				case 'Painkillers':
 					if(this.state.name === 'Apothecary') {
@@ -424,7 +429,7 @@ class boardBuilder extends Component {
 						break;
 					}
 
-				case 'Golden grenade':
+				case 'Disco grenade':
 					if(this.state.name === 'Apothecary'){
 						this.setState({bonusToDice: 16})
 						break;
@@ -439,7 +444,8 @@ class boardBuilder extends Component {
 			}
 			const newArray = [...this.state.magicCards]	
 			newArray.splice(index, 1)
-			this.setState({magicCards: newArray, combatResult: 'base'})
+			this.setState({magicCards: newArray, whichInventory: 'magicCards'})
+
 		}
 	}
 
@@ -622,6 +628,7 @@ class boardBuilder extends Component {
 								whichInventory={this.state.whichInventory}
 								revealInventory={this.revealInventory}
 								inventoryColor={this.state.inventoryColor}
+								specialEffectHandler={this.specialEffectHandler}
 							/>
 
 						</PlayerBoardControl>

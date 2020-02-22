@@ -28,17 +28,17 @@ const combatDetails = (props) => {
 							<p><strong>Warning</strong> <span> </span>: <span> </span> </p>
 								<div className={classes.Dice}style ={{backgroundImage: `url(${dices[1]})` }}></div> is always a fail and <span> </span>
 								<div className={classes.Dice}style ={{backgroundImage: `url(${dices[6]})` }}></div> is always a success.
-							<button className={classes.Btn} onClick={props.useMagicItem} ><em>Use magic item ?</em></button>
+							{/* <button className={classes.Btn} onClick={props.useMagicItem} ><em>Use magic item ?</em></button> */}
 							<button className={classes.Btn} onClick={props.roll} >Roll the attack dice !</button>
 						</div>,
 
-					magic:
+					// magic:
 
-						<div style={{height: '155px'}} className={classes.CombatLogs}>
-							<p>Select one of your one-use-only bonus in your inventory !</p>
-							<div className={classes.Loader} >Loading...</div>
-							<button style={{marginTop: '30px'}} onClick={props.continue} className={classes.Btn} >Cancel</button>
-						</div>,
+					// 	<div style={{height: '155px'}} className={classes.CombatLogs}>
+					// 		<p>Select one of your one-use-only bonus in your inventory !</p>
+					// 		<div className={classes.Loader} >Loading...</div>
+					// 		<button style={{marginTop: '30px'}} onClick={props.continue} className={classes.Btn} >Cancel</button>
+					// 	</div>,
 
 					magicLess:
 
