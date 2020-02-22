@@ -59,7 +59,7 @@ class boardBuilder extends Component {
 		totalStrengh: 0,
 		attackCards: [],
 		defenseCards: [],
-		magicCards: [],
+		specialCards: [],
 		whichInventory: '',
 		inventoryColor: 'attackCards',
 		openedDecks: 0,
@@ -266,11 +266,6 @@ class boardBuilder extends Component {
 			this.setState({combatResult: 'base'})
 		}else if (this.state.combatResult === 'wounded' && this.state.health > 0) {
 			this.setState({combatResult: 'base'})
-		}else if (this.state.combatResult === 'magicLess') {
-			this.setState({combatResult: 'base'})
-		}else if (this.state.combatResult === 'magic') {
-			this.setState({combatResult: 'base'})
-			this.showMagicCards();
 		}else if (this.state.health === 0) {
 			this.setState({showGameOverPanel: true, showCombatDetails: false})
 		}else if(this.state.showFloorCheck && this.state.area === 2){
@@ -289,8 +284,8 @@ class boardBuilder extends Component {
 				case 'defenseCards':
 					this.state.defenseCards.push(treasure);
 					break;
-				case 'magicCards':
-					this.state.magicCards.push(treasure);
+				case 'specialCards':
+					this.state.specialCards.push(treasure);
 					break;
 				default:
 					break;
@@ -344,24 +339,12 @@ class boardBuilder extends Component {
 
 
 
-////////////////////////////////////////////////MAGIC HANDLERS//////////////////////////////////////////////////////////////////
-	// magicItemHandler = () => {
-	// 	if (this.state.magicCards.length > 0) {
-	// 		this.setState({combatResult: 'magic'})
-	// 		this.revealInventory('magicCards')
-	// 	}else{
-	// 		this.setState({combatResult: 'magicLess'})
-	// 		this.revealInventory('magicCards')
-	// 	}
-		
-	// }
+////////////////////////////////////////////////SPECIAL HANDLERS//////////////////////////////////////////////////////////////////
+
 
 	specialEffectHandler = (data, index) => {
 
-		if (data.type === 'magicCards') {
-
-		
-			console.log(data)
+		if (data.type === 'specialCards') {
 
 			switch(data.name) {
 
@@ -440,9 +423,9 @@ class boardBuilder extends Component {
 
 
 			}
-			const newArray = [...this.state.magicCards]	
+			const newArray = [...this.state.specialCards]	
 			newArray.splice(index, 1)
-			this.setState({magicCards: newArray, whichInventory: 'magicCards'})
+			this.setState({specialCards: newArray, whichInventory: 'specialCards'})
 
 		}
 	}
@@ -537,7 +520,6 @@ class boardBuilder extends Component {
 								retaliation={this.retaliationRoll}
 								healpoints={this.state.health}
 								continue={this.continueHandler}
-								useMagicItem={this.magicItemHandler}
 								chosenChar={this.state.name}
 								disabledPaladinPower={this.state.disabledPaladinPower}
 								experience={this.state.currentMonster.experience}
@@ -604,7 +586,7 @@ class boardBuilder extends Component {
 								health={this.state.health}
 								attackCards={this.state.attackCards}
 								defenseCards={this.state.defenseCards}
-								magicCards={this.state.magicCards}
+								specialCards={this.state.specialCards}
 								strengh={this.state.strengh}
 								defense={this.state.defense}
 								experience={this.state.experience}

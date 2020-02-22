@@ -16,7 +16,7 @@ class chooseRewardScreen extends Component {
 					name: 'Dope syringe',
 					portrait: '/images/MagicItems/Syringe.png',
 					text: "A mystic substance.",
-					type :'magicCards',
+					type :'specialCards',
 					bottomText: 'One use only',
 					effect: 'Strengh + 3',
 					tooltip: 'Dope syringe : Strengh + 3.'
@@ -25,7 +25,7 @@ class chooseRewardScreen extends Component {
 					name: 'Painkillers',
 					portrait: '/images/MagicItems/Pills.png',
 					text: "A healthy pill.",
-					type :'magicCards',
+					type :'specialCards',
 					bottomText: 'One use only',
 					effect: 'Hp + 2',
 					tooltip: 'Painkillers : Hp + 2.'
@@ -87,7 +87,7 @@ class chooseRewardScreen extends Component {
 					name: 'Frag grenade',
 					portrait: '/images/FragGrenade.png',
 					text: "Bang !",
-					type :'magicCards',
+					type :'specialCards',
 					bottomText: 'One use only',
 					effect: 'Strengh + 5',
 					tooltip: 'Frag grenade : Strengh + 5.'
@@ -96,7 +96,7 @@ class chooseRewardScreen extends Component {
 					name: 'Vital kit',
 					portrait: '/images/VitalKit.png',
 					text: "Not junkie.",
-					type :'magicCards',
+					type :'specialCards',
 					bottomText: 'One use only',
 					effect: 'Hp + 3',
 					tooltip: 'Vital kit : Hp + 3.'
@@ -170,7 +170,7 @@ class chooseRewardScreen extends Component {
 					name: 'Bi-pills',
 					portrait: '/images/MagicItems/BiPills.png',
 					text: "Not so healthy.",
-					type :'magicCards',
+					type :'specialCards',
 					bottomText: 'One use only',
 					effect: 'Hp + 2. Strengh + 3.',
 					tooltip: 'Bi-pills : Hp + 2 & Strengh + 3. (this turn only)',
@@ -201,7 +201,7 @@ class chooseRewardScreen extends Component {
 					name: 'Disco grenade',
 					portrait: '/images/DiscoGrenade.png',
 					text: "Pshit then boom.",
-					type :'magicCards',
+					type :'specialCards',
 					bottomText: 'One use only',
 					effect: 'Strengh + 8.',
 					tooltip: 'Disco grenade : Strengh + 8.',

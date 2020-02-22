@@ -24,28 +24,13 @@ const combatDetails = (props) => {
 						
 						<div className={classes.CombatLogs}>
 						 	<p>Your <strong>strengh</strong> is : <strong>{props.strengh}</strong> (<strong>{props.baseStrengh}</strong> from base strengh + <strong>{props.strenghFromItem}</strong> from items + <strong>{props.bonusStrengh}</strong> from temporary buff.)</p>
-							<p>To beat the monster, you need to roll a D6, and add it to your own strengh. You win on a result superior or egal to the monster's defense (<strong>{props.monsterDefense}</strong>). If the result is a fail, you miss your hit, you will suffer a retaliation. You may use one magic item before roll.</p>
+							<p>To beat the monster, you need to roll a D6, and add it to your own strengh. You win on a result superior or egal to the monster's defense (<strong>{props.monsterDefense}</strong>). If the result is a fail, you miss your hit, you will suffer a retaliation. You may use specials items before roll.</p>
 							<p><strong>Warning</strong> <span> </span>: <span> </span> </p>
 								<div className={classes.Dice}style ={{backgroundImage: `url(${dices[1]})` }}></div> is always a fail and <span> </span>
 								<div className={classes.Dice}style ={{backgroundImage: `url(${dices[6]})` }}></div> is always a success.
-							{/* <button className={classes.Btn} onClick={props.useMagicItem} ><em>Use magic item ?</em></button> */}
 							<button className={classes.Btn} onClick={props.roll} >Roll the attack dice !</button>
 						</div>,
 
-					// magic:
-
-					// 	<div style={{height: '155px'}} className={classes.CombatLogs}>
-					// 		<p>Select one of your one-use-only bonus in your inventory !</p>
-					// 		<div className={classes.Loader} >Loading...</div>
-					// 		<button style={{marginTop: '30px'}} onClick={props.continue} className={classes.Btn} >Cancel</button>
-					// 	</div>,
-
-					magicLess:
-
-						<div className={classes.CombatLogs}>
-							<p style={{marginLeft: '25%', marginTop: '70px'}} >You have no magic items in your inventory.</p>
-							<button onClick={props.continue} className={classes.Btn} >Continue ...</button>
-						</div>,
 
 					win:
 					

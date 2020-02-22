@@ -92,7 +92,7 @@ const characterPanel =(props) => {
                 <button style={props.inventoryColor === 'defenseCards'? {backgroundColor: 'darkgrey'}: null} onClick={()=>props.revealInventory('defenseCards')} className={classes.InventoryButtons}>
                     Defense
                 </button>
-                <button style={props.inventoryColor === 'magicCards'? {backgroundColor: 'darkgrey'}: null} onClick={()=>props.revealInventory('magicCards')} className={classes.InventoryButtons}>
+                <button style={props.inventoryColor === 'specialCards'? {backgroundColor: 'darkgrey'}: null} onClick={()=>props.revealInventory('specialCards')} className={classes.InventoryButtons}>
                     Medic
                 </button>
             </div>
