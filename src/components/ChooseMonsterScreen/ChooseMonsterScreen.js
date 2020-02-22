@@ -286,7 +286,7 @@ class chooseMonsterScreen extends Component{
 						gold: 20,
 					},
 					{
-						name: '"Lictor',
+						name: 'Lictor',
 						portrait: '"https://wh40k-fr.lexicanum.com/mediawiki/images/thumb/a/af/Lictor.jpg/250px-Lictor.jpg"',
 						text: "boss special capacity",
 						level: 12,

@@ -14,7 +14,7 @@ class merchant extends Component {
             effect: 'Strengh + 2',
             strengh: 2,
             tooltip: 'Plasma gun : Strengh + 2.',
-            price: 5
+            price: 5,
             },
             {
             name: 'Bullet-proof vest',
@@ -25,28 +25,57 @@ class merchant extends Component {
             effect: 'Defense + 2',
             defense: 2,
             tooltip: 'Bullet-proof vest : Defense + 2.',
-            price: 5
+            price: 5,
             },
             {
-            name: 'Chainsword',
-            portrait: '/images/StrenghItems/Chainsword.png',
-            text: "A powerfull sword.",
-            type: 'attackCards',
+            name: 'Mix of pills',
+            portrait: '/images/MixOfPills.png',
+            text: "Boost metabolism.",
+            type :'magicCards',
+            bottomText: 'One use only',
+            effect: 'Hp + 3. Strengh + 2.',
+            tooltip: 'Mix of pills : Hp + 3 & Strengh + 2. (this turn only)',
+            price: 5,
+            },
+        ],
+        level2: [
+            {
+            name: 'Bionic hand',
+            portrait: '/images/BionicHand.png',
+            text: "Grab the world.",
+            type: 'defenseCards',
             bottomText: 'Permanent effect',
-            effect: 'Strengh + 2',
-            strengh: 2,
-            tooltip: 'Chainsword : Strengh + 2.',
-            price: 5
+            effect: 'Strengh + 3',
+            strengh: 3,
+            tooltip: 'Bionic hand : Strengh + 3.',
+            price: 15,
+            },
+            {
+            name: 'Bionic hearth',
+            portrait: '/images/BionicHearth.png',
+            text: "Its beating.",
+            type :'magicCards',
+            bottomText: 'Permanent effect',
+            effect: 'Defense + 3',
+            tooltip: 'Bionic hearth : Defense + 3',
+            price: 15,
+            },
+            {
+            name: 'Bionic prothesis',
+            portrait: '/images/BionicProthesis.png',
+            text: "Your feel repared.",
+            type :'defenseCards',
+            bottomText: 'Permanent effect',
+            effect: 'Hp + 5.',
+            tooltip: 'Bionic prothesis : Hp + 5.',
+            price: 15,
             },
         ],
         notEnoughGold:[false, false, false],
-        itemsLevel: null,
+        itemsLevel: 'level1',
     }//end of state
 
-    // shouldComponentUpdate(nextProps, nextState) {
-    //     return nextProps.treasure.length != this.props.treasure.length;
-    // }
-    componentWillMount() {
+    componentDidMount() {
         const itemsLevel = 'level' + this.props.area.toString();
 
         this.setState({itemsLevel: itemsLevel})

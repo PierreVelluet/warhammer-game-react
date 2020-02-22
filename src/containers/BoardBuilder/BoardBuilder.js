@@ -54,7 +54,7 @@ class boardBuilder extends Component {
 		experience: 0,
 		monsterSlain: 0,
 		bossSlain: 0,
-		gold: 10,
+		gold: 0,
 		treasure:[],
 		totalStrengh: 0,
 		attackCards: [],
@@ -276,7 +276,7 @@ class boardBuilder extends Component {
 		}else if (this.state.health === 0) {
 			this.setState({showGameOverPanel: true, showCombatDetails: false})
 		}else if(this.state.showFloorCheck && this.state.area === 2){
-			this.setState({	showFloorCheck: false, showDeck: true})
+			this.setState({	showFloorCheck: false, showDeck: true,monsterType: 'monster'})
 		}
 
 	}
@@ -362,8 +362,8 @@ class boardBuilder extends Component {
 
 			switch(target.name) {
 
-				case 'Dope syringe':
-					if(this.state.name === 'Ork boss') {
+				case 'Painkillers':
+					if(this.state.name === 'Apothecary') {
 						const newHealth = this.state.health + 4
 						this.setState({health: newHealth})
 						break;
@@ -373,8 +373,8 @@ class boardBuilder extends Component {
 						break;
 					}
 					
-				case 'Painkillers':
-					if(this.state.name === 'Ork boss'){
+				case 'Dope syringe':
+					if(this.state.name === 'Apothecary'){
 						this.setState({bonusToDice: 6})
 						break;
 					}else {
@@ -383,13 +383,53 @@ class boardBuilder extends Component {
 					}
 					
 				case 'Bi-pills':
-					if(this.state.name === 'Ork boss'){
+					if(this.state.name === 'Apothecary'){
 						const newHealth = this.state.health + 4
 						this.setState({health: newHealth, bonusToDice: 6})
 						break;
 					}else {
 						const newHealth = this.state.health + 2
 						this.setState({health: newHealth, bonusToDice: 3})
+						break;
+					}
+
+				case 'Mix of pills':
+					if(this.state.name === 'Apothecary'){
+						const newHealth = this.state.health + 6
+						this.setState({health: newHealth, bonusToDice: 4})
+						break;
+					}else {
+						const newHealth = this.state.health + 3
+						this.setState({health: newHealth, bonusToDice: 2})
+						break;
+					}
+
+				case 'Frag grenade':
+					if(this.state.name === 'Apothecary'){
+						this.setState({bonusToDice: 10})
+						break;
+					}else {
+						this.setState({bonusToDice: 5})
+						break;
+					}
+
+				case 'Vital kit':
+					if(this.state.name === 'Apothecary') {
+						const newHealth = this.state.health + 6
+						this.setState({health: newHealth})
+						break;
+					}else {
+						const newHealth = this.state.health + 3
+						this.setState({health: newHealth})
+						break;
+					}
+
+				case 'Golden grenade':
+					if(this.state.name === 'Apothecary'){
+						this.setState({bonusToDice: 16})
+						break;
+					}else {
+						this.setState({bonusToDice: 8})
 						break;
 					}
 				default:
@@ -443,6 +483,7 @@ class boardBuilder extends Component {
 								whichReward={this.state.whichReward}
 								name={this.state.name}
 								chosenMonster={this.state.currentMonster}
+								area={this.state.area}
 							/>
 		}
 

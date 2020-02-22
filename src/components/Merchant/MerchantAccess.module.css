@@ -1,11 +1,11 @@
 .MerchantAccess {
-    background-image: url('https://shopheroes.com/assets/images/icons/icon-shop01.png');
+    background-image: url('/images/GoldSack.png');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    width: 150px;
-    height: 150px;
-    float: left;
+    width: 100px;
+    height: 100px;
+    float: right;
 }
 
 .MerchantAccess:hover {
