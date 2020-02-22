@@ -196,11 +196,9 @@ class boardBuilder extends Component {
 		let newExperience = this.state.currentMonster.experience + this.state.experience
 		if (newExperience > 100) {newExperience = 100};
 
-
+		console.log(this.state.monsterType, this.state.currentMonster, )
 		if ((dice !== 1 && result >= this.state.currentMonster.defense) || dice === 6) {
-			if(this.state.currentMonster.treasure > 0) {
 				this.setState({combatResult: 'win', experience: newExperience});
-			}
 			if (this.state.monsterType === 'boss') {
 				this.setState({ bossSlain: bossSlain})
 			}else {
