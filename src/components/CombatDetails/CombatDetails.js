@@ -31,7 +31,6 @@ const combatDetails = (props) => {
 							<button className={classes.Btn} onClick={props.roll} >Roll the attack dice !</button>
 						</div>,
 
-
 					win:
 					
 						<div className={classes.CombatLogs}>
@@ -39,6 +38,7 @@ const combatDetails = (props) => {
 								<div className={classes.Dice}style ={{backgroundImage: `url(${dices[rng]})` }}></div>.<span> </span><span className={classes.Result}> Success !</span><p>You have beaten the ennemy! You may choose one treasure out of three. It will be automatically added to your inventory for the next fights.</p>
 								<p>You also earned <span style={{color: 'green'}}>{props.experience}</span> Xp ! There is <span style={{color: 'red'}}>{100 - props.currentExperience}</span> Xp left before level {props.level +1} !</p>
 							<button onClick={()=>props.claimRewards('normal')} className={classes.Btn}>Claim my rewards !</button>
+							<p>Dont forget that you can access the merchant between fights, and get some powerfull items ! Well spent money ! (top-right corner)</p>
 						</div>,
 					
 					retaliation: 
