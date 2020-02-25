@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
 import classes from './BoardBuilder.module.css'
 import ChooseCharScreen from '../../components/ChooseCharScreen/ChooseCharScreen';
 import PlayerBoardControl from '../PlayerBoardControl/PlayerBoardControl';
@@ -14,6 +16,8 @@ import GameOver from '../../components/GameOver/GameOver';
 import BossTrailer from '../../components/Bosses/BossTrailer';
 import Merchant from '../../components/Merchant/Merchant';
 import MerchantAccess from '../../components/Merchant/MerchantAccess';
+
+
 
 class boardBuilder extends Component {
 	state = {
@@ -31,6 +35,7 @@ class boardBuilder extends Component {
 		showBossTrailer: false,
 		showCombatDetails: false,
 		showMerchant: false,
+		//
 		combatResult: 'base',
 		activeAttackIcon: false,
 		activeDefenseIcon: false,
@@ -48,6 +53,7 @@ class boardBuilder extends Component {
 		strengh: 0,
 		baseStrengh: 0,
 		strenghFromItem: 0,
+		totalStrengh: 0,
 		defense: 0,
 		baseDefense:0,
 		defenseFromItem: 0,
@@ -56,7 +62,6 @@ class boardBuilder extends Component {
 		bossSlain: 0,
 		gold: 0,
 		treasure:[],
-		totalStrengh: 0,
 		attackCards: [],
 		defenseCards: [],
 		specialCards: [],
@@ -79,39 +84,37 @@ class boardBuilder extends Component {
 	}//end of state
 
 	//permite to choose your champion at the start & set up all the data
-	chooseCharHandler = (champ) => {
+	// chooseCharHandler = (champ) => {
 		
-		const chosenChar = champ;
-		const strengh = champ.strengh;
-		const defense = champ.defense;
-		const level = champ.level;
-		const health = champ.health;
-		const name = champ.name;
-		const power = champ.power;
-		const portrait = champ.portrait;
+	// 	// const strengh = champ.strengh;
+	// 	// const defense = champ.defense;
+	// 	// const level = champ.level;
+	// 	// const health = champ.health;
+	// 	// const name = champ.name;
+	// 	// const power = champ.power;
+	// 	// const portrait = champ.portrait;
 
-		this.setState({	showChooseCharScreen: false,
-						chosenChar: chosenChar,
-						strengh: strengh,
-						baseStrengh: strengh,
-						defense: defense,
-						baseDefense: defense,
-						level: level,
-						health: health,
-						name: name,
-						power: power,
-						showFloorCheck: true, //to rechange
-						showMerchant: false, //same
-						area: 0, // to rechange after tests
-						portrait: portrait,
-						})
-	}
+	// 	this.setState({	showChooseCharScreen: false,
+	// 					// strengh: strengh,
+	// 					// baseStrengh: strengh,
+	// 					// defense: defense,
+	// 					// baseDefense: defense,
+	// 					// level: level,
+	// 					// health: health,
+	// 					// name: name,
+	// 					// power: power,
+	// 					showFloorCheck: true, //to rechange
+	// 					showMerchant: false, //same
+	// 					// area: 0, // to rechange after tests
+	// 					// portrait: portrait,
+	// 					})
+	// }
 
 	//handle the inventory's 'pages' changes
-	revealInventory = (type) => {
-		const whichInventory = this.state[type]
-		this.setState({whichInventory: whichInventory, inventoryColor: type})
-	}
+	// revealInventory = (type) => {
+	// 	const whichInventory = this.state[type]
+	// 	this.setState({whichInventory: whichInventory, inventoryColor: type})
+	// }
 
 	//anytime you pick a reward or you win a fight with no reward, check if you level up, then if boss appear, then if area must change
 	shouldLevelOrAreaOrBossUpdate = () => {
@@ -458,9 +461,8 @@ class boardBuilder extends Component {
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	render () {
-
 		let chooseScreen = null;
-			if (this.state.showChooseCharScreen) {chooseScreen = <ChooseCharScreen choosing={this.chooseCharHandler}/>};
+			if (this.props.state.showChooseCharScreen) {chooseScreen = <ChooseCharScreen choosing={this.chooseCharHandler}/>};
 
 		let rewards = null;
 		if (this.state.showRewards) {
@@ -635,4 +637,16 @@ class boardBuilder extends Component {
 	}
 };
 
-export default boardBuilder;
+const mapStateToProps = state => {
+    return {
+        state: state.generalReducer
+    };
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        addPersonHandler: (name, age) => dispatch({type: 'ADD_PERSON', personData: {name: name, age: age}}),
+    }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(boardBuilder);

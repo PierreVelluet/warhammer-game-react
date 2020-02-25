@@ -5,11 +5,22 @@ import App from './containers/App.js';
 import * as serviceWorker from './serviceWorker';
 
 import {createStore, combineReducers} from 'redux';
-import merchantReducer from './store/reducers/merchantReducer';
 import { Provider } from 'react-redux';
+
+import merchantReducer from './store/reducers/merchantReducer';
+import rewardReducer from './store/reducers/rewardReducer';
+import monsterReducer from './store/reducers/monsterReducer';
+import characterReducer from './store/reducers/characterReducer';
+import generalReducer from './store/reducers/generalReducer';
+
+
 
 const rootReducer = combineReducers({
     merchantReducer: merchantReducer,
+    rewardReducer: rewardReducer,
+    monsterReducer: monsterReducer,
+    characterReducer: characterReducer,
+    generalReducer: generalReducer,
 });
 
 const store = createStore(rootReducer)

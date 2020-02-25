@@ -2,6 +2,7 @@ import React from 'react';
 import classes from './CharacterPanel.module.css'
 import ProgressBar from '../ProgressBar/ProgressBar';
 import ReactTooltip from 'react-tooltip';
+import { connect } from 'react-redux';
 
 const characterPanel =(props) => {
     const portrait = props.portrait;
@@ -126,4 +127,11 @@ const characterPanel =(props) => {
 		)
 }
 
-export default characterPanel;
+const mapDispatchToProps = dispatch => {
+    return {
+		revealInventory: (whichInventory) => dispatch({type: 'SWITCH_INVENTORY', whichInventory: whichInventory}),
+		
+    }
+};
+
+export default connect(null, mapDispatchToProps)(characterPanel);

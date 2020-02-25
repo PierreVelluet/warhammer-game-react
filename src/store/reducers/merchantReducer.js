@@ -1,5 +1,3 @@
-import * as actionTypes from '../actions';
-
 const initialState = {
         level1: [
             {
@@ -68,12 +66,9 @@ const initialState = {
             price: 15,
             },
         ],
-        notEnoughGold:[false, false, false],
-        itemsLevel: 'level1',
-        testData: null,
 }
 
-const reducer = (state = initialState, action) => {
+const reducer = (state = initialState) => {
     return state;
 }
 

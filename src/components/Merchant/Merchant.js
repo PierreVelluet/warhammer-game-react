@@ -8,7 +8,7 @@ class merchant extends Component {
         notEnoughGold:[false, false, false],
         itemsLevel: 'level1',
         testData: null,
-    }//end of state
+    }
 
     componentDidMount() {
         const itemsLevel = 'level' + this.props.area.toString();
@@ -35,7 +35,7 @@ class merchant extends Component {
 
                 <div className={classes.Reward}>
                 
-				{this.props.state[this.props.state.itemsLevel].map((element, index)=>{
+				{this.props.state[this.state.itemsLevel].map((element, index)=>{
 					return (
                         <div style={this.state.notEnoughGold[index] ? {WebkitFilter: 'grayscale(1)'} : null} key={index} className={classes.Items}>
                             <TreasureCard
