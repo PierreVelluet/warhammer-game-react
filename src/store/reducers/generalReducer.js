@@ -359,7 +359,8 @@ const reducer = (state = initialState, action) => {
                     showDeck: true,
                     showMerchant: false,
                 }
-        default: return state
+        default:
+            return state
     }
 
 }

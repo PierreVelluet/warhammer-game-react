@@ -66,7 +66,7 @@ class characterPanel extends Component {
                             </tr>
                             <tr>
                                 <td data-place="right" data-tip="Deck exploration" className={classes.DeckIcon}></td>
-                                <td>{this.props.generalState.openedDecks != 4 ? this.props.generalState.openedDecks + '/3' : 'Boss'}</td>
+                                <td>{this.props.generalState.openedDecks !== 4 ? this.props.generalState.openedDecks + '/3' : 'Boss'}</td>
                             </tr>
                             <tr>
                                 <td data-place="right" data-tip="Monster slain" className={classes.MonsterSlainIcon}></td>
