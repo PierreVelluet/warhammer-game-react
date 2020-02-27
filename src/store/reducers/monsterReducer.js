@@ -1,5 +1,5 @@
 const initialState = {
-    monster: {
+    normal: {
         area1: [
             {
             name: 'Gretchin',
@@ -11,6 +11,7 @@ const initialState = {
             strengh: 4,
             defense: 3,
             gold: 1,
+            monsterType: 'normal',
             },
             {
             name: 'Golbin',
@@ -22,6 +23,7 @@ const initialState = {
             strengh: 3,
             defense: 4,
             gold: 1,
+            monsterType: 'normal',
             },
             {
             name: 'Driver ork',
@@ -33,6 +35,7 @@ const initialState = {
             strengh: 5,
             defense: 4,
             gold: 2,
+            monsterType: 'normal',
             },
             {
             name: 'Commando ork',
@@ -44,6 +47,7 @@ const initialState = {
             strengh: 4,
             defense: 5,
             gold: 2,
+            monsterType: 'normal',
             },
             {
             name: 'Bionic ork',
@@ -55,6 +59,7 @@ const initialState = {
             strengh: 6,
             defense: 5,
             gold: 3,
+            monsterType: 'normal',
             },
             {
             name: 'Gunzer ork',
@@ -66,6 +71,7 @@ const initialState = {
             strengh: 5,
             defense: 6,
             gold: 3,
+            monsterType: 'normal',
             },
             {
             name: 'Mecano ork',
@@ -77,6 +83,7 @@ const initialState = {
             strengh: 7,
             defense: 6,
             gold: 4,
+            monsterType: 'normal',
             },
             {
             name: 'Black ork',
@@ -88,6 +95,7 @@ const initialState = {
             strengh: 6,
             defense: 7,
             gold: 4,
+            monsterType: 'normal',
             },
             {
             name: 'Mad ork',
@@ -99,6 +107,7 @@ const initialState = {
             strengh: 8,
             defense: 7,
             gold: 5,
+            monsterType: 'normal',
             },
             {
             name: 'Commander ork',
@@ -110,6 +119,7 @@ const initialState = {
             strengh: 7,
             defense: 8,
             gold: 5,
+            monsterType: 'normal',
             },
         ],
         area2: [
@@ -124,6 +134,7 @@ const initialState = {
             strengh: 9,
             defense: 8,
             gold: 6,
+            monsterType: 'normal',
             },
             {
             name: 'Hormagant',
@@ -135,6 +146,7 @@ const initialState = {
             strengh: 8,
             defense: 9,
             gold: 6,
+            monsterType: 'normal',
             },
             {
             name: 'Genestealer',
@@ -146,6 +158,7 @@ const initialState = {
             strengh: 10,
             defense: 9,
             gold: 7,
+            monsterType: 'normal',
             },
             {
             name: 'Warrior',
@@ -157,6 +170,7 @@ const initialState = {
             strengh: 9,
             defense: 10,
             gold: 7,
+            monsterType: 'normal',
             },
             {
             name: 'SwarmLord',
@@ -168,6 +182,7 @@ const initialState = {
             strengh:11,
             defense:10,
             gold: 8,
+            monsterType: 'normal',
             },
             {
             name: 'BroodLord',
@@ -179,6 +194,7 @@ const initialState = {
             strengh: 10,
             defense: 11,
             gold: 8,
+            monsterType: 'normal',
             },
             {
             name: 'Neurothrope',
@@ -190,6 +206,7 @@ const initialState = {
             strengh: 12,
             defense: 11,
             gold: 9,
+            monsterType: 'normal',
             },
             {
             name: 'Old one eye',
@@ -201,6 +218,7 @@ const initialState = {
             strengh: 11,
             defense: 12,
             gold: 9,
+            monsterType: 'normal',
             },
             {
             name: 'Hive guard',
@@ -212,6 +230,7 @@ const initialState = {
             strengh: 13,
             defense: 12,
             gold: 10,
+            monsterType: 'normal',
             },
             {
             name: 'Hive tyran',
@@ -223,6 +242,7 @@ const initialState = {
             strengh: 12,
             defense: 13,
             gold: 10,
+            monsterType: 'normal',
             },
         ],
     },
@@ -239,6 +259,7 @@ const initialState = {
             strengh: 12,
             defense: 8,
             gold: 10,
+            monsterType: 'boss',
             },
             {
             name: '"Medic" ork',
@@ -250,6 +271,7 @@ const initialState = {
             strengh: 8,
             defense: 12,
             gold: 10,
+            monsterType: 'boss',
             },
             {
             name: 'Fleet captain ork',
@@ -261,6 +283,7 @@ const initialState = {
             strengh: 10,
             defense: 10,
             gold: 10,
+            monsterType: 'boss',
             },
         ],
         
@@ -275,6 +298,7 @@ const initialState = {
             strengh: 12,
             defense: 7,
             gold: 20,
+            monsterType: 'boss',
             },
             {
             name: 'Lictor',
@@ -286,6 +310,7 @@ const initialState = {
             strengh: 10,
             defense: 9,
             gold: 20,
+            monsterType: 'boss',
             },
             {
             name: 'Patriarch',
@@ -297,6 +322,7 @@ const initialState = {
             strengh: 8,
             defense: 11,
             gold: 20,
+            monsterType: 'boss',
             },
         ]
         

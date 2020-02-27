@@ -1,6 +1,6 @@
 const initialState = {
     normal: {
-        level1: [
+        area1: [
             {
             name: 'Dope syringe',
             portrait: '/images/MagicItems/Syringe.png',
@@ -39,7 +39,6 @@ const initialState = {
             defense: 1,
             tooltip: 'Iron fist : Defense + 1.'
             },
-            
             {
             name: 'Bolter',
             portrait: '/images/StrenghItems/Bolter.png' ,
@@ -71,7 +70,7 @@ const initialState = {
             tooltip: 'Sword : Strengh + 1.'
             },
         ],
-        level2: [
+        area2: [
             {
             name: 'Frag grenade',
             portrait: '/images/FragGrenade.png',
@@ -143,8 +142,8 @@ const initialState = {
         ],
             
     },
-    super: {
-        level1: [
+    boss: {
+        area1: [
             {
             name: 'Heavy gauntlet',
             portrait: '/images/StrenghItems/HeavyGauntlet.png',
@@ -175,7 +174,7 @@ const initialState = {
             tooltip: 'Heroic shield : Defense + 2.',
             },
         ],
-        level2: [
+        area2: [
             {
             name: 'Sniper rifle',
             portrait: '/images/SniperRifle.png',

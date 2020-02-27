@@ -6,48 +6,19 @@ import { connect } from 'react-redux';
 
 class chooseRewardScreen extends Component {
 
-	constructor(props) {
-		super(props);
-
-		this.state = {
-			chosenMonster: this.props.chosenMonster,
-			itemsLevel: 'level' + this.props.area.toString(),
-		};// end of state
-	}// end of constructor
-
-
-	shouldComponentUpdate(nextProps, nextState) {
- 		return this.state.value !== nextState.value;
-	};
-
 	render() {
 
 		let numberOfTreasures = 3;
-		if (this.props.name === 'Eldar captain') {numberOfTreasures = 4 }
-		const whichReward = this.props.whichReward;
-		const itemsLevel = this.state.itemsLevel;
+		if (this.props.generalState.name === 'Eldar captain' && this.props.generalState.currentMonster.monsterType === 'normal') {numberOfTreasures = 4 }
 
-
-		//set an array of random numbers, depending on the chosen champion and the type of treasures.
+		//set an array of random numbers, depending on the chosen champion and the type of monster.
 		let rngArray = [];
-		if (this.props.whichReward === 'normal') {
-			while(rngArray.length < numberOfTreasures) {
-				let number = Math.floor(Math.random() * this.props.state.normal[itemsLevel].length);
-				if (rngArray.indexOf(number) === -1) {
-					rngArray.push(number)
-				}
-			}
-		}else {
-			while(rngArray.length < 3) {
-				let number = Math.floor(Math.random() * 3);
-				if (rngArray.indexOf(number) === -1) {
-					rngArray.push(number)
-				}
+		while(rngArray.length < numberOfTreasures) {
+			let number = Math.floor(Math.random() * this.props.rewardState[this.props.generalState.currentMonster.monsterType][this.props.generalState.area].length);
+			if (rngArray.indexOf(number) === -1) {
+				rngArray.push(number)
 			}
 		}
-
-
-		
 
 		return (
 
@@ -56,35 +27,44 @@ class chooseRewardScreen extends Component {
 				{rngArray.map((rng, index)=>{
 					return (
 						<TreasureCard
-							text={this.props.state[whichReward][itemsLevel][rng].text}
-							name={this.props.state[whichReward][itemsLevel][rng].name}
-							portrait={this.props.state[whichReward][itemsLevel][rng].portrait}
-							bottomText={this.props.state[whichReward][itemsLevel][rng].bottomText}
-							effect={this.props.state[whichReward][itemsLevel][rng].effect}
-							choose={(() => this.props.choose(this.props.state[whichReward][itemsLevel][rng]))}
+							text={this.props.rewardState[this.props.generalState.currentMonster.monsterType][this.props.generalState.area][rng].text}
+							name={this.props.rewardState[this.props.generalState.currentMonster.monsterType][this.props.generalState.area][rng].name}
+							portrait={this.props.rewardState[this.props.generalState.currentMonster.monsterType][this.props.generalState.area][rng].portrait}
+							bottomText={this.props.rewardState[this.props.generalState.currentMonster.monsterType][this.props.generalState.area][rng].bottomText}
+							effect={this.props.rewardState[this.props.generalState.currentMonster.monsterType][this.props.generalState.area][rng].effect}
+							choose={(() => this.props.chooseReward(this.props.rewardState[this.props.generalState.currentMonster.monsterType][this.props.generalState.area][rng]))}
 							key={index}
 						/>
 					)
 				})}
 
 				<TreasureCard
-					effect={ this.state.chosenMonster.gold + ' gold coins'}
+					effect={ this.props.generalState.currentMonster.gold + ' gold coins'}
 					name='Gold coins'
 					portrait='/images/GoldStack.png'
 					bottomText='To spend at shop'
 					text='You become rich !'
-					choose={(() => this.props.choose(this.state.chosenMonster.gold))}
+					choose={(() => this.props.chooseReward(this.props.generalState.currentMonster.gold))}
 				/>
 				<p className={classes.Title}>Choose one reward !</p>
 			</div>
 		)
+	
 	}
 }
 
 const mapStateToProps = state => {
     return {
-        state: state.rewardReducer,
+		generalState: state.generalReducer,
+        rewardState: state.rewardReducer,
     };
 };
 
-export default connect(mapStateToProps)(chooseRewardScreen);
+const mapDispatchToProps = dispatch => {
+    return {
+		chooseReward: (treasure) => dispatch({type: 'CHOOSE_REWARD',  treasure: treasure}),
+		
+    }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(chooseRewardScreen);

@@ -1,9 +1,10 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import classes from './Deck.module.css';
 
 const deck = (props) => (
 
-		<div onClick={props.clicked}className={classes.PlayingCards}>
+		<div onClick={props.revealHandler}className={classes.PlayingCards}>
 	    	<ul className={classes.deck}>
 	    		<li><div className={classes.card}></div></li>
 	    		<li><div className={classes.card}></div></li>
@@ -14,5 +15,12 @@ const deck = (props) => (
 
 );
 
-export default deck;
+const mapDispatchToProps = dispatch => {
+    return {
+		revealHandler: () => dispatch({type: 'REVEAL_HANDLER'})
+		
+    }
+};
+
+export default connect(null, mapDispatchToProps)(deck);
 

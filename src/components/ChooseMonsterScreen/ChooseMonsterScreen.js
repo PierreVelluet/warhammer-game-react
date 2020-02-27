@@ -9,24 +9,22 @@ class chooseMonsterScreen extends Component{
 		super(props);
 
 		this.state ={
-			chosenMonster : null,
-			area: 'area' + this.props.area.toString(),
-			monsterType: this.props.monsterType,
 			background : {
-				area0:'',
+				area0: '',
 				area1: 'https://images.unsplash.com/photo-1522046310824-b844b4b5806f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80',
 				area2: 'https://i.pinimg.com/originals/a4/1c/bc/a41cbc641383f94a2db319d90fad5996.jpg',
-				area3: '',
+
 			},
 			rngArray: [],
+			monsterType: null,
 		}
 	}
 
 	componentDidMount() {
 		let length = 3;
-		if (this.props.name === 'Tau commander') length = 4;
+		if (this.props.generalState.name === 'Tau commander') {length = 4;}
 		let rngArray = [];
-		if (this.state.monsterType === 'monster') {
+		if (this.props.generalState.openedDecks !== 4 ) {
 			while(rngArray.length < length) {
 				let number = Math.floor(Math.random() * 10);
 				if (rngArray.indexOf(number) === -1) {
@@ -41,43 +39,35 @@ class chooseMonsterScreen extends Component{
 				}
 			}
 		}
-		this.setState({rngArray: rngArray})
+
+		let monsterType = null;
+		if (this.props.generalState.openedDecks !== 4 ) {
+			monsterType = 'normal'
+		}else {
+			monsterType = 'boss'
+		}
+		this.setState({rngArray: rngArray, monsterType: monsterType})
 	}
 
-	chooseMonster = (data) => {
-
-		this.setState({chosenMonster: data}, () => {this.toGiveToParent()})
-	
-	}
-
-
-	//gives the monsters data to parent element (boardbuilder), via props.
-	toGiveToParent = () => {
-		const info = this.state.chosenMonster;
-		this.props.dataFromMonster(info)
-	}
-
-	
 	render() {
 		
 		return (
 			//Map the array of numbers and create a monsterCard for each of the element, based on monster type (normal or boss)
-				this.state.chosenMonster === null ?
+				this.props.generalState.currentMonster === null ?
 					<div className={classes.MonsterCards}>
 						{this.state.rngArray.map((rng, index)=> {
 							return (
 									<MonsterCard 
-										name={this.props.state[this.state.monsterType][this.state.area][rng].name}
-										portrait={this.props.state[this.state.monsterType][this.state.area][rng].portrait}
-										text={this.props.state[this.state.monsterType][this.state.area][rng].text}
-										level={this.props.state[this.state.monsterType][this.state.area][rng].level}
-										strengh={this.props.state[this.state.monsterType][this.state.area][rng].strengh}
-										defense={this.props.state[this.state.monsterType][this.state.area][rng].defense}
-										treasure={this.props.state[this.state.monsterType][this.state.area][rng].treasure}
-										experience={this.props.state[this.state.monsterType][this.state.area][rng].experience}
-										gold={this.props.state[this.state.monsterType][this.state.area][rng].gold}
-										chooseMonster={()=>this.chooseMonster(this.props.state[this.state.monsterType][this.state.area][rng])}
-										area={this.state.area}
+										name={this.props.monsterState[this.state.monsterType][this.props.generalState.area][rng].name}
+										portrait={this.props.monsterState[this.state.monsterType][this.props.generalState.area][rng].portrait}
+										text={this.props.monsterState[this.state.monsterType][this.props.generalState.area][rng].text}
+										level={this.props.monsterState[this.state.monsterType][this.props.generalState.area][rng].level}
+										strengh={this.props.monsterState[this.state.monsterType][this.props.generalState.area][rng].strengh}
+										defense={this.props.monsterState[this.state.monsterType][this.props.generalState.area][rng].defense}
+										treasure={this.props.monsterState[this.state.monsterType][this.props.generalState.area][rng].treasure}
+										experience={this.props.monsterState[this.state.monsterType][this.props.generalState.area][rng].experience}
+										gold={this.props.monsterState[this.state.monsterType][this.props.generalState.area][rng].gold}
+										chooseMonster={()=>this.props.chooseMonster(this.props.monsterState[this.state.monsterType][this.props.generalState.area][rng])}
 										background={this.state.background}
 										key={index}
 									/>
@@ -89,16 +79,16 @@ class chooseMonsterScreen extends Component{
 				//when monster is clicked, display the chosen one
 					<div style={{marginTop: '200px', marginLeft: '20px', float:'left'}}>
 						<MonsterCard 
-							name={this.state.chosenMonster.name}
-							portrait={this.state.chosenMonster.portrait}
-							text={this.state.chosenMonster.text}
-							level={this.state.chosenMonster.level}
-							strengh={this.state.chosenMonster.strengh}
-							defense={this.state.chosenMonster.defense}
-							treasure={this.state.chosenMonster.treasure}
-							experience={this.state.chosenMonster.experience}
-							gold={this.state.chosenMonster.gold}
-							area={this.state.area}
+							name={this.props.generalState.currentMonster.name}
+							portrait={this.props.generalState.currentMonster.portrait}
+							text={this.props.generalState.currentMonster.text}
+							level={this.props.generalState.currentMonster.level}
+							strengh={this.props.generalState.currentMonster.strengh}
+							defense={this.props.generalState.currentMonster.defense}
+							treasure={this.props.generalState.currentMonster.treasure}
+							experience={this.props.generalState.currentMonster.experience}
+							gold={this.props.generalState.currentMonster.gold}
+							area={this.props.generalState.area}
 							background={this.state.background}
 						/>
 					</div>
@@ -108,8 +98,17 @@ class chooseMonsterScreen extends Component{
 
 const mapStateToProps = state => {
     return {
-        state: state.monsterReducer,
+		monsterState: state.monsterReducer,
+		generalState: state.generalReducer,
     };
 };
 
-export default connect(mapStateToProps)(chooseMonsterScreen);
+const mapDispatchToProps = dispatch => {
+    return {
+		chooseMonster: (monster) => dispatch({type: 'CHOOSE_MONSTER', monster: monster})
+		
+    }
+};
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(chooseMonsterScreen);

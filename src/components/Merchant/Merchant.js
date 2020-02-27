@@ -6,20 +6,11 @@ import { connect } from 'react-redux';
 class merchant extends Component {
     state = {
         notEnoughGold:[false, false, false],
-        itemsLevel: 'level1',
-        testData: null,
     }
 
-    componentDidMount() {
-        const itemsLevel = 'level' + this.props.area.toString();
-
-        this.setState({itemsLevel: itemsLevel})
-      
-    };
-
     choose = (item, index) => {
-        if (this.props.gold >= item.price) {
-            this.props.choose(item)
+        if (this.props.generalState.gold >= item.price) {
+            this.props.chooseReward(item)
         }else{
             let newArray = this.state.notEnoughGold.slice();
             newArray.splice(index, 1, true)
@@ -35,7 +26,7 @@ class merchant extends Component {
 
                 <div className={classes.Reward}>
                 
-				{this.props.state[this.state.itemsLevel].map((element, index)=>{
+				{this.props.merchantState[this.props.generalState.area].map((element, index)=>{
 					return (
                         <div style={this.state.notEnoughGold[index] ? {WebkitFilter: 'grayscale(1)'} : null} key={index} className={classes.Items}>
                             <TreasureCard
@@ -59,8 +50,17 @@ class merchant extends Component {
 
 const mapStateToProps = state => {
     return {
-        state: state.merchantReducer
+        merchantState: state.merchantReducer,
+        generalState: state.generalReducer,
     };
 };
 
-export default connect(mapStateToProps)(merchant);
+const mapDispatchToProps = dispatch => {
+    return {
+        chooseReward: (treasure) => dispatch({type: 'CHOOSE_REWARD',  treasure: treasure}),
+        closeMerchant: () => dispatch({type: 'CLOSE_MERCHANT'})
+		
+    }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(merchant);

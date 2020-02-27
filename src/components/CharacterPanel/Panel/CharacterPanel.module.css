@@ -294,3 +294,15 @@
 .specialCards td{
   border: 2px solid darkgreen;
 }
+
+.InventoryBox {
+  height: 70px;
+  width: 31%;
+  margin: 2px;
+  border: 1px solid black;
+  display: inline-block;
+  background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+
+}

@@ -1,11 +1,12 @@
 import React from 'react';
 import classes from './MonsterCard.module.css';
 import ReactTooltip from 'react-tooltip';
+import { connect } from 'react-redux';
 
 const monsterCard =(props) => {
 	const portrait = props.portrait;
 
-	const style = {	backgroundImage: 'url(' + props.background[props.area] + ')',
+	const style = {	backgroundImage: 'url(' + props.background[props.globalState.area] + ')',
 					backgroundSize: 'cover',
 					backgroundPosition: 'center',
 					backgroundRepeat: 'no-repeat',}
@@ -43,4 +44,10 @@ const monsterCard =(props) => {
 		)
 }
 
-export default monsterCard;
+const mapStateToProps = state => {
+    return {
+		globalState: state.generalReducer,
+    };
+};
+
+export default connect(mapStateToProps)(monsterCard);

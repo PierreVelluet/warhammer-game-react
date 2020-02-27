@@ -1,5 +1,5 @@
 const initialState = {
-        level1: [
+        area1: [
             {
             name: 'Plasma gun',
             portrait: '/images/StrenghItems/PlasmaGun.png' ,
@@ -33,7 +33,7 @@ const initialState = {
             price: 5,
             },
         ],
-        level2: [
+        area2: [
             {
             name: 'Bionic hand',
             portrait: '/images/BionicHand.png',
