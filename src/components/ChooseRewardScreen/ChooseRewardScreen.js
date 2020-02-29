@@ -10,6 +10,7 @@ class chooseRewardScreen extends Component {
 
 	render() {
 
+		//set an array's length depending on the champion's player choice
 		let numberOfTreasures = 3;
 		if (this.props.generalState.name === 'Eldar captain' && this.props.generalState.currentMonster.monsterType === 'normal') {numberOfTreasures = 4 }
 
@@ -39,7 +40,7 @@ class chooseRewardScreen extends Component {
 						/>
 					)
 				})}
-
+				{/*add a special card for the "gold" reward, depending on the gold property of chosen monster */}
 				<TreasureCard
 					effect={ this.props.generalState.currentMonster.gold + ' gold coins'}
 					name='Gold coins'
@@ -64,9 +65,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-		// chooseReward: (treasure) => dispatch({type: 'CHOOSE_REWARD',  treasure: treasure}),
 		chooseReward: (treasure) => dispatch(actionCreators.chooseRewardThenCheckUpdates(treasure)),
-		
     }
 };
 

@@ -8,6 +8,43 @@ export const continueHandler = () => {
     return { type: actionTypes.CONTINUE_HANDLER}
 }
 
+export const revealHandler = () => {
+    return { type: actionTypes.REVEAL_HANDLER}
+}
+
+export const switchInventory = (whichInventory) => {
+    return {
+        type: actionTypes.SWITCH_INVENTORY,
+        whichInventory: whichInventory,
+    }
+}
+
+export const rollAttackDice = () => {
+    return {
+        type: actionTypes.ROLL_ATTACK_DICE,
+    }
+}
+
+export const rollRetaliationDice = () => {
+    return {
+        type: actionTypes.ROLL_RETALIATION_DICE,
+    }
+}
+
+export const setIntialStats = (champ) => {
+    return {
+        type: actionTypes.SET_INITIAL_STATS,
+        champ: champ,
+    }
+}
+
+export const chooseMonster = (monster) => {
+    return {
+        type: actionTypes.CHOOSE_MONSTER,
+        monster: monster,
+    }
+}
+
 export const chooseRewardThenCheckUpdates = (treasure) => (dispatch, getState) => {
     dispatch({
         type: actionTypes.CHOOSE_REWARD,

@@ -54,8 +54,8 @@ const combatDetails = (props) => {
 							<p style={{display: 'inline-block'}}>The ennemy rolled a <span> </span></p><span> </span>
 								<div className={classes.Dice}style ={{backgroundImage: `url(${dices[props.generalState.dice]})` }}></div>.<span className={classes.Result}> You've been hited !</span>
 							{props.healpoints > 0 ?
-								<p>You just lost one HP. You have <strong>{props.generalState.healpoints}</strong> HP left. When you are at 0 HP, you become a slum, then, you die. Yet, the fight is not over!</p>:
-								<p>You just lost one HP. You have <strong>{props.generalState.healpoints}</strong> HP left. You transform into a slum. It sucks... Your adventure is over.</p>}
+								<p>You just lost one HP. You have <strong>{props.generalState.health}</strong> HP left. When you are at 0 HP, you become a slum, then, you die. Yet, the fight is not over!</p>:
+								<p>You just lost one HP. You have <strong>{props.generalState.health}</strong> HP left. You transform into a slum. It sucks... Your adventure is over.</p>}
 								<button onClick={props.continueHandler} className={classes.Btn}>Continue ...</button>
 						</div>,
 
@@ -81,11 +81,11 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-		revealInventory: (whichInventory) => dispatch({type: 'SWITCH_INVENTORY', whichInventory: whichInventory}),
+		revealInventory: (whichInventory) => dispatch(actionCreators.switchInventory(whichInventory)),
 		continueHandler: () => dispatch(actionCreators.continueHandler()),
-		rollAttackDice: () => dispatch({type: 'ROLL_ATTACK_DICE'}),
-		rollRetaliationDice: () => dispatch({type: 'ROLL_RETALIATION_DICE'}),
-		claimRewards: () => dispatch({type: 'CLAIM_REWARDS'})
+		rollAttackDice: () => dispatch(actionCreators.rollAttackDice()),
+		rollRetaliationDice: () => dispatch(actionCreators.rollRetaliationDice()),
+		claimRewards: () => dispatch(actionCreators.claimReward())
 		
     }
 };

@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import classes from './Deck.module.css';
+import * as actionCreators from '../../store/actions/index';
 
 const deck = (props) => (
 
@@ -17,7 +18,7 @@ const deck = (props) => (
 
 const mapDispatchToProps = dispatch => {
     return {
-		revealHandler: () => dispatch({type: 'REVEAL_HANDLER'})
+		revealHandler: () => dispatch(actionCreators.revealHandler())
 		
     }
 };

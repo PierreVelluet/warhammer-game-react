@@ -49,7 +49,8 @@ const initialState = {
     background:{
         area0: 'https://www.azutura.com/media/catalog/product/cache/49/image/650x/040ec09b1e35df139433887a97daa66f/W/S/WS-47373_WP.jpg',
         area1: 'https://www.wallpaperflare.com/static/581/364/24/artwork-fantasy-art-digital-art-desert-wallpaper.jpg',
-        area2: 'https://i.pinimg.com/originals/1d/34/cd/1d34cdbcbc3ebb9d59d2e455c249a82c.jpg'
+        area2: 'https://i.pinimg.com/originals/1d/34/cd/1d34cdbcbc3ebb9d59d2e455c249a82c.jpg',
+        area3: 'https://c.wallhere.com/photos/aa/d7/fantasy_art_snow_mountains_landscape-211055.jpg!d',
     }
                
         
@@ -136,13 +137,21 @@ const reducer = (state = initialState, action) => {
                     openedDecks: 4,
 
                 }
-            }else if (state.showLevelUpPanel) {
-                return {
+            }else if (state.showBossTrailer && state.area === 'area2') {
+                return  {
                     ...state,
-                    showDeck: true,
-                    showLevelUpPanel: false,
+                    showMonsterScreen: true,
+                    showBossTrailer: false,
+                    openedDecks: 4,
+
                 }
-            }
+            }else if (state.showLevelUpPanel) {
+                    return {
+                        ...state,
+                        showDeck: true,
+                        showLevelUpPanel: false,
+                    }
+                }
             break;
         
         case actionTypes.LEVEL_AREA_BOSS_UPDATE:
@@ -169,6 +178,7 @@ const reducer = (state = initialState, action) => {
                 let newArea = parseInt(state.area.slice(-1)) + 1
                 newArea = 'area' + newArea.toString()
                 const areaExplored = state.areaExplored + 1;
+                const newOpenedDeck =0;
 
                 return {
                     ...state,
@@ -176,6 +186,7 @@ const reducer = (state = initialState, action) => {
                     showDeck: false,
                     area: newArea,
                     areaExplored: areaExplored,
+                    openedDecks: newOpenedDeck,
                 }
             }
             return state

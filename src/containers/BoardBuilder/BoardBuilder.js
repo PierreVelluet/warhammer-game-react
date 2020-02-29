@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import classes from './BoardBuilder.module.css'
+import classes from './BoardBuilder.module.css';
 import ChooseCharScreen from '../../components/ChooseCharScreen/ChooseCharScreen';
 import PlayerBoardControl from '../PlayerBoardControl/PlayerBoardControl';
 import DeckBoardControl from '../DeckBoardControl/DeckBoardControl';

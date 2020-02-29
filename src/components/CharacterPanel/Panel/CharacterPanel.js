@@ -3,6 +3,7 @@ import classes from './CharacterPanel.module.css'
 import ProgressBar from '../ProgressBar/ProgressBar';
 import ReactTooltip from 'react-tooltip';
 import { connect } from 'react-redux';
+import * as actionCreators from '../../../store/actions/index';
 
 class characterPanel extends Component {
   
@@ -120,7 +121,7 @@ const mapStateTothis = state => {
 
 const mapDispatchTothis = dispatch => {
     return {
-		displayedInventory: (whichInventory) => dispatch({type: 'SWITCH_INVENTORY', whichInventory: whichInventory}),
+		displayedInventory: (whichInventory) => dispatch(actionCreators.switchInventory(whichInventory)),
 		
     }
 };

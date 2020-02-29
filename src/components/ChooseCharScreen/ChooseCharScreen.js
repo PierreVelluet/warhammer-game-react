@@ -2,10 +2,11 @@ import React from 'react';
 import ChampionCard from '../Cards/ChampionCard';
 import classes from './ChooseCharScreen.module.css'
 import { connect } from 'react-redux';
+import * as actionCreators from '../../store/actions/index';
 
 const chooseCharScreen = (props) => (
 
-			//simply map the data from championReducer, and hence, return a card for each champ.
+			//simply map the data from championReducer, and hence, return a card for each champion.
 			<div className={classes.Div}>
 				<h1 className={classes.Title} >Choose your spaceship captain !</h1>
 				{props.state.champion.map((champ, index) => {
@@ -19,7 +20,6 @@ const chooseCharScreen = (props) => (
 							defense={props.state.champion[index].defense}
 							health={props.state.champion[index].health}
 							level={props.state.champion[index].level}
-							// choose={() => props.choosing(champ)}
 							choose={() => props.updateChosenChampStats(champ)}
 							key={index}
 						/>
@@ -37,8 +37,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-		addPersonHandler: (name, age) => dispatch({type: 'ADD_PERSON', personData: {name: name, age: age}}),
-		updateChosenChampStats: (champ) => dispatch({type: 'SET_INITIAL_STATS', champ: champ})
+		updateChosenChampStats: (champ) => dispatch(actionCreators.setIntialStats(champ))
     }
 };
 

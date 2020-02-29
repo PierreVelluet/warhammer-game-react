@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import MonsterCard from '../Cards/MonsterCard';
 import classes from './ChooseMonsterScreen.module.css';
 import { connect } from 'react-redux';
+import * as actionCreators from '../../store/actions/index';
 
 class chooseMonsterScreen extends Component{
 
@@ -13,6 +14,7 @@ class chooseMonsterScreen extends Component{
 				area0: '',
 				area1: 'https://images.unsplash.com/photo-1522046310824-b844b4b5806f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80',
 				area2: 'https://i.pinimg.com/originals/a4/1c/bc/a41cbc641383f94a2db319d90fad5996.jpg',
+				area3: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSTmHiUUs_tkMalPosYQsn_m7VcKry-ryvUsUKT5Feq1dokbTwi',
 
 			},
 			rngArray: [],
@@ -21,6 +23,7 @@ class chooseMonsterScreen extends Component{
 	}
 
 	componentDidMount() {
+		//set an array of number depending on the number of monster desired, then fill it with random numbers
 		let length = 3;
 		if (this.props.generalState.name === 'Tau commander') {length = 4;}
 		let rngArray = [];
@@ -40,6 +43,7 @@ class chooseMonsterScreen extends Component{
 			}
 		}
 
+		//definie which type of number the player is gooing to face, depending on the number of deck explored
 		let monsterType = null;
 		if (this.props.generalState.openedDecks !== 4 ) {
 			monsterType = 'normal'
@@ -105,8 +109,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-		chooseMonster: (monster) => dispatch({type: 'CHOOSE_MONSTER', monster: monster})
-		
+		chooseMonster: (monster) => dispatch(actionCreators.chooseMonster(monster))
     }
 };
 

@@ -32,6 +32,15 @@ const floorCheck = (props) => (
             <p><em>Again, you need to explore the deck 3 times to proceed to the next area. Be careful, this forest doesnt look friendly at all !</em></p>
             <button className={classes.Btn} onClick={props.continue}>Continue</button>
         </div>,
+
+        area3:
+        <div className={classes.FloorCheck}>
+            <h1 className={classes.Title}><strong>Chapter 3 : the iceland</strong></h1>
+            <p>You somehow managed to cross the entire jungle and to stay alive. You immediatly fall in front of an unfinishable frozen land.</p>
+            <div className={classes.Img} style={{backgroundImage: "url('https://i.pinimg.com/originals/61/f5/9f/61f59f72387271f6b091b9e0ae9a5e3f.jpg')"}}></div>
+            <p><em>Again, you need to explore the deck 3 times to proceed to the next area. Be those lands might not be as unhabited as you could think at a first look !</em></p>
+            <button className={classes.Btn} onClick={props.continue}>Continue</button>
+        </div>,
     }[props.generalState.area]
 );
 
