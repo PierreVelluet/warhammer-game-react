@@ -1,7 +1,7 @@
 export {
-    // chooseReward,
     chooseRewardThenCheckUpdates,
     continueThenCheckUpdates,
+    chooseReward,
     claimReward,
     continueHandler,
     revealHandler,
@@ -10,4 +10,6 @@ export {
     chooseMonster,
     rollAttackDice,
     rollRetaliationDice,
+    closeMerchant,
+    showMerchant,
 } from './generalActions';

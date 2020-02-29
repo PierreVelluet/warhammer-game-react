@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import classes from './MerchantAccess.module.css'
+import * as actionCreators from '../../store/actions/index';
 
 const merchantAccess = (props) => (
     <div onClick={props.generalState.showDeck ? props.showMerchant : undefined} className={classes.MerchantAccess}></div>
@@ -14,7 +15,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-		  showMerchant: (treasure) => dispatch({type: 'SHOW_MERCHANT',  treasure: treasure}),
+		  showMerchant: (treasure) => dispatch(actionCreators.showMerchant()),
     }
 };
 

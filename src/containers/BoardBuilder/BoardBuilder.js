@@ -21,14 +21,14 @@ import MerchantAccess from '../../components/Merchant/MerchantAccess';
 
 class boardBuilder extends Component {
 
-	componentDidUpdate(prevProps, prevState) {
+	// componentDidUpdate(prevProps, prevState) {
 
-		if (prevProps.generalState.experience !== this.props.generalState.experience) {
-			if(this.props.generalState.showDeck) {
-				this.props.checkUpdates();
-			}
-		}
-	}
+	// 	if (prevProps.generalState.experience !== this.props.generalState.experience) {
+	// 		if(this.props.generalState.showDeck) {
+	// 			this.props.checkUpdates();
+	// 		}
+	// 	}
+	// }
 
 	
 	

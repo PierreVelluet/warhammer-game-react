@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import classes from './Merchant.module.css';
 import TreasureCard from '../Cards/TreasureCard';
 import { connect } from 'react-redux';
+import * as actionCreators from '../../store/actions/index';
 
 class merchant extends Component {
     state = {
@@ -57,8 +58,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        chooseReward: (treasure) => dispatch({type: 'CHOOSE_REWARD',  treasure: treasure}),
-        closeMerchant: () => dispatch({type: 'CLOSE_MERCHANT'})
+        chooseReward: (treasure) => dispatch(actionCreators.chooseReward(treasure)),
+        closeMerchant: () => dispatch(actionCreators.closeMerchant())
 		
     }
 };
