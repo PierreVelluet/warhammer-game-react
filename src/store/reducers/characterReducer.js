@@ -37,7 +37,7 @@ const initialState = {
         power: "start the adventure level 2, hence + 1 strengh & + 1 defense.",
         level: 2,
         health: 5,
-        strengh: 2,
+        strengh: 10,
         defense: 9,
         },
 

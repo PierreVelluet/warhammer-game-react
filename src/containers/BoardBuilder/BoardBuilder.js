@@ -20,75 +20,18 @@ import MerchantAccess from '../../components/Merchant/MerchantAccess';
 
 
 class boardBuilder extends Component {
-	state = {
-		//display different section handlers
-		showChooseCharScreen: true,
-		showDeck: false,
-		showMonsterScreen: false,
-		showRewards: false,
-		showFloorCheck: false,
-		showAttackCards: true,
-		showDefenseCards: false,
-		showMagicCards: false,
-		showLevelUpPanel: false,
-		showGameOverPanel: false,
-		showBossTrailer: false,
-		showCombatDetails: false,
-		showMerchant: false,
-		//
-		combatResult: 'base',
-		activeAttackIcon: false,
-		activeDefenseIcon: false,
-		activeMagicIcon: false,
-		area: null,
-		areaName: ['Space', 'Desert', 'Jungle', 'IceLand'],
-		areaExplored: 0,
-		monsterType: 'monster',
-		//Character Panel
-		portrait: null,
-		name: null,
-		power: null,
-		level: 0,
-		health: 1,
-		strengh: 0,
-		baseStrengh: 0,
-		strenghFromItem: 0,
-		totalStrengh: 0,
-		defense: 0,
-		baseDefense:0,
-		defenseFromItem: 0,
-		experience: 0,
-		monsterSlain: 0,
-		bossSlain: 0,
-		gold: 0,
-		treasure:[],
-		attackCards: [],
-		defenseCards: [],
-		specialCards: [],
-		whichInventory: '',
-		inventoryColor: 'attackCards',
-		openedDecks: 0,
-		/////////////////////
-		whichReward: 'normal',
-		// rng: 0,
-		dice: -1,
-		bonusToDice: 0,
-		currentMonster: null,
-		background:[
-					'https://www.azutura.com/media/catalog/product/cache/49/image/650x/040ec09b1e35df139433887a97daa66f/W/S/WS-47373_WP.jpg',
-					'https://www.wallpaperflare.com/static/581/364/24/artwork-fantasy-art-digital-art-desert-wallpaper.jpg',
-					'https://i.pinimg.com/originals/1d/34/cd/1d34cdbcbc3ebb9d59d2e455c249a82c.jpg'
-					]
-			
 
-	}//end of state
+	componentDidUpdate(prevProps, prevState) {
 
+		if (prevProps.generalState.experience !== this.props.generalState.experience) {
+			if(this.props.generalState.showDeck) {
+				this.props.checkUpdates();
+			}
+		}
+	}
 
-////////////////////////////////////////////////SPECIAL HANDLERS//////////////////////////////////////////////////////////////////
-
-// IMPOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOORRRRRRRRRRRRTTTTTTTAAAAAAAAAAAAAAAAAAAAAAAAAAANTTTTT///////////////////////////////////////////////////////////////////
-		// this.shouldLevelOrAreaOrBossUpdate();// DO NOT FORGET TO ADD THIS !!!!!!!!!!!!!!!!!!!!!!!!!!!!////////////////////////////////////////////////////////
-
+	
+	
 	specialEffectHandler = (data, index) => {
 
 		if (data.type === 'specialCards') {
@@ -250,47 +193,12 @@ class boardBuilder extends Component {
 			<div className={classes.Board}>
 				{this.props.generalState.showChooseCharScreen ? chooseScreen :
 					<React.Fragment>
-						<PlayerBoardControl>
-							<CharacterPanel
-								className={classes.PanelCard}
-								name={this.state.name}
-								portrait={this.state.portrait}
-								power={this.state.power}
-								level={this.state.level}
-								health={this.state.health}
-								attackCards={this.state.attackCards}
-								defenseCards={this.state.defenseCards}
-								specialCards={this.state.specialCards}
-								strengh={this.state.strengh}
-								defense={this.state.defense}
-								experience={this.state.experience}
-								monsterSlain={this.state.monsterSlain}
-								bossSlain={this.state.bossSlain}
-								activeAttackIcon={this.state.activeAttackIcon}
-								activeDefenseIcon={this.state.activeDefenseIcon}
-								activeMagicIcon={this.state.activeMagicIcon}
-								showAttackCards={this.showAttackCards}
-								showDefenseCards={this.showDefenseCards}
-								showMagicCards={this.showMagicCards}
-								decks={this.state.openedDecks}
-								percentage={this.state.experience}
-								gold={this.state.gold}
-								treasure={this.state.treasure.length}
-								deck={this.state.openedDecks}
-								area={this.state.areaName[this.state.area]}
-								areaExplored={this.state.areaExplored}
-								whichInventory={this.state.whichInventory}
-								revealInventory={this.revealInventory}
-								inventoryColor={this.state.inventoryColor}
-								specialEffectHandler={this.specialEffectHandler}
-							/>
 
+						<PlayerBoardControl>
+							<CharacterPanel />
 						</PlayerBoardControl>
-						<DeckBoardControl
-							background={this.state.background}
-							area={this.state.area}
-						>
-						
+
+						<DeckBoardControl >
 							{merchantAccess}
 							{merchant}
 							{bossTrailer}
@@ -302,6 +210,7 @@ class boardBuilder extends Component {
 							{combatDetails}
 							{rewards}
 						</DeckBoardControl>
+
 					</React.Fragment>
 				}
 			</div>
@@ -317,7 +226,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        addPersonHandler: (name, age) => dispatch({type: 'ADD_PERSON', personData: {name: name, age: age}}),
+        checkUpdates: () => dispatch({type: 'LEVEL_AREA_BOSS_UPDATE'}),
     }
 };
 

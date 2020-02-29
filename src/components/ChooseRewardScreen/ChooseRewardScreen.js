@@ -2,9 +2,11 @@ import React, {Component} from 'react';
 import classes from './ChooseRewardScreen.module.css';
 import TreasureCard from '../Cards/TreasureCard';
 import { connect } from 'react-redux';
+import * as actionCreators from '../../store/actions/index';
 
 
 class chooseRewardScreen extends Component {
+
 
 	render() {
 
@@ -32,7 +34,7 @@ class chooseRewardScreen extends Component {
 							portrait={this.props.rewardState[this.props.generalState.currentMonster.monsterType][this.props.generalState.area][rng].portrait}
 							bottomText={this.props.rewardState[this.props.generalState.currentMonster.monsterType][this.props.generalState.area][rng].bottomText}
 							effect={this.props.rewardState[this.props.generalState.currentMonster.monsterType][this.props.generalState.area][rng].effect}
-							choose={(() => this.props.chooseReward(this.props.rewardState[this.props.generalState.currentMonster.monsterType][this.props.generalState.area][rng]))}
+							choose={() => this.props.chooseReward(this.props.rewardState[this.props.generalState.currentMonster.monsterType][this.props.generalState.area][rng])}
 							key={index}
 						/>
 					)
@@ -62,7 +64,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-		chooseReward: (treasure) => dispatch({type: 'CHOOSE_REWARD',  treasure: treasure}),
+		// chooseReward: (treasure) => dispatch({type: 'CHOOSE_REWARD',  treasure: treasure}),
+		chooseReward: (treasure) => dispatch(actionCreators.chooseRewardThenCheckUpdates(treasure)),
 		
     }
 };

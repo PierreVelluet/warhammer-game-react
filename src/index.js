@@ -3,8 +3,9 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './containers/App.js';
 import * as serviceWorker from './serviceWorker';
+import thunk from 'redux-thunk';
 
-import {createStore, combineReducers} from 'redux';
+import {createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 
 import merchantReducer from './store/reducers/merchantReducer';
@@ -23,7 +24,7 @@ const rootReducer = combineReducers({
     generalReducer: generalReducer,
 });
 
-const store = createStore(rootReducer)
+const store = createStore(rootReducer, applyMiddleware(thunk))
 
 
 

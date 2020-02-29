@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import classes from './CombatDetails.module.css'
+import classes from './CombatDetails.module.css';
+import * as actionCreators from '../../store/actions/index';
 
 const dice1 = '/images/Dices/1.png';
 const dice2 = '/images/Dices/2.png';
@@ -55,7 +56,7 @@ const combatDetails = (props) => {
 							{props.healpoints > 0 ?
 								<p>You just lost one HP. You have <strong>{props.generalState.healpoints}</strong> HP left. When you are at 0 HP, you become a slum, then, you die. Yet, the fight is not over!</p>:
 								<p>You just lost one HP. You have <strong>{props.generalState.healpoints}</strong> HP left. You transform into a slum. It sucks... Your adventure is over.</p>}
-								<button onClick={props.continue} className={classes.Btn}>Continue ...</button>
+								<button onClick={props.continueHandler} className={classes.Btn}>Continue ...</button>
 						</div>,
 
 					saved:
@@ -64,7 +65,7 @@ const combatDetails = (props) => {
 							<p style={{display: 'inline-block'}}>The ennemy only rolled a <span> </span></p><span> </span>
 								<div className={classes.Dice}style ={{backgroundImage: `url(${dices[props.generalState.dice]})` }}></div>.<span className={classes.Result}> Ouf !</span>
 							<p>You've just been saved by your armor, or somewhat managed to dodge the monster's counter-attack! Muster your strengh though, the fight is far from beeing over.</p>
-							<button onClick={props.continue} className={classes.Btn}>Continue ...</button>
+							<button onClick={props.continueHandler} className={classes.Btn}>Continue ...</button>
 						</div>,
 					
 				}[props.generalState.combatResult]
@@ -81,7 +82,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
 		revealInventory: (whichInventory) => dispatch({type: 'SWITCH_INVENTORY', whichInventory: whichInventory}),
-		continue: () => dispatch({type: 'CONTINUE'}),
+		continueHandler: () => dispatch(actionCreators.continueHandler()),
 		rollAttackDice: () => dispatch({type: 'ROLL_ATTACK_DICE'}),
 		rollRetaliationDice: () => dispatch({type: 'ROLL_RETALIATION_DICE'}),
 		claimRewards: () => dispatch({type: 'CLAIM_REWARDS'})

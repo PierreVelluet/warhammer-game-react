@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import classes from './FloorCheck.module.css';
+import * as actionCreators from '../../store/actions/index';
 
 const floorCheck = (props) => (
 
@@ -42,7 +43,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-		continue: () => dispatch({type: 'CONTINUE'}),
+		continue: () => dispatch(actionCreators.continueHandler()),
 		
     }
 };
