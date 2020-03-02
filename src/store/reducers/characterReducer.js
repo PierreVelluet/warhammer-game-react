@@ -16,7 +16,7 @@ const initialState = {
         powerName: "Medic",
         power: "double all your medics effectiveness.",
         level: 1,
-        health: 1,
+        health: 5,
         strengh: 0,
         defense: 8,
         },
@@ -37,7 +37,7 @@ const initialState = {
         power: "start the adventure level 2, hence + 1 strengh & + 1 defense.",
         level: 2,
         health: 5,
-        strengh: 10,
+        strengh: 2,
         defense: 9,
         },
 
