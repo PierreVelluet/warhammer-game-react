@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 const monsterCard =(props) => {
 	const portrait = props.portrait;
 
-	const style = {	backgroundImage: 'url(' + props.background[props.globalState.area] + ')',
+	const style = {	backgroundImage: 'url(' + props.areaState[props.globalState.area].monsterBackground + ')',
 					backgroundSize: 'cover',
 					backgroundPosition: 'center',
 					backgroundRepeat: 'no-repeat',}
@@ -47,6 +47,7 @@ const monsterCard =(props) => {
 const mapStateToProps = state => {
     return {
 		globalState: state.generalReducer,
+		areaState: state.areaReducer
     };
 };
 

@@ -1,5 +1,12 @@
 import * as actionTypes from './actionTypes';
 
+export const choosePlanet = (area) => {
+    return {
+        type: actionTypes.CHOOSE_PLANET,
+        area: area,
+    }
+}
+
 export const claimReward = () => {
     return { type: actionTypes.CLAIM_REWARDS }
 }
@@ -61,6 +68,7 @@ export const showMerchant = () => {
 };
 
 export const chooseRewardThenCheckUpdates = (treasure) => (dispatch, getState) => {
+    console.log(getState().areaReducer)
     dispatch({
         type: actionTypes.CHOOSE_REWARD,
         treasure: treasure,

@@ -16,21 +16,12 @@ import GameOver from '../../components/GameOver/GameOver';
 import BossTrailer from '../../components/Bosses/BossTrailer';
 import Merchant from '../../components/Merchant/Merchant';
 import MerchantAccess from '../../components/Merchant/MerchantAccess';
+import ChooseWorldScreen from '../../components/ChooseWorldScreen/ChooseWorldScreen';
+import Takeoff from '../../components/Takeoff/Takeoff';
 
 
 
 class boardBuilder extends Component {
-
-	// componentDidUpdate(prevProps, prevState) {
-
-	// 	if (prevProps.generalState.experience !== this.props.generalState.experience) {
-	// 		if(this.props.generalState.showDeck) {
-	// 			this.props.checkUpdates();
-	// 		}
-	// 	}
-	// }
-
-	
 	
 	specialEffectHandler = (data, index) => {
 
@@ -133,8 +124,11 @@ class boardBuilder extends Component {
 	}
 
 	render () {
-		let chooseScreen = null;
-			if (this.props.generalState.showChooseCharScreen) {chooseScreen = <ChooseCharScreen />};
+		let chooseChampionScreen = null;
+			if (this.props.generalState.showChooseCharScreen) {chooseChampionScreen = <ChooseCharScreen />};
+
+		let chooseWorldScreen = null;
+			if (this.props.generalState.showChooseWorldScreen) {chooseWorldScreen = <ChooseWorldScreen />}
 
 		let rewards = null;
 		if (this.props.generalState.showRewards) {
@@ -189,16 +183,20 @@ class boardBuilder extends Component {
 			 merchantAccess = <MerchantAccess />
 		}
 
-		return (
-			<div className={classes.Board}>
-				{this.props.generalState.showChooseCharScreen ? chooseScreen :
-					<React.Fragment>
+		let takeoff = null;
+		if (this.props.generalState.showTakeoff) {
+			takeoff= <Takeoff />
+		}
 
+		let board = null;
+		if (this.props.generalState.showBoard) {
+			board =	<React.Fragment>
 						<PlayerBoardControl>
 							<CharacterPanel />
 						</PlayerBoardControl>
 
 						<DeckBoardControl >
+							{chooseWorldScreen}
 							{merchantAccess}
 							{merchant}
 							{bossTrailer}
@@ -209,10 +207,19 @@ class boardBuilder extends Component {
 							{chooseMonsterScreen}
 							{combatDetails}
 							{rewards}
+							{takeoff}
 						</DeckBoardControl>
 
-					</React.Fragment>
-				}
+				</React.Fragment>
+		}
+
+		
+
+		return (
+			<div className={classes.Board}>
+			{chooseChampionScreen}
+			{chooseWorldScreen}
+			{board}
 			</div>
 		)
 	}

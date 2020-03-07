@@ -15,6 +15,9 @@ const initialState = {
     showBossTrailer: false,
     showCombatDetails: false,
     showMerchant: false,
+    showChooseWorldScreen: false,
+    showBoard: false,
+    showTakeoff: false,
     //////////////////////////////////////////////
     combatResult: 'base',
     activeAttackIcon: false,
@@ -27,6 +30,7 @@ const initialState = {
     portrait: null,
     name: null,
     power: null,
+    race: null,
     level: 0,
     health: 1,
     experience: 0,
@@ -46,14 +50,14 @@ const initialState = {
     dice: -1,
     bonusToDice: 0,
     currentMonster: null,
-    background:{
-        area0: 'https://www.azutura.com/media/catalog/product/cache/49/image/650x/040ec09b1e35df139433887a97daa66f/W/S/WS-47373_WP.jpg',
-        area1: 'https://www.wallpaperflare.com/static/581/364/24/artwork-fantasy-art-digital-art-desert-wallpaper.jpg',
-        area2: 'https://i.pinimg.com/originals/1d/34/cd/1d34cdbcbc3ebb9d59d2e455c249a82c.jpg',
-        area3: 'https://c.wallhere.com/photos/aa/d7/fantasy_art_snow_mountains_landscape-211055.jpg!d',
-    }
+    // background:{
+    //     space: 'https://www.azutura.com/media/catalog/product/cache/49/image/650x/040ec09b1e35df139433887a97daa66f/W/S/WS-47373_WP.jpg',
+    //     desert: 'https://www.wallpaperflare.com/static/581/364/24/artwork-fantasy-art-digital-art-desert-wallpaper.jpg',
+    //     jungle: 'https://i.pinimg.com/originals/1d/34/cd/1d34cdbcbc3ebb9d59d2e455c249a82c.jpg',
+    //     iceland: 'https://c.wallhere.com/photos/aa/d7/fantasy_art_snow_mountains_landscape-211055.jpg!d',
+    // }
                
-        
+      
 
 }
 
@@ -67,6 +71,7 @@ const reducer = (state = initialState, action) => {
             const name = action.champ.name;
             const power = action.champ.power;
             const portrait = action.champ.portrait;
+            const race = action.champ.race;
         
             return {
                 ...state,
@@ -79,8 +84,20 @@ const reducer = (state = initialState, action) => {
                 name: name,
                 power: power,
                 portrait: portrait,
+                race: race,
                 showChooseCharScreen: false,
-                showFloorCheck: true,
+                showChooseWorldScreen: true,
+            }
+
+        case actionTypes.CHOOSE_PLANET:
+            let newArea = action.area
+            return {
+                ...state,
+                area: newArea,
+                showChooseWorldScreen: false,
+                showBoard: true,
+                showFloorCheck: true
+            
             }
 
         case actionTypes.SWITCH_INVENTORY:
@@ -92,20 +109,11 @@ const reducer = (state = initialState, action) => {
         // Handle all continue action, depending on the context of execution
         case actionTypes.CONTINUE_HANDLER: 
             
-            if (state.area === 'area0') {
-                let newArea = parseInt(state.area.slice(-1)) + 1
-                newArea = 'area' + newArea.toString()
-                const areaExplored = state.areaExplored + 1;
-                return {
-                    ...state,
-                    area: newArea,
-                    areaExplored: areaExplored
-                }
-            }else if (state.showFloorCheck && state.area === 'area1') {
+            if (state.showFloorCheck) {
                 return {
                     ...state,
                     showFloorCheck: false,
-                    showDeck: true
+                    showDeck: true,
                 }
             }else if (state.combatResult === 'saved') {
                 return {
@@ -123,13 +131,7 @@ const reducer = (state = initialState, action) => {
                     showGameOverPanel: true,
                     showCombatDetails: false,
                 }
-            }else if(state.showFloorCheck && state.area === 'area2'){
-                return {
-                    ...state,
-                    showFloorCheck: false,
-                    showDeck: true,
-                }
-            }else if (state.showBossTrailer && state.area === 'area1') {
+            }else if (state.showBossTrailer && state.area === 'desert') {
                 return  {
                     ...state,
                     showMonsterScreen: true,
@@ -137,7 +139,7 @@ const reducer = (state = initialState, action) => {
                     openedDecks: 4,
 
                 }
-            }else if (state.showBossTrailer && state.area === 'area2') {
+            }else if (state.showBossTrailer && state.area === 'jungle') {
                 return  {
                     ...state,
                     showMonsterScreen: true,
@@ -151,7 +153,14 @@ const reducer = (state = initialState, action) => {
                         showDeck: true,
                         showLevelUpPanel: false,
                     }
+            }else if (state.showTakeoff) {
+                return {
+                    ...state,
+                    showChooseWorldScreen: true,
+                    showTakeoff: false,
+                    showBoard: false,
                 }
+            }
             break;
         
         case actionTypes.LEVEL_AREA_BOSS_UPDATE:
@@ -175,22 +184,19 @@ const reducer = (state = initialState, action) => {
                 }
 
             }else if (state.currentMonster.monsterType === 'boss') {
-                let newArea = parseInt(state.area.slice(-1)) + 1
-                newArea = 'area' + newArea.toString()
                 const areaExplored = state.areaExplored + 1;
                 const newOpenedDeck =0;
 
                 return {
                     ...state,
-                    showFloorCheck: true,
+                    showTakeoff: true,
+                    // showFloorCheck: true,
                     showDeck: false,
-                    area: newArea,
                     areaExplored: areaExplored,
                     openedDecks: newOpenedDeck,
                 }
             }
-            return state
-            
+            return state;
             
 
         case actionTypes.CHOOSE_MONSTER:

@@ -4,7 +4,7 @@ import classes from './DeckBoardControl.module.css';
 
 const deckBoardControl = (props) => (
 
-			<div style ={{backgroundImage: 'url(' + props.generalState.background[props.generalState.area] + ')', backgroundSize: 'cover', backgroundPosition: 'center', backgoundRepeat: 'no-repeat'}} className={classes.DeckDiv}>
+			<div style ={{backgroundImage: 'url(' + props.areaState[props.generalState.area].background + ')', backgroundSize: 'cover', backgroundPosition: 'center', backgoundRepeat: 'no-repeat'}} className={classes.DeckDiv}>
 				{props.children}
 			</div>
 	
@@ -12,7 +12,8 @@ const deckBoardControl = (props) => (
 
 const mapStateToProps = state => {
     return {
-        generalState: state.generalReducer
+        generalState: state.generalReducer,
+        areaState: state.areaReducer
     };
 };
 

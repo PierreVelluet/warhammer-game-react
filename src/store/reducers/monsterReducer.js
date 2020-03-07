@@ -1,6 +1,6 @@
 const initialState = {
     normal: {
-        area1: [
+        'desert': [
             {
             name: 'Gretchin',
             portrait: '"https://i.pinimg.com/736x/66/4b/63/664b63471ddb229de325e1a0ebec98b7.jpg"',
@@ -14,7 +14,7 @@ const initialState = {
             monsterType: 'normal',
             },
             {
-            name: 'Golbin',
+            name: 'Goblin',
             portrait: '"https://i.pinimg.com/originals/81/7e/5b/817e5bac7aec46a8eddd2b2f160e1e33.jpg"',
             text: "No special rules",
             level: 2,
@@ -122,7 +122,7 @@ const initialState = {
             monsterType: 'normal',
             },
         ],
-        area2: [
+        'jungle': [
             
             {
             name: 'Termagant',
@@ -248,7 +248,7 @@ const initialState = {
     },
 
     boss: {
-        area1: [
+        'desert': [
             {
             name: 'Warboss ork',
             portrait: '"https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/4e9174e7-6c59-43ec-a440-8e66a449d264/d8t29vd-ae5360b3-72c0-4f31-bf06-56adc9311228.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzRlOTE3NGU3LTZjNTktNDNlYy1hNDQwLThlNjZhNDQ5ZDI2NFwvZDh0Mjl2ZC1hZTUzNjBiMy03MmMwLTRmMzEtYmYwNi01NmFkYzkzMTEyMjguanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.1w1MBV0d1OKFKmycpuTgOsciaV6TlWQzY9r_hUsmsic"',
@@ -287,7 +287,7 @@ const initialState = {
             },
         ],
         
-        area2: [
+        'jungle': [
             {
             name: 'Prince',
             portrait: '"https://hobbyshop.fr/blog/wp-content/uploads/2018/12/Warhammer-40000-Tyranids-Liste-optimis%C3%A9e-%C3%A0-1700-pts.jpg"',
@@ -295,8 +295,8 @@ const initialState = {
             level: 12,
             experience: 50,
             treasure: 1,
-            strengh: 12,
-            defense: 7,
+            strengh: 18,
+            defense: 12,
             gold: 20,
             monsterType: 'boss',
             },
@@ -307,8 +307,8 @@ const initialState = {
             level: 12,
             experience: 50,
             treasure: 1,
-            strengh: 10,
-            defense: 9,
+            strengh: 15,
+            defense: 15,
             gold: 20,
             monsterType: 'boss',
             },
@@ -319,8 +319,8 @@ const initialState = {
             level: 12,
             experience: 50,
             treasure: 1,
-            strengh: 8,
-            defense: 11,
+            strengh: 12,
+            defense: 18,
             gold: 20,
             monsterType: 'boss',
             },

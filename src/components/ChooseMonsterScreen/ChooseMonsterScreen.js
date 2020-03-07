@@ -10,19 +10,14 @@ class chooseMonsterScreen extends Component{
 		super(props);
 
 		this.state ={
-			background : {
-				area0: '',
-				area1: 'https://images.unsplash.com/photo-1522046310824-b844b4b5806f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80',
-				area2: 'https://i.pinimg.com/originals/a4/1c/bc/a41cbc641383f94a2db319d90fad5996.jpg',
-				area3: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSTmHiUUs_tkMalPosYQsn_m7VcKry-ryvUsUKT5Feq1dokbTwi',
-
-			},
 			rngArray: [],
 			monsterType: null,
 		}
 	}
 
+
 	componentDidMount() {
+
 		//set an array of number depending on the number of monster desired, then fill it with random numbers
 		let length = 3;
 		if (this.props.generalState.name === 'Tau commander') {length = 4;}
@@ -72,7 +67,6 @@ class chooseMonsterScreen extends Component{
 										experience={this.props.monsterState[this.state.monsterType][this.props.generalState.area][rng].experience}
 										gold={this.props.monsterState[this.state.monsterType][this.props.generalState.area][rng].gold}
 										chooseMonster={()=>this.props.chooseMonster(this.props.monsterState[this.state.monsterType][this.props.generalState.area][rng])}
-										background={this.state.background}
 										key={index}
 									/>
 							)
@@ -93,7 +87,6 @@ class chooseMonsterScreen extends Component{
 							experience={this.props.generalState.currentMonster.experience}
 							gold={this.props.generalState.currentMonster.gold}
 							area={this.props.generalState.area}
-							background={this.state.background}
 						/>
 					</div>
 		);

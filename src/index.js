@@ -13,6 +13,7 @@ import rewardReducer from './store/reducers/rewardReducer';
 import monsterReducer from './store/reducers/monsterReducer';
 import characterReducer from './store/reducers/characterReducer';
 import generalReducer from './store/reducers/generalReducer';
+import areaReducer from './store/reducers/areaReducer';
 
 
 
@@ -22,6 +23,7 @@ const rootReducer = combineReducers({
     monsterReducer: monsterReducer,
     characterReducer: characterReducer,
     generalReducer: generalReducer,
+    areaReducer: areaReducer
 });
 
 const store = createStore(rootReducer, applyMiddleware(thunk))

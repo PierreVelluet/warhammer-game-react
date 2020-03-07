@@ -11,4 +11,5 @@ export const CHOOSE_REWARD = 'CHOOSE_REWARD';
 export const SHOW_MERCHANT = 'SHOW_MERCHANT';
 export const CLOSE_MERCHANT = 'CLOSE_MERCHANT';
 export const CHECK_LEVELUP = 'CHECK_LEVELUP';
+export const CHOOSE_PLANET = 'CHOOSE_PLANET';
 

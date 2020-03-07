@@ -79,7 +79,7 @@ class characterPanel extends Component {
                             </tr>
                             <tr>
                                 <td data-place="right" data-tip="Area" className={classes.AreaIcon}></td>
-                                <td>{this.props.generalState.area}</td>
+                                <td>{this.props.areaState[this.props.generalState.area].bioType}  </td>
                             </tr>
                         </tbody>
                     </table>
@@ -97,13 +97,16 @@ class characterPanel extends Component {
                     </button>
                 </div>
 
+
                 {typedArray.map((element, index)=> {
                     return (
-                        <div
-                            key={index}
-                            className={classes.InventoryBox}
-                            style={{backgroundImage: `url(${element.portrait})`}}
-                        />
+                        <div key={index}>
+                            <ReactTooltip/>
+                            <div data-place="right" data-tip={element.tooltip}
+                                className={classes.InventoryBox}
+                                style={{backgroundImage: `url(${element.portrait})`}}
+                            />
+                        </div>
                     )
                 })}
             
@@ -115,7 +118,8 @@ class characterPanel extends Component {
 
 const mapStateTothis = state => {
     return {
-        generalState: state.generalReducer
+        generalState: state.generalReducer,
+        areaState: state.areaReducer,
     };
 };
 

@@ -6,7 +6,7 @@ import * as actionCreators from '../../store/actions/index';
 const bossTrailer = (props) => (
     
     {
-        area1:
+        'desert':
         <div className={classes.BossTrailer}>
             <h1 className={classes.Title}><strong>Special event</strong></h1>
             <p>Something huge is comming. Whatever it is, you should better be somewhere else. Run !</p>
@@ -15,7 +15,7 @@ const bossTrailer = (props) => (
             <button onClick={props.continueHandler} className={classes.Btn}>Continue ...</button>
         </div>,
 
-        area2:
+        'jungle':
         <div className={classes.BossTrailer}>
             <h1 className={classes.Title}><strong>Special event</strong></h1>
             <p>You just saw something moving between the trees...</p>
@@ -24,7 +24,7 @@ const bossTrailer = (props) => (
             <button onClick={props.continueHandler} className={classes.Btn}>Continue ...</button>
         </div>,
 
-        area3:
+        'iceland':
         <div className={classes.BossTrailer}>
             <h1 className={classes.Title}><strong>Special event</strong></h1>
             <p>This snow tempest doesnt looks natural ... Run !</p>

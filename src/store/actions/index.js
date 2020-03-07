@@ -12,4 +12,5 @@ export {
     rollRetaliationDice,
     closeMerchant,
     showMerchant,
+    choosePlanet,
 } from './generalActions';

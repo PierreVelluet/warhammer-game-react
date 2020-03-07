@@ -1,6 +1,6 @@
 const initialState = {
     normal: {
-        area1: [
+        'desert': [
             {
             name: 'Dope syringe',
             portrait: '/images/MagicItems/Syringe.png',
@@ -70,7 +70,7 @@ const initialState = {
             tooltip: 'Sword : Strengh + 1.'
             },
         ],
-        area2: [
+        'jungle': [
             {
             name: 'Frag grenade',
             portrait: '/images/FragGrenade.png',
@@ -143,7 +143,7 @@ const initialState = {
             
     },
     boss: {
-        area1: [
+        'desert': [
             {
             name: 'Heavy gauntlet',
             portrait: '/images/StrenghItems/HeavyGauntlet.png',
@@ -174,7 +174,7 @@ const initialState = {
             tooltip: 'Heroic shield : Defense + 2.',
             },
         ],
-        area2: [
+        'jungle': [
             {
             name: 'Sniper rifle',
             portrait: '/images/SniperRifle.png',
