@@ -23,8 +23,7 @@ const initialState = {
     activeAttackIcon: false,
     activeDefenseIcon: false,
     activeMagicIcon: false,
-    area: 'area0',
-    areaName: ['Space', 'Desert', 'Jungle', 'IceLand'],
+    area: '',
     areaExplored: 0,
     //Character Panel
     portrait: null,
@@ -50,14 +49,6 @@ const initialState = {
     dice: -1,
     bonusToDice: 0,
     currentMonster: null,
-    // background:{
-    //     space: 'https://www.azutura.com/media/catalog/product/cache/49/image/650x/040ec09b1e35df139433887a97daa66f/W/S/WS-47373_WP.jpg',
-    //     desert: 'https://www.wallpaperflare.com/static/581/364/24/artwork-fantasy-art-digital-art-desert-wallpaper.jpg',
-    //     jungle: 'https://i.pinimg.com/originals/1d/34/cd/1d34cdbcbc3ebb9d59d2e455c249a82c.jpg',
-    //     iceland: 'https://c.wallhere.com/photos/aa/d7/fantasy_art_snow_mountains_landscape-211055.jpg!d',
-    // }
-               
-      
 
 }
 
@@ -166,8 +157,10 @@ const reducer = (state = initialState, action) => {
         case actionTypes.LEVEL_AREA_BOSS_UPDATE:
 
             if(state.experience >= 100) {
-                const newStrengh = state.baseStrengh + 1;
-                const newDefense = state.baseDefense + 1;
+                const newBaseStrengh = state.baseStrengh + 1;
+                const newStrengh = state.strengh + 1;
+                const newBaseDefense = state.baseDefense + 1;
+                const newDefense = state.defense + 1;
                 const newLevel = state.level +1;
                 const newExperience = state.experience - 100;
 
@@ -175,8 +168,10 @@ const reducer = (state = initialState, action) => {
                     ...state,
                     level: newLevel,
                     experience: newExperience,
-                    baseStrengh: newStrengh,
-                    baseDefense: newDefense,
+                    baseStrengh: newBaseStrengh,
+                    baseDefense: newBaseDefense,
+                    strengh: newStrengh,
+                    defense: newDefense,
                     showLevelUpPanel: true,
                     showCombatDetails: false,
                     showMonsterScreen: false,

@@ -66,3 +66,10 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `yarn build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+
+1) add a caroussel for planets screen, to permite a large choice
+
+2) make a database with all the monsters
+
+3) make a system that allows monster strengh & defense to scale compared with character own strengh

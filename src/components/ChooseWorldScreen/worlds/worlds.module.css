@@ -7,6 +7,7 @@
 	display: inline-block;
     margin: 10px;
     border: 5px solid black;
+    border-radius: 3px;
     background-image: url('https://previews.123rf.com/images/tatianazaets/tatianazaets1707/tatianazaets170700024/81656577-vector-illustration-of-abstract-big-data-numeric-business-background.jpg');
     background-size: cover;
 	background-position: center;
@@ -17,12 +18,14 @@
 }
 
 .World:hover {
-    bottom: 2px;
+    bottom: 1px;
+    right: 1px;
 }
 .Image {
     height: 350px;
     width: 100%;
     border: 2px solid black;
+    border-radius: 3px;
     -moz-box-shadow: .2em .2em .5em #333;
     -webkit-box-shadow: .2em .2em .5em #333;
     box-shadow: .2em .2em .5em #333;

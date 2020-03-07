@@ -20,7 +20,7 @@ const combatDetails = (props) => {
 						
 						<div className={classes.CombatLogs}>
 						 	<p>Your <strong>strengh</strong> is : <strong>{props.generalState.strengh}</strong> (<strong>{props.generalState.baseStrengh}</strong> from base strengh + <strong>{props.generalState.strenghFromItem}</strong> from items + <strong>{props.generalState.bonusStrengh}</strong> from temporary buff.)</p>
-							<p>To beat the monster, you need to roll a D6, and add it to your own strengh. You win on a result superior or egal to the monster's defense (<strong>{props.generalState.currentMonster.defense}</strong>). If the result is a fail, you miss your hit, you will suffer a retaliation. You may use specials items before roll.</p>
+							<p>To beat the monster, you need to roll a D6, and add it to your own strengh. You win on a result superior or egal to the monster's defense (<strong>{props.generalState.currentMonster.defense}</strong>). If the result is a fail, you miss your hit, you will suffer a retaliation. Here, you need a <strong>{props.generalState.currentMonster.defense - props.generalState.strengh}</strong> or more to succeed</p>
 							<p><strong>Warning</strong> <span> </span>: <span> </span> </p>
 								<div className={classes.Dice}style ={{backgroundImage: `url(${dices[1]})` }}></div> is always a fail and <span> </span>
 								<div className={classes.Dice}style ={{backgroundImage: `url(${dices[6]})` }}></div> is always a success.

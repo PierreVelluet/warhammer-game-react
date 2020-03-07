@@ -1,5 +1,5 @@
 const initialState = {
-        area1: [
+        'desert': [
             {
             name: 'Plasma gun',
             portrait: '/images/StrenghItems/PlasmaGun.png' ,
@@ -33,7 +33,7 @@ const initialState = {
             price: 5,
             },
         ],
-        area2: [
+        'jungle': [
             {
             name: 'Bionic hand',
             portrait: '/images/BionicHand.png',
