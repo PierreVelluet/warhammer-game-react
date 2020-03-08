@@ -68,6 +68,7 @@ export const showMerchant = () => {
 };
 
 export const chooseRewardThenCheckUpdates = (treasure) => (dispatch, getState) => {
+    console.log(getState())
     dispatch({
         type: actionTypes.CHOOSE_REWARD,
         treasure: treasure,

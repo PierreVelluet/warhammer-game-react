@@ -49,7 +49,7 @@ class characterPanel extends Component {
                                 <td>{this.props.generalState.experience}</td>
                             </tr>
                             <tr>
-                                <td data-place="right" data-tip="Area explored" className={classes.AreaExploredIcon}></td>
+                                <td data-place="right" data-tip="Planet explored" className={classes.AreaExploredIcon}></td>
                                 <td>{this.props.generalState.areaExplored}</td>
                             </tr>
                         </tbody>
@@ -78,7 +78,7 @@ class characterPanel extends Component {
                                 <td>{this.props.generalState.bossSlain}</td>
                             </tr>
                             <tr>
-                                <td data-place="right" data-tip="Area" className={classes.AreaIcon}></td>
+                                <td data-place="right" data-tip="BioType" className={classes.AreaIcon}></td>
                                 <td>{this.props.areaState[this.props.generalState.area].bioType}  </td>
                             </tr>
                         </tbody>

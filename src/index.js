@@ -7,6 +7,7 @@ import thunk from 'redux-thunk';
 
 import {createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
 
 import merchantReducer from './store/reducers/merchantReducer';
 import rewardReducer from './store/reducers/rewardReducer';
@@ -26,7 +27,7 @@ const rootReducer = combineReducers({
     areaReducer: areaReducer
 });
 
-const store = createStore(rootReducer, applyMiddleware(thunk))
+const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)))
 
 
 
