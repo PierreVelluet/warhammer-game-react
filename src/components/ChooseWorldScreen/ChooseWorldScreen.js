@@ -3,6 +3,8 @@ import classes from './ChooseWorldScreen.module.css'
 import { connect } from 'react-redux';
 import * as actionCreators from '../../store/actions/index';
 import World from './worlds/worlds';
+import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
+import 'pure-react-carousel/dist/react-carousel.es.css';
 
 const chooseWorldScreen = (props) => {
 
@@ -10,20 +12,36 @@ const chooseWorldScreen = (props) => {
     return (
 			<div className={classes.Container}>
 				<h1 className={classes.Title} >Choose your destinaton entrance wisely !</h1>
-				{planets.map((planet, index) => {
-					return (
-						<World
-                            planet={props.areaState[planet].planetBackground}
-                            bioType={props.areaState[planet].bioType}
-                            inhabited={props.areaState[planet].inhabited}
-                            temperature={props.areaState[planet].temperature}
-                            choose={() => props.choosePlanet(planet)}
-                            // choose={() => props.choosePlanet(props.generalState.area)}
-                            
-                            key={index}
-                        />
-					);
-				})}
+                <CarouselProvider
+                    naturalSlideWidth={10}
+                    naturalSlideHeight={10}
+                    totalSlides={3}
+                    visibleSlides={1}
+                    infinite={true}
+                        >             
+                        <Slider style={{marginLeft: '400px', height: '600px'}}>
+                            {planets.map((planet, index) => {
+                                return (
+                                    <Slide index={index} >
+                                        <World
+                                            planet={props.areaState[planet].planetBackground}
+                                            bioType={props.areaState[planet].bioType}
+                                            inhabited={props.areaState[planet].inhabited}
+                                            temperature={props.areaState[planet].temperature}
+                                            choose={() => props.choosePlanet(planet)}
+                                            // choose={() => props.choosePlanet(props.generalState.area)}
+                                            
+                                            key={index}
+                                        />
+                                    </Slide>
+                                );
+                            })}
+                        </Slider>
+                        <div style={{marginLeft: '45%'}}>
+                            <ButtonBack>Back</ButtonBack>
+                            <ButtonNext>Next</ButtonNext>
+                        </div>
+                </CarouselProvider>
 			</div>
     )
 

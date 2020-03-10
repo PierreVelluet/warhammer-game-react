@@ -57,16 +57,16 @@ class chooseMonsterScreen extends Component{
 						{this.state.rngArray.map((rng, index)=> {
 							return (
 									<MonsterCard 
-										name={this.props.monsterState[this.state.monsterType][this.props.generalState.area][rng].name}
-										portrait={this.props.monsterState[this.state.monsterType][this.props.generalState.area][rng].portrait}
-										text={this.props.monsterState[this.state.monsterType][this.props.generalState.area][rng].text}
-										level={this.props.monsterState[this.state.monsterType][this.props.generalState.area][rng].level}
-										strengh={this.props.monsterState[this.state.monsterType][this.props.generalState.area][rng].strengh}
-										defense={this.props.monsterState[this.state.monsterType][this.props.generalState.area][rng].defense}
-										treasure={this.props.monsterState[this.state.monsterType][this.props.generalState.area][rng].treasure}
-										experience={this.props.monsterState[this.state.monsterType][this.props.generalState.area][rng].experience}
-										gold={this.props.monsterState[this.state.monsterType][this.props.generalState.area][rng].gold}
-										chooseMonster={()=>this.props.chooseMonster(this.props.monsterState[this.state.monsterType][this.props.generalState.area][rng])}
+										name={this.props.generalState[this.state.monsterType][this.props.generalState.area][rng].name}
+										portrait={this.props.generalState[this.state.monsterType][this.props.generalState.area][rng].portrait}
+										text={this.props.generalState[this.state.monsterType][this.props.generalState.area][rng].text}
+										level={this.props.generalState[this.state.monsterType][this.props.generalState.area][rng].level}
+										strengh={this.props.generalState[this.state.monsterType][this.props.generalState.area][rng].strengh}
+										defense={this.props.generalState[this.state.monsterType][this.props.generalState.area][rng].defense}
+										treasure={this.props.generalState[this.state.monsterType][this.props.generalState.area][rng].treasure}
+										experience={this.props.generalState[this.state.monsterType][this.props.generalState.area][rng].experience}
+										gold={this.props.generalState[this.state.monsterType][this.props.generalState.area][rng].gold}
+										chooseMonster={()=>this.props.chooseMonster(this.props.generalState[this.state.monsterType][this.props.generalState.area][rng])}
 										key={index}
 									/>
 							)
@@ -95,8 +95,8 @@ class chooseMonsterScreen extends Component{
 
 const mapStateToProps = state => {
     return {
-		monsterState: state.monsterReducer,
-		generalState: state.generalReducer,
+		// monsterState: state.monsterReducer,
+		generalState: state.generalReducer
     };
 };
 
