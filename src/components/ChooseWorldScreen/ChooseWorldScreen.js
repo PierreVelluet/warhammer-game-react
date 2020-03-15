@@ -37,7 +37,7 @@ const chooseWorldScreen = (props) => {
                                 );
                             })}
                         </Slider>
-                        <div style={{marginLeft: '45%'}}>
+                        <div style={{marginLeft: '37%'}}>
                             <ButtonBack>Back</ButtonBack>
                             <ButtonNext>Next</ButtonNext>
                         </div>
