@@ -1,6 +1,6 @@
 const initialState = {
     normal: {
-        'desert': [
+        'planet1': [
             {
             name: 'Dope syringe',
             portrait: '/images/MagicItems/Syringe.png',
@@ -70,7 +70,7 @@ const initialState = {
             tooltip: 'Sword : Strengh + 1.'
             },
         ],
-        'jungle': [
+        'planet2': [
             {
             name: 'Frag grenade',
             portrait: '/images/FragGrenade.png',
@@ -143,7 +143,7 @@ const initialState = {
             
     },
     boss: {
-        'desert': [
+        'planet1': [
             {
             name: 'Heavy gauntlet',
             portrait: '/images/StrenghItems/HeavyGauntlet.png',
@@ -174,7 +174,7 @@ const initialState = {
             tooltip: 'Heroic shield : Defense + 2.',
             },
         ],
-        'jungle': [
+        'planet2': [
             {
             name: 'Sniper rifle',
             portrait: '/images/SniperRifle.png',
