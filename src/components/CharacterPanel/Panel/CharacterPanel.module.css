@@ -297,12 +297,12 @@
 
 .InventoryBox {
   height: 70px;
-  width: 31%;
+  width: 115px;
   margin: 2px;
   border: 1px solid black;
-  display: inline-block;
   background-size: contain;
 	background-repeat: no-repeat;
-	background-position: center;
+  background-position: center;
+  float: left;
 
 }

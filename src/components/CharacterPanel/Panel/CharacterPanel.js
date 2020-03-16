@@ -97,19 +97,17 @@ class characterPanel extends Component {
                     </button>
                 </div>
 
-
-                {typedArray.map((element, index)=> {
-                    return (
-                        <div key={index}>
-                            <ReactTooltip/>
-                            <div data-place="right" data-tip={element.tooltip}
-                                className={classes.InventoryBox}
-                                style={{backgroundImage: `url(${element.portrait})`}}
-                            />
-                        </div>
-                    )
-                })}
-            
+                    {typedArray.map((element, index)=> {
+                        return (
+                            <div key={index}>
+                                <ReactTooltip/>
+                                <div data-place="right" data-tip={element.tooltip}
+                                    className={classes.InventoryBox}
+                                    style={{backgroundImage: `url(${element.portrait})`}}
+                                />
+                            </div>
+                        )
+                    })}
 
             </div>
         )

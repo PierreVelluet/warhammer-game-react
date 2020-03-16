@@ -421,16 +421,16 @@ const reducer = (state = initialState, action) => {
             const monsterState = Object.assign(state.normal[action.area])
             let newMonsterState = monsterState.map((element, index) => {
                 return {...element,
-                    strengh: Math.floor(state.baseDefense / 2) + random(2) + 1,
-                    defense: state.baseStrengh + random(6) + 1,
+                    strengh: (Math.floor(state.baseDefense / 2) + random(2) + 1) * (state.areaExplored + 1),
+                    defense: (state.baseStrengh + random(6) + 1) * (state.areaExplored + 1),
                 }
                 })
 
             const bossState = Object.assign(state.boss[action.area])
             let newBossState = bossState.map((element, index) => {
                 return {...element,
-                    strengh: Math.floor(state.baseDefense / 2) + random(3) + 1,
-                    defense: state.baseStrengh + random(10) + 3,
+                    strengh: (Math.floor(state.baseDefense / 2) + random(3) + 1)  * (state.areaExplored + 1),
+                    defense: (state.baseStrengh + random(10) + 3)  * (state.areaExplored + 1),
                 }
                 })
                 
