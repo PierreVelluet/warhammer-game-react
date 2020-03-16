@@ -10,8 +10,6 @@ import { Provider } from 'react-redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
 import merchantReducer from './store/reducers/merchantReducer';
-import rewardReducer from './store/reducers/rewardReducer';
-import monsterReducer from './store/reducers/monsterReducer';
 import characterReducer from './store/reducers/characterReducer';
 import generalReducer from './store/reducers/generalReducer';
 import areaReducer from './store/reducers/areaReducer';
@@ -20,8 +18,6 @@ import areaReducer from './store/reducers/areaReducer';
 
 const rootReducer = combineReducers({
     merchantReducer: merchantReducer,
-    rewardReducer: rewardReducer,
-    monsterReducer: monsterReducer,
     characterReducer: characterReducer,
     generalReducer: generalReducer,
     areaReducer: areaReducer

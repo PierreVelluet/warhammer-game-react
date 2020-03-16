@@ -303,6 +303,128 @@ const initialState = {
                 monsterType: 'normal',
                 },
             ],
+            iceland: [
+                {
+                name: 'Plague marine',
+                portrait: '"https://i.pinimg.com/564x/cd/13/3a/cd133ad79712115594c0b1c812ffbd4c.jpg"',
+                text: "No special rules",
+                level: 1,
+                experience: 20,
+                treasure: 1,
+                strengh: 1,
+                defense: 1,
+                gold: 1,
+                monsterType: 'normal',
+                },
+                {
+                name: 'Tzeentch marine',
+                portrait: '"https://i.pinimg.com/564x/b1/8a/52/b18a52561d465fb8e91c51503d3a567f.jpg"',
+                text: "No special rules",
+                level: 2,
+                experience: 20,
+                treasure: 1,
+                strengh: 1,
+                defense: 1,
+                gold: 1,
+                monsterType: 'normal',
+                },
+                {
+                name: 'Slanesh marine',
+                portrait: '"https://wh40kart.im/_images/7116546a5c937000d1c562d910fb4c78.jpg"',
+                text: "No special rules",
+                level: 3,
+                experience: 30,
+                treasure: 1,
+                strengh: 1,
+                defense: 1,
+                gold: 2,
+                monsterType: 'normal',
+                },
+                {
+                name: 'Khorne marine',
+                portrait: '"https://cdnb.artstation.com/p/assets/images/images/016/657/059/large/alexandr-erohov-khorn-ava.jpg?1552981463"',
+                text: "No special rules",
+                level: 4,
+                experience: 30,
+                treasure: 1,
+                strengh: 1,
+                defense: 1,
+                gold: 2,
+                monsterType: 'normal',
+                },
+                {
+                name: 'Nurgle deamon',
+                portrait: '"https://i.pinimg.com/originals/ae/96/dd/ae96ddb4420ea7fafe725ad696b93908.jpg"',
+                text: "No special rules",
+                level: 5,
+                experience: 40,
+                treasure: 1,
+                strengh: 1,
+                defense: 1,
+                gold: 3,
+                monsterType: 'normal',
+                },
+                {
+                name: 'Khorne deamon',
+                portrait: 'https://spikeybits.com/wp-content/uploads/2017/01/Bloodletter-badass.jpg',
+                text: "No special rules",
+                level: 6,
+                experience: 40,
+                treasure: 1,
+                strengh: 1,
+                defense: 1,
+                gold: 3,
+                monsterType: 'normal',
+                },
+                {
+                name: 'Slanesh deamon',
+                portrait: '"https://omnis-bibliotheca.com/images/1/11/Gardien_Des_Secrets.jpg"',
+                text: "No special rules",
+                level: 7,
+                experience: 40,
+                treasure: 1,
+                strengh: 1,
+                defense: 1,
+                gold: 4,
+                monsterType: 'normal',
+                },
+                {
+                name: 'Tzeentch deamon',
+                portrait: '"https://spikeybits.com/wp-content/uploads/2016/12/fateweaver.jpg"',
+                text: "No special rules",
+                level: 8,
+                experience: 40,
+                treasure: 1,
+                strengh: 1,
+                defense: 1,
+                gold: 4,
+                monsterType: 'normal',
+                },
+                {
+                name: 'Chaos space marine',
+                portrait: 'https://i.pinimg.com/564x/67/29/f8/6729f82b67fc812f97e25c7fb5a06d04.jpg',
+                text: "No special rules",
+                level: 9,
+                experience: 40,
+                treasure: 1,
+                strengh: 1,
+                defense: 1,
+                gold: 5,
+                monsterType: 'normal',
+                },
+                {
+                name: 'Cultist of chaos',
+                portrait: '"https://cdnb.artstation.com/p/assets/images/images/015/888/643/large/edouard-boccard-art-bfg-gui-portrait-chaosrenegade-02.jpg?1550058290"',
+                text: "No special rules",
+                level: 10,
+                experience: 40,
+                treasure: 1,
+                strengh: 1,
+                defense: 1,
+                gold: 5,
+                monsterType: 'normal',
+                },
+            ],
         },
     
         boss: {
@@ -344,7 +466,6 @@ const initialState = {
                 monsterType: 'boss',
                 },
             ],
-            
             jungle: [
                 {
                 name: 'Prince',
@@ -382,14 +503,52 @@ const initialState = {
                 gold: 20,
                 monsterType: 'boss',
                 },
-            ]
+            ],
+            iceland: [
+                {
+                name: 'Great ugly',
+                portrait: '"https://i.pinimg.com/originals/1f/c3/11/1fc3118c797bd8cfbdb75ecc8e90e5af.jpg"',
+                text: "boss special capacity",
+                level: 12,
+                experience: 50,
+                treasure: 1,
+                strengh: 0,
+                defense: 0,
+                gold: 10,
+                monsterType: 'boss',
+                },
+                {
+                name: '"Khorne prince',
+                portrait: '"https://i.pinimg.com/originals/50/33/ff/5033ff304fd895036967563b4323083b.jpg"',
+                text: "boss special capacity",
+                level: 12,
+                experience: 50,
+                treasure: 1,
+                strengh: 0,
+                defense: 0,
+                gold: 10,
+                monsterType: 'boss',
+                },
+                {
+                name: 'Abbadon',
+                portrait: '"https://1d4chan.org/images/thumb/6/65/Abbadon.jpg/330px-Abbadon.jpg"',
+                text: "boss special capacity",
+                level: 12,
+                experience: 50,
+                treasure: 1,
+                strengh: 0,
+                defense: 0,
+                gold: 10,
+                monsterType: 'boss',
+                },
+            ],
             
         },
     },
-    
+    /////////////////////////////////////////////////////ITEMS////////////////////////////////////////////////////////////
     items: {
         normal: {
-            'planet1': [
+            planet1: [
                 {
                 name: 'Dope syringe',
                 portrait: '/images/MagicItems/Syringe.png',
@@ -459,7 +618,7 @@ const initialState = {
                 tooltip: 'Sword : Strengh + 1.'
                 },
             ],
-            'planet2': [
+            planet2: [
                 {
                 name: 'Frag grenade',
                 portrait: '/images/FragGrenade.png',
@@ -532,7 +691,7 @@ const initialState = {
                 
         },
         boss: {
-            'planet1': [
+            planet1: [
                 {
                 name: 'Heavy gauntlet',
                 portrait: '/images/StrenghItems/HeavyGauntlet.png',
@@ -563,7 +722,7 @@ const initialState = {
                 tooltip: 'Heroic shield : Defense + 2.',
                 },
             ],
-            'planet2': [
+            planet2: [
                 {
                 name: 'Sniper rifle',
                 portrait: '/images/SniperRifle.png',
@@ -627,7 +786,6 @@ const reducer = (state = initialState, action) => {
                 showChooseWorldScreen: true,
             }
 
-            ////////////////////////////////////////////////TEST////////////////////////////////
         case actionTypes.CHOOSE_PLANET:
             //Define the number of planet visited 
             let newPlanetNumber = parseInt(state.currentPlanet.slice(-1)) + 1
@@ -639,10 +797,12 @@ const reducer = (state = initialState, action) => {
             let monsterState = Object.assign(state.monsters.normal[action.area])
             let newMonsterState = monsterState.map((element, index) => {
                 return {...element,
-                    strengh: (Math.floor(state.baseDefense / 2) + random(2) + 1) * (state.areaExplored + 1),
-                    defense: (state.baseStrengh + random(6) + 1) * (state.areaExplored + 1),
+                    // strengh: (Math.floor(state.baseDefense / 2) + random(2) + 1) * (state.areaExplored + 1),
+                    strengh: Math.floor(state.defense / 2) + random(2),
+                    // defense: (state.baseStrengh + random(6) + 1) * (state.areaExplored + 1),
+                    defense: state.strengh + random(6)+1,
                     gold: random(6),
-                    experience: random(5)*10
+                    experience: (random(5) +1)*10
                 }
                 })
 
@@ -719,6 +879,14 @@ const reducer = (state = initialState, action) => {
 
                 }
             }else if (state.showBossTrailer && state.area === 'jungle') {
+                return  {
+                    ...state,
+                    showMonsterScreen: true,
+                    showBossTrailer: false,
+                    openedDecks: 4,
+
+                }
+            }else if (state.showBossTrailer && state.area === 'iceland') {
                 return  {
                     ...state,
                     showMonsterScreen: true,
