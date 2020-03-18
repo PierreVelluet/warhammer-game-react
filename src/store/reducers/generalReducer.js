@@ -22,14 +22,6 @@ const initialState = {
     showChooseWorldScreen: false,
     showBoard: false,
     showTakeoff: false,
-    //////////////////////////////////////////////
-    combatResult: 'base',
-    activeAttackIcon: false,
-    activeDefenseIcon: false,
-    activeMagicIcon: false,
-    area: '',
-    areaExplored: 0,
-    currentPlanet: 'planet0',
     //Character Panel
     portrait: null,
     name: null,
@@ -49,10 +41,15 @@ const initialState = {
     bossSlain: 0,
     gold: 0,
     treasure:[],
+    area: '',
+    areaExplored: 0,
+    currentPlanet: 'planet0',
     displayedInventory: 'attackCards',
     openedDecks: 0,
+    //Undefined state
     dice: -1,
     bonusToDice: 0,
+    combatResult: 'base',
     currentMonster: null,
 
     /////////////////////////////////////////////////////MONSTERS///////////////////////////////////////////////////////
@@ -556,7 +553,7 @@ const initialState = {
                 type :'specialCards',
                 bottomText: 'One use only',
                 effect: 'Strengh + 3',
-                tooltip: 'Dope syringe : Strengh + 3.'
+                tooltip: 'Dope syringe : Strengh + 3.'  
                 },
                 {
                 name: 'Painkillers',
