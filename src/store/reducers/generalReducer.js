@@ -642,7 +642,7 @@ const initialState = {
                 bottomText: 'Permanent effect',
                 effect: 'Defense + 2',
                 defense: 2,
-                tooltip: 'Helmet : Defense +2.'
+                tooltip: 'Commando vest : Defense +2.'
                 },
                 {
                 name: 'Helmet 2.0',
@@ -652,7 +652,7 @@ const initialState = {
                 bottomText: 'Permanent effect',
                 effect: 'Defense + 2',
                 defense: 2,
-                tooltip: 'Iron fist : Defense + 2.'
+                tooltip: 'Helmet 2.0 : Defense + 2.'
                 },
                 {
                 name: 'Laser pistol',
@@ -662,7 +662,7 @@ const initialState = {
                 bottomText: 'Permanent effect',
                 effect: 'Strengh + 2',
                 strengh: 2,
-                tooltip: 'Bolter : Strengh + 2.'
+                tooltip: 'Laser pistol : Strengh + 2.'
                 },
                 {
                 name: 'Crusader gun',
@@ -672,7 +672,7 @@ const initialState = {
                 bottomText: 'Permanent effect',
                 effect: 'Strengh + 2',
                 strengh: 2,
-                tooltip: 'Eldary laser : Strengh + 2.'
+                tooltip: 'Crusader gun : Strengh + 2.'
                 },
                 {
                 name: 'Hammer',
@@ -682,7 +682,7 @@ const initialState = {
                 bottomText: 'Permanent effect',
                 effect: 'Strengh + 2',
                 strengh: 2,
-                tooltip: 'Sword : Strengh + 2.'
+                tooltip: 'Hammer : Strengh + 2.'
                 },
             ],
                 
