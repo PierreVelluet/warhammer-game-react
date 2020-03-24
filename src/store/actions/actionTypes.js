@@ -17,4 +17,5 @@ export const GET_MONSTERS = 'GET_MONSTERS';
 export const GET_BOSSES = 'GET_BOSSES';
 export const GET_ITEMS_NORMAL = 'GET_ITEMS_NORMAL';
 export const GET_ITEMS_BOSS = 'GET_ITEMS_BOSS';
+export const GET_AREAS = 'GET_AREAS';
 

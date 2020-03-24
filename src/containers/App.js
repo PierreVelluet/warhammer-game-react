@@ -9,7 +9,7 @@ class App extends Component {
 
   componentDidMount(){
     //get the champion's data from database and send them to characterReducer via getChampion
-    axios.get('http://localhost:3001/api/characters').then(result => this.props.getChampions(result.data))
+    axios.get('http://localhost:3001/api/characters').then(result => this.props.getChampions(result.data))//.catch(error)
     //get the monsters' data and send them to generalReducer via getMonsters
     axios.get('http://localhost:3001/api/monsters').then(result => this.props.getMonsters(result.data))
     //get the bosses' data and send them to generalReducer via getBosses
@@ -18,6 +18,9 @@ class App extends Component {
     axios.get('http://localhost:3001/api/itemsNormal').then(result => this.props.getItemsNormal(result.data))
     //get the bossItems' data and send them to generalReducer via getItemsNormal
     axios.get('http://localhost:3001/api/itemsBoss').then(result => this.props.getItemsBoss(result.data))
+    //get the areas' data and send them to areaReducer via getAreas
+    axios.get('http://localhost:3001/api/areas').then(result => this.props.getAreas(result.data))
+
 
   };
 
@@ -43,6 +46,7 @@ const mapDispatchToProps = (dispatch, champ) => {
   getBosses: (bosses) => dispatch(actionCreators.getBosses(bosses)),
   getItemsNormal: (items) => dispatch(actionCreators.getItemsNormal(items)),
   getItemsBoss: (items) => dispatch(actionCreators.getItemsBoss(items)),
+  getAreas: (areas) => dispatch(actionCreators.getAreas(areas)),
   }
 };
 

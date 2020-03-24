@@ -6,6 +6,12 @@ import World from './worlds/worlds';
 
 const chooseWorldScreen = (props) => {
 
+    const choosePlanet = () => {
+        //modifier le reducer d'ici
+        //calculer les données à modifier
+
+    }
+
     const planets = ['desert', 'jungle', 'iceland']
     return (
 			<div className={classes.Container}>
@@ -19,8 +25,6 @@ const chooseWorldScreen = (props) => {
                                             inhabited={props.areaState[planet].inhabited}
                                             temperature={props.areaState[planet].temperature}
                                             choose={() => props.choosePlanet(planet)}
-                                            // choose={() => props.choosePlanet(props.generalState.area)}
-                                            
                                             key={index}
                                         />
                                 );

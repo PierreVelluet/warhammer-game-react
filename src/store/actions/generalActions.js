@@ -1,5 +1,12 @@
 import * as actionTypes from './actionTypes';
 
+export const getAreas = (areas) => {
+    return {
+        type: actionTypes.GET_AREAS,
+        areas: areas,
+    }
+}
+
 export const getBosses = (bosses) => {
     return {
         type: actionTypes.GET_BOSSES,

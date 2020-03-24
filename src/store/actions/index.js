@@ -18,4 +18,5 @@ export {
     getBosses,
     getItemsNormal,
     getItemsBoss,
+    getAreas,
 } from './generalActions';
