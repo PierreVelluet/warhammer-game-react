@@ -3,8 +3,6 @@ import classes from './ChooseWorldScreen.module.css'
 import { connect } from 'react-redux';
 import * as actionCreators from '../../store/actions/index';
 import World from './worlds/worlds';
-import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
-import 'pure-react-carousel/dist/react-carousel.es.css';
 
 const chooseWorldScreen = (props) => {
 

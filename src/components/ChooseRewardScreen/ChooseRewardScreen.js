@@ -17,7 +17,7 @@ class chooseRewardScreen extends Component {
 		//set an array of random numbers, depending on the chosen champion and the type of monster.
 		let rngArray = [];
 		while(rngArray.length < numberOfTreasures) {
-			let number = Math.floor(Math.random() * this.props.generalState.items[this.props.generalState.currentMonster.monsterType][this.props.generalState.currentPlanet].length);
+			let number = Math.floor(Math.random() * this.props.generalState.items[this.props.generalState.currentMonster.monsterType][this.props.generalState.area].length);
 			if (rngArray.indexOf(number) === -1) {
 				rngArray.push(number)
 			}
@@ -29,22 +29,14 @@ class chooseRewardScreen extends Component {
 			<div className={classes.Reward}>
 				{rngArray.map((rng, index)=>{
 					return (
-						/* <TreasureCard
-							text={this.props.rewardState[this.props.generalState.currentMonster.monsterType][this.props.generalState.area][rng].text}
-							name={this.props.rewardState[this.props.generalState.currentMonster.monsterType][this.props.generalState.area][rng].name}
-							portrait={this.props.rewardState[this.props.generalState.currentMonster.monsterType][this.props.generalState.area][rng].portrait}
-							bottomText={this.props.rewardState[this.props.generalState.currentMonster.monsterType][this.props.generalState.area][rng].bottomText}
-							effect={this.props.rewardState[this.props.generalState.currentMonster.monsterType][this.props.generalState.area][rng].effect}
-							choose={() => this.props.chooseReward(this.props.rewardState[this.props.generalState.currentMonster.monsterType][this.props.generalState.area][rng])}
-							key={index}
-						/> */
+						
 						<TreasureCard
-							text={this.props.generalState.items[this.props.generalState.currentMonster.monsterType][this.props.generalState.currentPlanet][rng].text}
-							name={this.props.generalState.items[this.props.generalState.currentMonster.monsterType][this.props.generalState.currentPlanet][rng].name}
-							portrait={this.props.generalState.items[this.props.generalState.currentMonster.monsterType][this.props.generalState.currentPlanet][rng].portrait}
-							bottomText={this.props.generalState.items[this.props.generalState.currentMonster.monsterType][this.props.generalState.currentPlanet][rng].bottomText}
-							effect={this.props.generalState.items[this.props.generalState.currentMonster.monsterType][this.props.generalState.currentPlanet][rng].effect}
-							choose={() => this.props.chooseReward(this.props.generalState.items[this.props.generalState.currentMonster.monsterType][this.props.generalState.currentPlanet][rng])}
+							text={this.props.generalState.items[this.props.generalState.currentMonster.monsterType][this.props.generalState.area][rng].text}
+							name={this.props.generalState.items[this.props.generalState.currentMonster.monsterType][this.props.generalState.area][rng].name}
+							portrait={this.props.generalState.items[this.props.generalState.currentMonster.monsterType][this.props.generalState.area][rng].portrait}
+							bottomText={this.props.generalState.items[this.props.generalState.currentMonster.monsterType][this.props.generalState.area][rng].bottomText}
+							effect={this.props.generalState.items[this.props.generalState.currentMonster.monsterType][this.props.generalState.area][rng].effect}
+							choose={() => this.props.chooseReward(this.props.generalState.items[this.props.generalState.currentMonster.monsterType][this.props.generalState.area][rng])}
 							key={index}
 						/>
 					)

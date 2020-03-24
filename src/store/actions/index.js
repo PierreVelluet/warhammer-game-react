@@ -13,4 +13,9 @@ export {
     closeMerchant,
     showMerchant,
     choosePlanet,
+    getChampions,
+    getMonsters,
+    getBosses,
+    getItemsNormal,
+    getItemsBoss,
 } from './generalActions';

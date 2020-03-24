@@ -1,33 +1,41 @@
-import React from 'react';
+import React, {Component} from 'react';
 import ChampionCard from '../Cards/ChampionCard';
 import classes from './ChooseCharScreen.module.css'
 import { connect } from 'react-redux';
 import * as actionCreators from '../../store/actions/index';
 
-const chooseCharScreen = (props) => (
+class chooseCharScreen extends Component {
 
+	render() {
+
+		return (
 			//simply map the data from championReducer, and hence, return a card for each champion.
 			<div className={classes.Div}>
 				<h1 className={classes.Title} >Choose your spaceship captain !</h1>
-				{props.state.champion.map((champ, index) => {
+				{this.props.state.champion.map((champ, index) => {
 					return (
 						<ChampionCard
-							name={props.state.champion[index].name}
-							portrait={props.state.champion[index].portrait}
-							power={props.state.champion[index].power}
-							powerName={props.state.champion[index].powerName}
-							strengh={props.state.champion[index].strengh}
-							defense={props.state.champion[index].defense}
-							health={props.state.champion[index].health}
-							level={props.state.champion[index].level}
-							choose={() => props.updateChosenChampStats(champ)}
+							name={this.props.state.champion[index].name}
+							portrait={this.props.state.champion[index].portrait}
+							power={this.props.state.champion[index].power}
+							powerName={this.props.state.champion[index].powerName}
+							strengh={this.props.state.champion[index].strengh}
+							defense={this.props.state.champion[index].defense}
+							health={this.props.state.champion[index].health}
+							level={this.props.state.champion[index].level}
+							choose={() => this.props.updateChosenChampStats(champ)}
 							key={index}
 						/>
 					);
 				})}
 			</div>
+		)
+		
+	}
 
-);
+		
+
+};
 
 const mapStateToProps = state => {
     return {
