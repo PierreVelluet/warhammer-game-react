@@ -1,5 +1,19 @@
 import * as actionTypes from './actionTypes';
 
+export const setBosses = (bosses) => {
+    return {
+        type: actionTypes.SET_BOSSES,
+        bosses: bosses
+    }
+}
+
+export const setMonsters = (monsters) => {
+    return {
+        type: actionTypes.SET_MONSTERS,
+        monsters: monsters,
+    }
+}
+
 export const getAreas = (areas) => {
     return {
         type: actionTypes.GET_AREAS,
@@ -32,13 +46,6 @@ export const getChampions = (champs) => {
     return {
         type: actionTypes.GET_PLANET,
         champs: champs,
-    }
-}
-
-export const getMonsters = (monsters) => {
-    return {
-        type: actionTypes.GET_MONSTERS,
-        monsters: monsters,
     }
 }
 

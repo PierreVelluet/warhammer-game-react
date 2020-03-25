@@ -14,9 +14,10 @@ export {
     showMerchant,
     choosePlanet,
     getChampions,
-    getMonsters,
     getBosses,
     getItemsNormal,
     getItemsBoss,
     getAreas,
+    setMonsters,
+    setBosses,
 } from './generalActions';

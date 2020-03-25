@@ -13,9 +13,10 @@ export const CLOSE_MERCHANT = 'CLOSE_MERCHANT';
 export const CHECK_LEVELUP = 'CHECK_LEVELUP';
 export const CHOOSE_PLANET = 'CHOOSE_PLANET';
 export const GET_PLANET = 'GET_PLANET';
-export const GET_MONSTERS = 'GET_MONSTERS';
 export const GET_BOSSES = 'GET_BOSSES';
 export const GET_ITEMS_NORMAL = 'GET_ITEMS_NORMAL';
 export const GET_ITEMS_BOSS = 'GET_ITEMS_BOSS';
 export const GET_AREAS = 'GET_AREAS';
+export const SET_MONSTERS = 'SET_MONSTERS';
+export const SET_BOSSES = 'SET_BOSSES';
 

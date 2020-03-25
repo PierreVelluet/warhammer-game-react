@@ -52,7 +52,7 @@ const initialState = {
     combatResult: 'base',
     currentMonster: null,
 
-    /////////////////////////////////////////////////////MONSTERS///////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////// MONSTERS ///////////////////////////////////////////////////////
     monsters: {
         normal: {
             desert: [],
@@ -66,7 +66,7 @@ const initialState = {
             iceland: [],
         },
     },
-    /////////////////////////////////////////////////////ITEMS////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////// ITEMS ////////////////////////////////////////////////////////////
     items: {
         normal: {
             desert: [],
@@ -81,10 +81,49 @@ const initialState = {
     }
 }
 
-    ////////////////////////////////////////////////////END OF STATE ////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////// END OF STATE ////////////////////////////////////////////////////////
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
+
+        case actionTypes.SET_BOSSES:
+            const desertBosses = action.bosses.filter(el => el.areaID === 2)
+            const jungleBosses = action.bosses.filter(el => el.areaID === 3)
+            const icelandBosses = action.bosses.filter(el => el.areaID === 4)
+
+            return {
+                    ...state,
+                    monsters: {
+                        ...state.monsters,
+                        boss: {
+                            ...state.monsters.boss,
+                            desert: desertBosses,
+                            jungle: jungleBosses,
+                            iceland: icelandBosses,
+                        },
+                        
+                }
+            }
+
+        case actionTypes.SET_MONSTERS:
+            const desertMonsters = action.monsters.filter(el => el.areaID === 2)
+            const jungleMonsters = action.monsters.filter(el => el.areaID === 3)
+            const icelandMonsters = action.monsters.filter(el => el.areaID === 4)
+
+            return {
+                    ...state,
+                    monsters: {
+                        ...state.monsters,
+                        normal: {
+                            ...state.monsters.normal,
+                            desert: desertMonsters,
+                            jungle: jungleMonsters,
+                            iceland: icelandMonsters,
+                        },
+                       
+                }
+            }
+
 
         case actionTypes.GET_ITEMS_BOSS:
             const desertBossItems = action.items.filter(el => el.areaID === 2)
@@ -121,45 +160,6 @@ const reducer = (state = initialState, action) => {
                     }
                 }
             }
-        
-        case actionTypes.GET_MONSTERS:
-            const desertMonsters = action.monsters.filter(el => el.areaID === 2)
-            const jungleMonsters = action.monsters.filter(el => el.areaID === 3)
-            const icelandMonsters = action.monsters.filter(el => el.areaID === 4)
-
-            return {
-                    ...state,
-                    monsters: {
-                        ...state.monsters,
-                        normal: {
-                            ...state.monsters.normal,
-                            desert: desertMonsters,
-                            jungle: jungleMonsters,
-                            iceland: icelandMonsters,
-                        },
-                       
-                }
-            }
-
-        case actionTypes.GET_BOSSES:
-            const desertBosses = action.bosses.filter(el => el.areaID === 2)
-            const jungleBosses = action.bosses.filter(el => el.areaID === 3)
-            const icelandBosses = action.bosses.filter(el => el.areaID === 4)
-
-            return {
-                    ...state,
-                    monsters: {
-                        ...state.monsters,
-                        boss: {
-                            ...state.monsters.boss,
-                            desert: desertBosses,
-                            jungle: jungleBosses,
-                            iceland: icelandBosses,
-                        },
-                        
-                }
-            }
-
 
         case actionTypes.SET_INITIAL_STATS: 
             const strengh = action.champ.strengh;
@@ -191,46 +191,10 @@ const reducer = (state = initialState, action) => {
             //Define the number of planet visited 
             let newPlanetNumber = parseInt(state.currentPlanet.slice(-1)) + 1
             const newPlanet = 'planet' + newPlanetNumber.toString();
-
             const newArea = action.area
-
-            //Define values of attack/defense/gold/experience based on randomness AND number of planet explored.
-            let monsterState = Object.assign(state.monsters.normal[action.area])
-            let newMonsterState = monsterState.map((element, index) => {
-                return {...element,
-                    // strengh: (Math.floor(state.baseDefense / 2) + random(2) + 1) * (state.areaExplored + 1),
-                    strengh: Math.floor(state.defense / 2) + random(2),
-                    // defense: (state.baseStrengh + random(6) + 1) * (state.areaExplored + 1),
-                    defense: state.strengh + random(6)+1,
-                    gold: random(6),
-                    experience: (random(5) +1)*10
-                }
-                })
-
-            let bossState = Object.assign(state.monsters.boss[action.area])
-            let newBossState = bossState.map((element, index) => {
-                return {...element,
-                    strengh: (Math.floor(state.baseDefense / 2) + random(3) + 1)  * (state.areaExplored + 1),
-                    defense: (state.baseStrengh + random(10) + 3)  * (state.areaExplored + 1),
-                    gold: random(10)
-                }
-                })
-
-                
+  
             return {
                 ...state,
-                monsters: {
-                    ...state.monsters,
-                    normal: {
-                        ...state.monsters.normal,
-                        [action.area]: newMonsterState
-                    },
-                    boss: {
-                        ...state.monsters.boss,
-                        [action.area]: newBossState
-                    }
-                },
-               
                
                 area: newArea,
                 showChooseWorldScreen: false,
