@@ -5,23 +5,22 @@ import ReactTooltip from 'react-tooltip';
 import { connect } from 'react-redux';
 import * as actionCreators from '../../../store/actions/index';
 
-class characterPanel extends Component {
+const characterPanel = (props) => {
   
-    render() {
-        const allTreasures = this.props.generalState.treasure.slice();
-        let typedArray = allTreasures.filter((element)=> element.type === this.props.generalState.displayedInventory)
+        const allTreasures = props.generalState.treasure.slice();
+        let typedArray = allTreasures.filter((element)=> element.type === props.generalState.displayedInventory)
     
 	    return (
             
             <div className={classes.Panel}>
                 <div className={classes.FirstPart}>
-                    <div style={{backgroundImage: `url(${this.props.generalState.portrait})`}} className={classes.Portrait}></div>
+                    <div style={{backgroundImage: `url(${props.generalState.portrait})`}} className={classes.Portrait}></div>
                     <div className={classes.NamePower}>
-                        <p className={classes.Name} >{this.props.name}</p>
-                        <p className={classes.Power} ><span className={classes.PowerWord}>Power :</span> {this.props.generalState.power}</p>
+                        <p className={classes.Name} >{props.name}</p>
+                        <p className={classes.Power} ><span className={classes.PowerWord}>Power :</span> {props.generalState.power}</p>
                     </div>
                 </div>
-                <ProgressBar percentage={this.props.generalState.experience} />
+                <ProgressBar percentage={props.generalState.experience} />
                 <hr/>
                 
                     <ReactTooltip/>
@@ -30,27 +29,27 @@ class characterPanel extends Component {
                         <tbody>
                             <tr>
                                 <td data-place="right" data-tip="Level" className={classes.LevelIcon}></td>
-                                <td>{this.props.generalState.level}</td>
+                                <td>{props.generalState.level}</td>
                             </tr>
                             <tr>
                                 <td data-place="right" data-tip="Strengh" className={classes.StrenghIcon}></td>
-                                <td>{this.props.generalState.strengh}</td>
+                                <td>{props.generalState.strengh}</td>
                             </tr>
                             <tr>
                                 <td data-place="right" data-tip="Defense" className={classes.DefenseIcon}></td>
-                                <td>{this.props.generalState.defense}</td>
+                                <td>{props.generalState.defense}</td>
                             </tr>
                             <tr>
                                 <td data-place="right" data-tip="Health" className={classes.HealthIcon}></td>
-                                <td>{this.props.generalState.health}</td>
+                                <td>{props.generalState.health}</td>
                             </tr>
                             <tr>
                                 <td data-place="right" data-tip="Experience" className={classes.ExperienceIcon}></td>
-                                <td>{this.props.generalState.experience}</td>
+                                <td>{props.generalState.experience}</td>
                             </tr>
                             <tr>
                                 <td data-place="right" data-tip="Planet explored" className={classes.AreaExploredIcon}></td>
-                                <td>{this.props.generalState.areaExplored}</td>
+                                <td>{props.generalState.areaExplored}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -59,40 +58,40 @@ class characterPanel extends Component {
                         <tbody>
                             <tr>
                                 <td data-place="right" data-tip="Gold" className={classes.GoldIcon}></td>
-                                <td> {this.props.generalState.gold}</td>
+                                <td> {props.generalState.gold}</td>
                             </tr>
                             <tr>
                                 <td data-place="right" data-tip="Treasures" className={classes.TreasureIcon}></td>
-                                <td>{this.props.generalState.treasure.length}</td>
+                                <td>{props.generalState.treasure.length}</td>
                             </tr>
                             <tr>
                                 <td data-place="right" data-tip="Deck exploration" className={classes.DeckIcon}></td>
-                                <td>{this.props.generalState.openedDecks !== 4 ? this.props.generalState.openedDecks + '/3' : 'Boss'}</td>
+                                <td>{props.generalState.openedDecks !== 4 ? props.generalState.openedDecks + '/3' : 'Boss'}</td>
                             </tr>
                             <tr>
                                 <td data-place="right" data-tip="Monster slain" className={classes.MonsterSlainIcon}></td>
-                                <td>{this.props.generalState.monsterSlain}</td>
+                                <td>{props.generalState.monsterSlain}</td>
                             </tr>
                             <tr>
                                 <td data-place="right" data-tip="Boss slain" className={classes.BossSlainIcon}></td>
-                                <td>{this.props.generalState.bossSlain}</td>
+                                <td>{props.generalState.bossSlain}</td>
                             </tr>
                             <tr>
                                 <td data-place="right" data-tip="BioType" className={classes.AreaIcon}></td>
-                                <td>{this.props.areaState[this.props.generalState.area].bioType}  </td>
+                                <td>{props.areaState[props.generalState.area].bioType}  </td>
                             </tr>
                         </tbody>
                     </table>
                 <hr/>
                 
                 <div style={{margin: '0 auto', width: '100%'}}>
-                    <button style={this.props.generalState.displayedInventory === 'attackCards'? {backgroundColor: 'darkgrey'}: null} onClick={() => this.props.displayedInventory('attackCards')} className={classes.InventoryButtons}>
+                    <button style={props.generalState.displayedInventory === 'attackCards'? {backgroundColor: 'darkgrey'}: null} onClick={() => props.displayedInventory('attackCards')} className={classes.InventoryButtons}>
                         Strengh
                     </button>
-                    <button style={this.props.generalState.displayedInventory === 'defenseCards'? {backgroundColor: 'darkgrey'}: null} onClick={()=> this.props.displayedInventory('defenseCards')} className={classes.InventoryButtons}>
+                    <button style={props.generalState.displayedInventory === 'defenseCards'? {backgroundColor: 'darkgrey'}: null} onClick={()=> props.displayedInventory('defenseCards')} className={classes.InventoryButtons}>
                         Defense
                     </button>
-                    <button style={this.props.generalState.displayedInventory === 'specialCards'? {backgroundColor: 'darkgrey'}: null} onClick={()=> this.props.displayedInventory('specialCards')} className={classes.InventoryButtons}>
+                    <button style={props.generalState.displayedInventory === 'specialCards'? {backgroundColor: 'darkgrey'}: null} onClick={()=> props.displayedInventory('specialCards')} className={classes.InventoryButtons}>
                         Special
                     </button>
                 </div>
@@ -111,7 +110,6 @@ class characterPanel extends Component {
 
             </div>
         )
-    }
 }
 
 const mapStateTothis = state => {

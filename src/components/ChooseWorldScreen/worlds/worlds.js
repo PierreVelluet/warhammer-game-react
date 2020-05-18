@@ -1,7 +1,7 @@
 import React from 'react';
 import classes from './worlds.module.css'
 
-const world =(props) => {
+const World =(props) => {
 
 	
 
@@ -36,4 +36,4 @@ const world =(props) => {
 		)
 }
 
-export default world;
+export default World;

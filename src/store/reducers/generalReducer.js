@@ -43,6 +43,7 @@ const initialState = {
     treasure:[],
     area: '',
     areaExplored: 0,
+    visitedPlanet: [false, false, false],
     currentPlanet: 'planet0',
     displayedInventory: 'attackCards',
     openedDecks: 0,
@@ -685,6 +686,76 @@ const initialState = {
                 tooltip: 'Hammer : Strengh + 2.'
                 },
             ],
+            planet3: [
+                {
+                name: 'Frag grenade',
+                portrait: '/images/FragGrenade.png',
+                text: "Bang !",
+                type :'specialCards',
+                bottomText: 'One use only',
+                effect: 'Strengh + 5',
+                tooltip: 'Frag grenade : Strengh + 5.'
+                },
+                {
+                name: 'Vital kit',
+                portrait: '/images/VitalKit.png',
+                text: "Not junkie.",
+                type :'specialCards',
+                bottomText: 'One use only',
+                effect: 'Hp + 3',
+                tooltip: 'Vital kit : Hp + 3.'
+                },
+                {
+                name: 'Commando vest',
+                portrait: '/images/CommandoVest.png',
+                text: "A tactical vest.",
+                type: 'defenseCards',
+                bottomText: 'Permanent effect',
+                effect: 'Defense + 2',
+                defense: 2,
+                tooltip: 'Commando vest : Defense +2.'
+                },
+                {
+                name: 'Helmet 2.0',
+                portrait: '/images/Helmet2.0.png',
+                text: "A solid helmet.",
+                type: 'defenseCards',
+                bottomText: 'Permanent effect',
+                effect: 'Defense + 2',
+                defense: 2,
+                tooltip: 'Helmet 2.0 : Defense + 2.'
+                },
+                {
+                name: 'Laser pistol',
+                portrait: '/images/LaserPistol.png' ,
+                text: "A good pistol.",
+                type: 'attackCards',
+                bottomText: 'Permanent effect',
+                effect: 'Strengh + 2',
+                strengh: 2,
+                tooltip: 'Laser pistol : Strengh + 2.'
+                },
+                {
+                name: 'Crusader gun',
+                portrait: '/images/CrusaderGun.png' ,
+                text: "Crusading...",
+                type: 'attackCards',
+                bottomText: 'Permanent effect',
+                effect: 'Strengh + 2',
+                strengh: 2,
+                tooltip: 'Crusader gun : Strengh + 2.'
+                },
+                {
+                name: 'Hammer',
+                portrait: '/images/Hammer.png',
+                text: "A solid hammer.",
+                type: 'attackCards',
+                bottomText: 'Permanent effect',
+                effect: 'Strengh + 2',
+                strengh: 2,
+                tooltip: 'Hammer : Strengh + 2.'
+                },
+            ],
                 
         },
         boss: {
@@ -720,6 +791,37 @@ const initialState = {
                 },
             ],
             planet2: [
+                {
+                name: 'Sniper rifle',
+                portrait: '/images/SniperRifle.png',
+                text: "Never miss.",
+                type: 'attackCards',
+                bottomText: 'Permanent effect',
+                effect: 'Strengh + 3',
+                strengh: 3,
+                tooltip: 'Sniper rifle : Strengh + 3.',
+                },
+                {
+                name: 'Disco grenade',
+                portrait: '/images/DiscoGrenade.png',
+                text: "Pshit then boom.",
+                type :'specialCards',
+                bottomText: 'One use only',
+                effect: 'Strengh + 8.',
+                tooltip: 'Disco grenade : Strengh + 8.',
+                },
+                {
+                name: 'Force field',
+                portrait: '/images/ForceField.png',
+                text: "Can't go through.",
+                type: 'defenseCards',
+                bottomText: 'Permanent effect',
+                effect: 'Defense + 3',
+                defense: 3,
+                tooltip: 'Force field : Defense + 3.',
+                },
+            ],
+            planet3: [
                 {
                 name: 'Sniper rifle',
                 portrait: '/images/SniperRifle.png',
@@ -789,6 +891,9 @@ const reducer = (state = initialState, action) => {
             const newPlanet = 'planet' + newPlanetNumber.toString();
 
             const newArea = action.area
+            //Set a new array which represent the visited planets
+            const newVisitedPlanet = state.visitedPlanet.slice()
+            newVisitedPlanet.splice(action.index, 1, true)
 
             //Define values of attack/defense/gold/experience based on randomness AND number of planet explored.
             let monsterState = Object.assign(state.monsters.normal[action.area])
@@ -828,7 +933,7 @@ const reducer = (state = initialState, action) => {
                     }
                 },
                
-               
+                visitedPlanet: newVisitedPlanet,
                 area: newArea,
                 showChooseWorldScreen: false,
                 showBoard: true,

@@ -1,9 +1,10 @@
 import * as actionTypes from './actionTypes';
 
-export const choosePlanet = (area) => {
+export const choosePlanet = (area, index) => {
     return {
         type: actionTypes.CHOOSE_PLANET,
         area: area,
+        index: index
     }
 }
 

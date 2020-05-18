@@ -19,7 +19,7 @@ const initialState = {
         race: 'Space marines',
         level: 1,
         health: 5,
-        strengh: 0,
+        strengh: 1,
         defense: 8,
         },
         {

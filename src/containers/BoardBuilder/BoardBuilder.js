@@ -21,175 +21,174 @@ import Takeoff from '../../components/Takeoff/Takeoff';
 
 
 
-class boardBuilder extends Component {
+const boardBuilder = (props) => {
 	
-	specialEffectHandler = (data, index) => {
+	// specialEffectHandler = (data, index) => {
 
-		if (data.type === 'specialCards') {
+	// 	if (data.type === 'specialCards') {
 
-			switch(data.name) {
+	// 		switch(data.name) {
 
-				case 'Painkillers':
-					if(this.state.name === 'Apothecary') {
-						const newHealth = this.state.health + 4
-						this.setState({health: newHealth})
-						break;
-					}else {
-						const newHealth = this.state.health + 2
-						this.setState({health: newHealth})
-						break;
-					}
+	// 			case 'Painkillers':
+	// 				if(state.name === 'Apothecary') {
+	// 					const newHealth = state.health + 4
+	// 					setState({health: newHealth})
+	// 					break;
+	// 				}else {
+	// 					const newHealth = state.health + 2
+	// 					setState({health: newHealth})
+	// 					break;
+	// 				}
 					
-				case 'Dope syringe':
-					if(this.state.name === 'Apothecary'){
-						this.setState({bonusToDice: 6})
-						break;
-					}else {
-						this.setState({bonusToDice: 3})
-						break;
-					}
+	// 			case 'Dope syringe':
+	// 				if(state.name === 'Apothecary'){
+	// 					setState({bonusToDice: 6})
+	// 					break;
+	// 				}else {
+	// 					setState({bonusToDice: 3})
+	// 					break;
+	// 				}
 					
-				case 'Bi-pills':
-					if(this.state.name === 'Apothecary'){
-						const newHealth = this.state.health + 4
-						this.setState({health: newHealth, bonusToDice: 6})
-						break;
-					}else {
-						const newHealth = this.state.health + 2
-						this.setState({health: newHealth, bonusToDice: 3})
-						break;
-					}
+	// 			case 'Bi-pills':
+	// 				if(state.name === 'Apothecary'){
+	// 					const newHealth = state.health + 4
+	// 					setState({health: newHealth, bonusToDice: 6})
+	// 					break;
+	// 				}else {
+	// 					const newHealth = state.health + 2
+	// 					setState({health: newHealth, bonusToDice: 3})
+	// 					break;
+	// 				}
 
-				case 'Mix of pills':
-					if(this.state.name === 'Apothecary'){
-						const newHealth = this.state.health + 6
-						this.setState({health: newHealth, bonusToDice: 4})
-						break;
-					}else {
-						const newHealth = this.state.health + 3
-						this.setState({health: newHealth, bonusToDice: 2})
-						break;
-					}
+	// 			case 'Mix of pills':
+	// 				if(state.name === 'Apothecary'){
+	// 					const newHealth = state.health + 6
+	// 					setState({health: newHealth, bonusToDice: 4})
+	// 					break;
+	// 				}else {
+	// 					const newHealth = state.health + 3
+	// 					setState({health: newHealth, bonusToDice: 2})
+	// 					break;
+	// 				}
 
-				case 'Frag grenade':
-					if(this.state.name === 'Apothecary'){
-						this.setState({bonusToDice: 10})
-						break;
-					}else {
-						this.setState({bonusToDice: 5})
-						break;
-					}
+	// 			case 'Frag grenade':
+	// 				if(state.name === 'Apothecary'){
+	// 					setState({bonusToDice: 10})
+	// 					break;
+	// 				}else {
+	// 					setState({bonusToDice: 5})
+	// 					break;
+	// 				}
 
-				case 'Vital kit':
-					if(this.state.name === 'Apothecary') {
-						const newHealth = this.state.health + 6
-						this.setState({health: newHealth})
-						break;
-					}else {
-						const newHealth = this.state.health + 3
-						this.setState({health: newHealth})
-						break;
-					}
+	// 			case 'Vital kit':
+	// 				if(state.name === 'Apothecary') {
+	// 					const newHealth = state.health + 6
+	// 					setState({health: newHealth})
+	// 					break;
+	// 				}else {
+	// 					const newHealth = state.health + 3
+	// 					setState({health: newHealth})
+	// 					break;
+	// 				}
 
-				case 'Disco grenade':
-					if(this.state.name === 'Apothecary'){
-						this.setState({bonusToDice: 16})
-						break;
-					}else {
-						this.setState({bonusToDice: 8})
-						break;
-					}
-				default:
-					break;
+	// 			case 'Disco grenade':
+	// 				if(state.name === 'Apothecary'){
+	// 					setState({bonusToDice: 16})
+	// 					break;
+	// 				}else {
+	// 					setState({bonusToDice: 8})
+	// 					break;
+	// 				}
+	// 			default:
+	// 				break;
 
 
-			}
-			const newArray = [...this.state.specialCards]	
-			newArray.splice(index, 1)
-			this.setState({specialCards: newArray, whichInventory: 'specialCards'})
+	// 		}
+	// 		const newArray = [...state.specialCards]	
+	// 		newArray.splice(index, 1)
+	// 		setState({specialCards: newArray, whichInventory: 'specialCards'})
 
-		}
-	}
+	// 	}
+	// }
 
-	tryAgain = () => {
-		this.setState({	showChooseCharScreen: true,
-						currentMonster: false,
-						area: 0,
-						experience: 0,
-						showMonsterScreen: false,
-						showGameOverPanel: false,
-						openedDecks: 0,
-						monsterSlain: 0,
-						bossSlain: 0,})
-	}
+	// tryAgain = () => {
+	// 	setState({	showChooseCharScreen: true,
+	// 					currentMonster: false,
+	// 					area: 0,
+	// 					experience: 0,
+	// 					showMonsterScreen: false,
+	// 					showGameOverPanel: false,
+	// 					openedDecks: 0,
+	// 					monsterSlain: 0,
+	// 					bossSlain: 0,})
+	// }
 
-	render () {
 		let chooseChampionScreen = null;
-			if (this.props.generalState.showChooseCharScreen) {chooseChampionScreen = <ChooseCharScreen />};
+			if (props.generalState.showChooseCharScreen) {chooseChampionScreen = <ChooseCharScreen />};
 
 		let chooseWorldScreen = null;
-			if (this.props.generalState.showChooseWorldScreen) {chooseWorldScreen = <ChooseWorldScreen />}
+			if (props.generalState.showChooseWorldScreen) {chooseWorldScreen = <ChooseWorldScreen />}
 
 		let rewards = null;
-		if (this.props.generalState.showRewards) {
+		if (props.generalState.showRewards) {
 				rewards = 	<ChooseRewardScreen />
 		}
 
 		let floorCheck = null;
-		if (this.props.generalState.showFloorCheck) {
+		if (props.generalState.showFloorCheck) {
 			floorCheck = <FloorCheck />
 		}
 
 		let deck = null;
-		if (this.props.generalState.showDeck) {
+		if (props.generalState.showDeck) {
 			deck = <Deck />
 		}
 		
 
 		let chooseMonsterScreen = null;
-		if (this.props.generalState.showMonsterScreen) {
+		if (props.generalState.showMonsterScreen) {
 		chooseMonsterScreen = 	<ChooseMonsterScreen />
 		}
 
 		let combatDetails = null;
-		if (this.props.generalState.showCombatDetails) {
+		if (props.generalState.showCombatDetails) {
 		combatDetails = <CombatDetails />
 		 }
 
 		 let levelUp = null;
-		 if (this.props.generalState.showLevelUpPanel) {
+		 if (props.generalState.showLevelUpPanel) {
 			 levelUp = <LevelUp />
 		 }
 
 		 let gameOver= null;
-		 if (this.props.generalState.showGameOverPanel) {
+		 if (props.generalState.showGameOverPanel) {
 			 gameOver = <GameOver
-							tryAgain={this.tryAgain}
+							// tryAgain={tryAgain}
 			 			/>
 		 }
 
 		 let bossTrailer = null;
-		 if (this.props.generalState.showBossTrailer) {
+		 if (props.generalState.showBossTrailer) {
 			 bossTrailer = 	<BossTrailer />
 		 }
 
 		 let merchant = null;
-		 if (this.props.generalState.showMerchant) {
+		 if (props.generalState.showMerchant) {
 			 merchant = <Merchant />
 		 }
 		 
 		 let merchantAccess = null;
-		 if (this.props.generalState.showDeck) {
+		 if (props.generalState.showDeck) {
 			 merchantAccess = <MerchantAccess />
 		}
 
 		let takeoff = null;
-		if (this.props.generalState.showTakeoff) {
+		if (props.generalState.showTakeoff) {
 			takeoff= <Takeoff />
 		}
 
 		let board = null;
-		if (this.props.generalState.showBoard) {
+		if (props.generalState.showBoard) {
 			board =	<React.Fragment>
 						<PlayerBoardControl>
 							<CharacterPanel />
@@ -222,7 +221,6 @@ class boardBuilder extends Component {
 			{board}
 			</div>
 		)
-	}
 };
 
 const mapStateToProps = state => {

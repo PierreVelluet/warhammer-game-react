@@ -5,19 +5,18 @@ import { connect } from 'react-redux';
 import * as actionCreators from '../../store/actions/index';
 
 
-class chooseRewardScreen extends Component {
+const ChooseRewardScreen = (props) => {
 
 
-	render() {
 
 		//set an array's length depending on the champion's player choice
 		let numberOfTreasures = 3;
-		if (this.props.generalState.name === 'Eldar captain' && this.props.generalState.currentMonster.monsterType === 'normal') {numberOfTreasures = 4 }
+		if (props.generalState.name === 'Eldar captain' && props.generalState.currentMonster.monsterType === 'normal') {numberOfTreasures = 4 }
 
 		//set an array of random numbers, depending on the chosen champion and the type of monster.
 		let rngArray = [];
 		while(rngArray.length < numberOfTreasures) {
-			let number = Math.floor(Math.random() * this.props.generalState.items[this.props.generalState.currentMonster.monsterType][this.props.generalState.currentPlanet].length);
+			let number = Math.floor(Math.random() * props.generalState.items[props.generalState.currentMonster.monsterType][props.generalState.currentPlanet].length);
 			if (rngArray.indexOf(number) === -1) {
 				rngArray.push(number)
 			}
@@ -29,22 +28,14 @@ class chooseRewardScreen extends Component {
 			<div className={classes.Reward}>
 				{rngArray.map((rng, index)=>{
 					return (
-						/* <TreasureCard
-							text={this.props.rewardState[this.props.generalState.currentMonster.monsterType][this.props.generalState.area][rng].text}
-							name={this.props.rewardState[this.props.generalState.currentMonster.monsterType][this.props.generalState.area][rng].name}
-							portrait={this.props.rewardState[this.props.generalState.currentMonster.monsterType][this.props.generalState.area][rng].portrait}
-							bottomText={this.props.rewardState[this.props.generalState.currentMonster.monsterType][this.props.generalState.area][rng].bottomText}
-							effect={this.props.rewardState[this.props.generalState.currentMonster.monsterType][this.props.generalState.area][rng].effect}
-							choose={() => this.props.chooseReward(this.props.rewardState[this.props.generalState.currentMonster.monsterType][this.props.generalState.area][rng])}
-							key={index}
-						/> */
+						
 						<TreasureCard
-							text={this.props.generalState.items[this.props.generalState.currentMonster.monsterType][this.props.generalState.currentPlanet][rng].text}
-							name={this.props.generalState.items[this.props.generalState.currentMonster.monsterType][this.props.generalState.currentPlanet][rng].name}
-							portrait={this.props.generalState.items[this.props.generalState.currentMonster.monsterType][this.props.generalState.currentPlanet][rng].portrait}
-							bottomText={this.props.generalState.items[this.props.generalState.currentMonster.monsterType][this.props.generalState.currentPlanet][rng].bottomText}
-							effect={this.props.generalState.items[this.props.generalState.currentMonster.monsterType][this.props.generalState.currentPlanet][rng].effect}
-							choose={() => this.props.chooseReward(this.props.generalState.items[this.props.generalState.currentMonster.monsterType][this.props.generalState.currentPlanet][rng])}
+							text={props.generalState.items[props.generalState.currentMonster.monsterType][props.generalState.currentPlanet][rng].text}
+							name={props.generalState.items[props.generalState.currentMonster.monsterType][props.generalState.currentPlanet][rng].name}
+							portrait={props.generalState.items[props.generalState.currentMonster.monsterType][props.generalState.currentPlanet][rng].portrait}
+							bottomText={props.generalState.items[props.generalState.currentMonster.monsterType][props.generalState.currentPlanet][rng].bottomText}
+							effect={props.generalState.items[props.generalState.currentMonster.monsterType][props.generalState.currentPlanet][rng].effect}
+							choose={() => props.chooseReward(props.generalState.items[props.generalState.currentMonster.monsterType][props.generalState.currentPlanet][rng])}
 							key={index}
 						/>
 					)
@@ -53,7 +44,6 @@ class chooseRewardScreen extends Component {
 			</div>
 		)
 	
-	}
 }
 
 const mapStateToProps = state => {
@@ -69,4 +59,4 @@ const mapDispatchToProps = dispatch => {
     }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(chooseRewardScreen);
+export default connect(mapStateToProps, mapDispatchToProps)(ChooseRewardScreen);
