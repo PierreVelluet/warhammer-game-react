@@ -23,7 +23,7 @@ const initialState = {
             defense: 9,
             },
         {
-        name: 'Apothecary',
+        name: 'LOCKED !',
         portrait: '"https://steamuserimages-a.akamaihd.net/ugc/309989521282467328/0CDEB65710274E292A4415B417FC692E0C5BF435/"',
         powerName: "Medic",
         power: "double all your medics effectiveness.",
@@ -34,7 +34,7 @@ const initialState = {
         defense: 8,
         },
         {
-        name: 'Tau commander',
+        name: 'LOCKED !',
         portrait: '"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThCtFJkeVHE_pGtAYlylsy_m9iPXW_0vQVtA&usqp=CAU"',
         powerName: "Reconnaissance drone",
         power: " you can choose your fights among one extra ennemy.",
