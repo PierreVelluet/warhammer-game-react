@@ -2,11 +2,13 @@ import React from 'react';
 import classes from './ChampionCard.module.css'
 import ReactTooltip from 'react-tooltip';
 
+import cx from "classnames";
+
 const championCard =(props) => {
-	const portrait = props.portrait;
+	const {portrait, disabled} = props;
 
 	return (
-		<div style={{height: props.height}}onClick={props.choose} className={classes.Card}>
+		<div style={{height: props.height}}onClick={!disabled? props.choose : ()=> {}} className={cx(classes.Card, disabled ? classes.CardDisabled : "")}>
 			<div className={classes.Name} >{props.name}</div>
 			<div style={{backgroundImage: `url(${portrait})`}} className={classes.Portrait}></div>
 			<div className={classes.Power} ><strong>{props.powerName}</strong>: {props.power}</div>

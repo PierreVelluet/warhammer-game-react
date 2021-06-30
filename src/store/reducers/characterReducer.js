@@ -12,6 +12,17 @@ const initialState = {
         defense: 8,
         },
         {
+            name: 'Ork warboss',
+            portrait: '"https://i.pinimg.com/originals/0c/7e/42/0c7e42516d24dda0623159684b3cd0dd.png"',
+            powerName: "Force of nature",
+            power: "start the adventure level 2, hence + 1 strengh & + 1 defense.",
+            race: 'Ork',
+            level: 2,
+            health: 5,
+            strengh: 2,
+            defense: 9,
+            },
+        {
         name: 'Apothecary',
         portrait: '"https://steamuserimages-a.akamaihd.net/ugc/309989521282467328/0CDEB65710274E292A4415B417FC692E0C5BF435/"',
         powerName: "Medic",
@@ -24,7 +35,7 @@ const initialState = {
         },
         {
         name: 'Tau commander',
-        portrait: '"https://wh40kart.im/_images/0d20db06ce3437b6d218031098b9aef3.jpg"',
+        portrait: '"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThCtFJkeVHE_pGtAYlylsy_m9iPXW_0vQVtA&usqp=CAU"',
         powerName: "Reconnaissance drone",
         power: " you can choose your fights among one extra ennemy.",
         race: 'Tau',
@@ -33,17 +44,7 @@ const initialState = {
         strengh: 1,
         defense: 8,
         },
-        {
-        name: 'Ork warboss',
-        portrait: '"https://i.pinimg.com/originals/0c/7e/42/0c7e42516d24dda0623159684b3cd0dd.png"',
-        powerName: "Force of nature",
-        power: "start the adventure level 2, hence + 1 strengh & + 1 defense.",
-        race: 'Ork',
-        level: 2,
-        health: 5,
-        strengh: 2,
-        defense: 9,
-        },
+        
 
     ]
 }

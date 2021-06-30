@@ -12,6 +12,7 @@ const chooseCharScreen = (props) => (
 				{props.state.champion.map((champ, index) => {
 					return (
 						<ChampionCard
+							disabled={index === 2 || index == 3}
 							name={props.state.champion[index].name}
 							portrait={props.state.champion[index].portrait}
 							power={props.state.champion[index].power}
